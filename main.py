@@ -418,28 +418,43 @@ class CreateFrame(wx.Frame):
         start_y = 25
         xstep = 200
         ystep = 150
-        JdButton(self, self.pnl, Item(start_x, start_y, '京东', 'resource/icon/jd.bmp'))
+        JdButton(self, self.pnl, Item(start_x, start_y, '京东',
+            'resource/icon/jd.png'))
         
-        ChisButton(self, self.pnl, Item(start_x + xstep, start_y, '学信网', 'resource/icon/jd.bmp'))
+        ChisButton(self, self.pnl, Item(start_x + xstep, start_y, '学信网',
+            'resource/icon/xuexin.png'))
 
-        YidongButton(self, self.pnl, Item(start_x + xstep*2, start_y, '移动', 'resource/icon/jd.bmp'))
+        YidongButton(self, self.pnl, Item(start_x + xstep*2, start_y, '移动',
+            'resource/icon/yidong.png'))
 
-        LiantongButton(self, self.pnl, Item(start_x +xstep*3, start_y, '联通', 'resource/icon/jd.bmp'))
-        DianxingButton(self, self.pnl, Item(start_x +xstep*4, start_y, '电信', 'resource/icon/jd.bmp'))
+        LiantongButton(self, self.pnl, Item(start_x +xstep*3, start_y, '联通',
+            'resource/icon/liantong.png'))
+        DianxingButton(self, self.pnl, Item(start_x +xstep*4, start_y, '电信',
+            'resource/icon/dianxin.png'))
 
-        GjjButton(self, self.pnl, Item(start_x, start_y +ystep, '公积金', 'resource/icon/jd.bmp'))
+        GjjButton(self, self.pnl, Item(start_x, start_y +ystep, '公积金',
+            'resource/icon/gjj.png'))
 
-        A12306Button(self, self.pnl, Item(start_x+xstep, start_y+ystep, '12306', 'resource/icon/jd.bmp'))
-        CtripButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep, '携程', 'resource/icon/jd.bmp'))
-        WymailButton(self, self.pnl, Item(start_x+xstep*3, start_y+ystep, '网易邮箱', 'resource/icon/jd.bmp'))
-        HotmailButton(self, self.pnl, Item(start_x+xstep*4, start_y+ystep, 'Hotmail', 'resource/icon/jd.bmp'))
-        QqmailButton(self, self.pnl, Item(start_x, start_y+ystep*2, 'QQ邮箱', 'resource/icon/jd.bmp'))
-        AlimailButton(self, self.pnl, Item(start_x+xstep, start_y+ystep*2, '阿里邮箱', 'resource/icon/jd.bmp'))
+        A12306Button(self, self.pnl, Item(start_x+xstep, start_y+ystep,
+            '12306', 'resource/icon/12306.png'))
+        CtripButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep,
+            '携程', 'resource/icon/ctrip.png'))
+        WymailButton(self, self.pnl, Item(start_x+xstep*3, start_y+ystep,
+            '网易邮箱', 'resource/icon/wangyi.png'))
+        HotmailButton(self, self.pnl, Item(start_x+xstep*4, start_y+ystep,
+            'Hotmail', 'resource/icon/hotmail.png'))
+        QqmailButton(self, self.pnl, Item(start_x, start_y+ystep*2, 'QQ邮箱',
+            'resource/icon/qmail.png'))
+        AlimailButton(self, self.pnl, Item(start_x+xstep, start_y+ystep*2,
+            '阿里邮箱', 'resource/icon/alimail.png'))
 
-        XlmailButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep*2, '新浪邮箱', 'resource/icon/jd.bmp'))
+        XlmailButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep*2,
+            '新浪邮箱', 'resource/icon/sina.png'))
 
-        TaobaoButton(self, self.pnl, Item(start_x+xstep*3, start_y+ystep*2, '淘宝', 'resource/icon/jd.bmp'))
-        ZfbButton(self, self.pnl, Item(start_x+xstep*4, start_y+ystep*2, '支付宝', 'resource/icon/jd.bmp'))
+        TaobaoButton(self, self.pnl, Item(start_x+xstep*3, start_y+ystep*2,
+            '淘宝', 'resource/icon/taobao.png'))
+        ZfbButton(self, self.pnl, Item(start_x+xstep*4, start_y+ystep*2,
+            '支付宝', 'resource/icon/alipay.png'))
 
 if __name__ == '__main__':
     """When this module is run (not imported) then create the app, the
