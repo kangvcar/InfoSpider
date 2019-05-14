@@ -1,0 +1,8 @@
+lxml==4.2.1
+pyquery==1.4.0
+selenium==3.141.0
+requests==2.18.4
+nltk==3.4.1
+numpy==1.15.4
+wxPython==4.0.4
+python_dateutil==2.8.0
