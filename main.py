@@ -288,14 +288,80 @@ class CtripButton(Button):
 
 class LiantongButton(Button):
     def OnClick(self, event):
-        return
+        try:
+            self.updateStatus(self.frame,0)
+            url = 'https://uac.10010.com/portal/mallLogin.jsp?redirectURL=http://iservice.10010.com/e4/query/basic/personal_xx_iframe.html'
+            self.Automation(url)
+            while 1:
+                time.sleep(0.2)
+                if self.driver.current_url == 'http://iservice.10010.com/e4/query/basic/personal_xx_iframe.html':
+                    self.driver.minimize_window()
+                    time.sleep(5)
+                    self.driver.get('http://iservice.10010.com/e3/query/basic/personal_xx_iframe.html')
+                    get_cookies = self.driver.get_cookies()
+                    cookie_str = ''
+                    for s in get_cookies:
+                        cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
+                    break
+            try:
+                y = LianTong(cookie_str)
+                y.get_user_info()
+                y.get_bill_info()
+                self.updateStatus(self.frame,1)
+            except Exception:
+                self.updateStatus(self.frame,2)
+        except Exception:
+            self.updateStatus(self.frame,2)
+
 class DianxingButton(Button):
     def OnClick(self, event):
-        return
-
+        try:
+            self.updateStatus(self.frame,0)
+            url = 'https://login.189.cn/web/login'
+            self.Automation(url)
+            while 1:
+                time.sleep(0.2)
+                if self.driver.current_url != url:
+                    self.driver.minimize_window()
+                    self.driver.get('https://service.sh.189.cn/service/account')
+                    time.sleep(0.2)
+                    get_cookies = self.driver.get_cookies()
+                    cookie_str = ''
+                    for s in get_cookies:
+                        cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
+                    break
+            try:
+                y = DianXin(cookie_str)
+                y.get_user_info()
+                y.get_bill_info()
+                self.updateStatus(self.frame,1)
+            except Exception:
+                self.updateStatus(self.frame,2)
+        except Exception:
+            self.updateStatus(self.frame,2)
 class WymailButton(Button):
     def OnClick(self, event):
-        return
+        try:
+            self.updateStatus(self.frame,0)
+            url = 'https://mail.126.com/'
+            self.Automation(url)
+            while 1:
+                time.sleep(0.2)
+                if self.driver.current_url != url:
+                    get_cookies = self.driver.get_cookies()
+                    cookie_str = ''
+                    for s in get_cookies:
+                        cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
+                    self.driver.quit()
+                    break
+            try:
+                y = YSpider()
+                y.get_wangyi(cookie_str)
+                self.updateStatus(self.frame,1)
+            except Exception:
+                self.updateStatus(self.frame,2)
+        except Exception:
+            self.updateStatus(self.frame,2)
 class HotmailButton(Button):
     def OnClick(self, event):
         try:
@@ -322,13 +388,84 @@ class HotmailButton(Button):
 
 class QqmailButton(Button):
     def OnClick(self, event):
-        return
+        try:
+            self.updateStatus(self.frame,0)
+            url = 'https://mail.qq.com/cgi-bin/loginpage'
+            self.Automation(url)
+            while 1:
+                time.sleep(0.2)
+                if self.driver.current_url != url:
+                    get_cookies = self.driver.get_cookies()
+                    cookie_str = ''
+                    for s in get_cookies:
+                        cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
+                    sid = re.findall('sid=(\w+)&?', self.driver.current_url)[0]
+                    break
+            try:
+                y = YSpider()
+                t = threading.Thread(target=y.qq_mail, args=(cookie_str, sid))
+                t.start()  # 启动线程，即让线程开始执行
+                t.join()
+                self.updateStatus(self.frame,1)
+            except Exception:
+                self.updateStatus(self.frame,2)
+        except Exception:
+            self.updateStatus(self.frame,2)
+
 class AlimailButton(Button):
     def OnClick(self, event):
-        return
+        try:
+            self.updateStatus(self.frame,0)
+            url = 'https://mail.aliyun.com/alimail/auth/login?reurl=%2Falimail%2F'
+            self.Automation(url)
+            while 1:
+                time.sleep(0.2)
+                if self.driver.current_url != url:
+                    # self.driver.minimize_window()
+                    get_cookies = self.driver.get_cookies()
+                    cookie_str = ''
+                    for s in get_cookies:
+                        cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
+                    break
+            try:
+                # self.SetStatusText("爬取中...", 3)
+                y = YSpider()
+                t = threading.Thread(target=y.get_aliyun_mail, args=(cookie_str,))
+                t.start()
+                t.join()
+                self.updateStatus(self.frame,1)
+            except Exception:
+                self.updateStatus(self.frame,2)
+        except Exception:
+            self.updateStatus(self.frame,2)
+
 class XlmailButton(Button):
     def OnClick(self, event):
-        return
+        try:
+            self.updateStatus(self.frame,0)
+            url = 'https://mail.sina.com.cn/?from=mail'
+            self.Automation(url)
+            while 1:
+                time.sleep(0.2)
+                if self.driver.current_url != url:
+                    self.driver.minimize_window()
+                    time.sleep(2)
+                    get_cookies = self.driver.get_cookies()
+                    cookie_str = ''
+                    for s in get_cookies:
+                        cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
+                    break
+            try:
+                y = YSpider()
+                t = threading.Thread(target=y.sinamail, args=(cookie_str,))
+                t.start()  # 启动线程，即让线程开始执行
+                t.join()
+                self.updateStatus(self.frame,1)
+            except Exception:
+                self.updateStatus(self.frame,2)
+        except Exception:
+            self.updateStatus(self.frame,2)
+
 class TaobaoButton(Button):
     def OnClick(self, event):
         try:
