@@ -17,15 +17,18 @@
 因此发起KingOfData社区, 代码开源、流程透明, 安全快捷的帮助用户拿回自己的数据,做自己的数据之王.
 
 ## 如何使用
-1. 安装依赖
-pip3 install -r requirements.txt
+1. 安装[python3](https://www.python.org/downloads/)和Chrome浏览器
 
-2. 运行
-pip3 main.py
+2. [安装Chrome浏览器的驱动](http://chromedriver.storage.googleapis.com/index.html)
 
-3. 在打开的窗口点击数据源按钮
+3. 安装依赖pip3 install -r requirements.txt
 
-4. 弹出的浏览器输入用户密码后会自动开始爬取数据,爬取完成浏览器会自动关闭
+4. 运行 python3 main.py
+
+5. 在打开的窗口点击数据源按钮
+
+6. 弹出的浏览器输入用户密码后会自动开始爬取数据,爬取完成浏览器会自动关闭.
+   在对应的目录下可以查看下载下来的数据(xxx.json)
 
 ## 如何开始
 构建这样的社区需要众多开发者的力量完善, 主要有三方面的工作:
