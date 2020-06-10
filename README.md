@@ -21,13 +21,15 @@
 
 2. [安装Chrome浏览器的驱动](http://chromedriver.storage.googleapis.com/index.html)
 
-3. 安装依赖pip3 install -r requirements.txt
+3. 安装依赖 ./install_deps.sh
 
-4. 运行 python3 main.py
+4. 进入 tools目录
 
-5. 在打开的窗口点击数据源按钮
+5. 运行 python3 main.py
 
-6. 弹出的浏览器输入用户密码后会自动开始爬取数据,爬取完成浏览器会自动关闭.
+6. 在打开的窗口点击数据源按钮
+
+7. 弹出的浏览器输入用户密码后会自动开始爬取数据,爬取完成浏览器会自动关闭.
    在对应的目录下可以查看下载下来的数据(xxx.json)
 
 ## 如何开始
@@ -63,10 +65,10 @@
 ...
 
 ## 开发者交流
-[聊天室](https://gitter.im/King_Of_Data/community)
+[聊天室（待定）]()
 
 ## Membership
-[SoLiD 中文社区](https://learnsolid.cn/)
+[TrustMirror](http://www.trustmirror.com/)
 
 [TEEX.io](https://teex.io)
 
