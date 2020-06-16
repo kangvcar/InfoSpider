@@ -71,7 +71,7 @@ MyDataHomes.Spider旨在安全快捷的帮助用户拿回自己的数据，工�
 ...
 
 ## 开发者交流
-开发者论坛：[https://mydata.homes](https://mydata.homes)
+开发者论坛：[http://mydata.homes](http://mydata.homes)
 
 ## Membership
 [TrustMirror](http://www.trustmirror.com/)
