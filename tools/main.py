@@ -269,24 +269,15 @@ class A12306Button(Button):
 
 class CtripButton(Button):
     def OnClick(self, event):
-        try:
-            login_url = 'https://passport.ctrip.com/user/login'
-            cookie_str = self.getCookie3(login_url, 1)
-            if cookie_str == '':
-                self.updateStatus(self.frame,2)
-                return
-            try:
-                y = Ctrip(cookie_str)
-                y.get_user_info()
-                y.get_order()
-                y.get_Addr()
-                y.get_Contact()
-                y.get_Passenger()
-                self.updateStatus(self.frame,1)
-            except Exception as e:
-                self.updateStatus(self.frame,2)
-        except Exception as e:
+        login_url = 'https://passport.ctrip.com/user/login'
+        cookie_str = self.getCookie3(login_url, 1)
+        print(cookie_str);
+        if cookie_str == '':
             self.updateStatus(self.frame,2)
+            return
+        y = Ctrip(cookie_str)
+        y.get_order()
+        self.updateStatus(self.frame,1)
 
 class LiantongButton(Button):
     def OnClick(self, event):

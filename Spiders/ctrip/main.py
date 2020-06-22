@@ -2,6 +2,8 @@ import os
 import time
 
 import requests
+import json
+import xlsxwriter
 
 
 class Ctrip(object):
@@ -19,50 +21,8 @@ class Ctrip(object):
                 cookie_dict[''] = i
         requests.utils.add_dict_to_cookiejar(self.session.cookies, cookie_dict)
 
-    def get_user_info(self):
-        url = 'https://sinfo.ctrip.com/MyInfo/Ajax/GetUserInfoHandlerNew.ashx'
-        data = 'action=getUserInfo'
-        resp = self.session.post(url, headers=self.headers, data=data, verify=False)
-        file_path = os.path.join(os.path.dirname(__file__) + '/' + 'ctrip_user.json')
-        with open(file_path, 'w') as f:
-            f.write(resp.content.decode('gbk'))
-
-    # 常用旅客信息
-    def get_Passenger(self):
-
-        headers = self.headers
-        headers['referer'] = 'https://my.ctrip.com/Home/Passenger/PassengerList.aspx'
-        url = 'https://my.ctrip.com/Home/Ajax/GetPassengerList.ashx'
-        data = 'ky=&cp=0&ps=10'
-        resp = self.session.post(url, headers=self.headers, data=data, verify=False)
-        file_path = os.path.join(os.path.dirname(__file__) + '/' + 'ctrip_passenger.json')
-        with open(file_path, 'w') as f:
-            f.write(resp.content.decode('utf8'))
-
-    # 常用联系人
-    def get_Contact(self):
-        headers = self.headers
-        headers['referer'] = 'https://sinfo.ctrip.com/MyInfo/AccountCenter/ContactList.aspx'
-        url = 'https://sinfo.ctrip.com/MyInfo/Ajax/MyCtrip/GetContactList.ashx'
-        data = 'ky=&cp=0&ps=10'
-        resp = self.session.post(url, headers=self.headers, data=data, verify=False)
-        file_path = os.path.join(os.path.dirname(__file__) + '/' + 'ctrip_contact.json')
-        with open(file_path, 'w') as f:
-            f.write(resp.content.decode('gbk'))
-
-    # 地址
-    def get_Addr(self):
-        headers = self.headers
-        headers['referer'] = 'https://my.ctrip.com/Home/Address/AddressList.aspx'
-        url = 'https://my.ctrip.com/Home/Ajax/GetUserAddressList.ashx'
-        data = 'ky=&cp=0&ps=10'
-        resp = self.session.post(url, headers=self.headers, data=data, verify=False)
-        file_path = os.path.join(os.path.dirname(__file__) + '/' + 'ctrip_addr.json')
-        with open(file_path, 'w') as f:
-            f.write(resp.content.decode('gbk'))
-
-    # 订单
-    def get_order(self):
+    
+    def get_json_order(self):
         headers = self.headers
         headers['referer'] = 'https://my.ctrip.com/Home/Order/AllOrder.aspx'
         url = 'https://my.ctrip.com/Home/Ajax/GetAllOrder.ashx'
@@ -87,16 +47,40 @@ class Ctrip(object):
             'sequence': sequence
         }
         resp = self.session.post(url, headers=self.headers, data=data, verify=False)
-        file_path = os.path.join(os.path.dirname(__file__) + '/' + 'ctrip_order.json')
-        with open(file_path, 'w') as f:
-            f.write(resp.content.decode('gbk'))
-        pass
+        return resp.content.decode('gbk');
+
+    def transfer_and_save(self, json_str):
+        
+        json_orders = json.loads(json_str)
+
+        for key in json_orders:
+                if key == 'OrderEnities':
+                    json_order_lists = json_orders[key]
+
+        book = xlsxwriter.Workbook('ctrip_order.xlsx')
+        sheet = book.add_worksheet()
+        sheet.write(0, 0, 'Date')
+        sheet.write(0, 1, 'OrderDetails')
+        sheet.write(0, 2, 'Price')
+
+        for i in range(len(json_order_lists)):
+            json_order = json_order_lists[i]
+            sheet.write(i+1, 0, json_order['BookingDate'])
+            sheet.write(i+1, 1, json_order['OrderName'])
+            sheet.write(i+1, 2, json_order['OrderTotalPrice'])
+        
+        book.close()
+
+    # download orders and save them in an excel file
+    def get_order(self):
+        
+        # get the order from the sctrip website
+        json_order = self.get_json_order()
+
+        # transfer the order and store it in an excel 
+        self.transfer_and_save(json_order)
 
 
 if __name__ == '__main__':
     ctrip = Ctrip()
-    ctrip.get_user_info()
-    ctrip.get_Passenger()
-    ctrip.get_Contact()
-    ctrip.get_Addr()
     ctrip.get_order()
