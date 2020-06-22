@@ -2,6 +2,7 @@ import json
 import os
 import re
 import threading
+import traceback
 
 import wx
 import time
@@ -9,7 +10,21 @@ from selenium import webdriver
 from selenium.webdriver import ChromeOptions
 
 import sys
-sys.path.append("../Spiders/")
+
+MAIN_FILE_PATH = os.path.dirname(os.path.abspath(__file__))
+print(MAIN_FILE_PATH)
+BASE_PATH = os.path.dirname(MAIN_FILE_PATH)
+print(BASE_PATH)
+os.chdir(MAIN_FILE_PATH)
+#sys.path.append("../Spiders/")
+sys.path.append(os.path.join(BASE_PATH, "./Spiders/"))
+DATA_DIR = os.path.join(BASE_PATH, "./data")
+try:
+    print(DATA_DIR)
+    os.mkdir(DATA_DIR)
+except OSError:
+    pass
+
 import shgjj
 from A12306 import main12306
 from JdSpider.jd_more_info import JSpider
@@ -113,15 +128,18 @@ class JdButton(Button):
         self.Automation(url)
         login_element = "[class='user_logout']"
         cookie = self.getCookie(login_element)
+        #print(cookie)
         if cookie:
             try:
-                spider = JSpider(cookie)
+                spider = JSpider(cookie, DATA_DIR)
+                spider.getAndStoreBoughtItems()
+                '''
                 spider.get_creditData()
                 spider.get_browseDataNew()
                 spider.get_income()
                 spider.get_user_info()
                 spider.get_addr()
-                spider.get_YHK()
+                #spider.get_YHK()
                 spider.get_xjk_info()
                 spider.get_finance_income()
                 spider.get_GB_num()
@@ -130,8 +148,10 @@ class JdButton(Button):
                 spider.get_follow_products()
                 spider.get_cart()
                 spider.get_orders()
+                '''
                 self.updateStatus(self.frame, 1)
             except Exception as e:
+                traceback.print_exc()
                 self.updateStatus(self.frame, 2)
         else:
             self.updateStatus(self.frame, 2)
@@ -471,7 +491,9 @@ class TaobaoButton(Button):
                     # self.driver.minimize_window()
                     cookies_list = self.driver.get_cookies()
                     # 保存cookie
-                    file_path = os.path.join(os.path.dirname(__file__) + '/taobao/taobao_cookies.json')
+                    #file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/Spiders/taobao/taobao_cookies.json')
+                    file_path = '../Spiders/taobao/taobao_cookies.json'
+                    #print(file_path)
                     cookie_str = json.dumps(cookies_list)
                     self.driver.quit()
                     with open(file_path, 'w') as f:
@@ -482,14 +504,16 @@ class TaobaoButton(Button):
                 cookie_list = json.loads(open(file_path, 'r').read())
                 t = TaobaoSpider(cookie_list)
 
-                t.get_addr()
-                t.get_choucang_item()
-                t.get_footmark_item()
+                #t.get_addr()
+                #t.get_choucang_item()
+                #t.get_footmark_item()
                 t.crawl_good_buy_data()
                 self.updateStatus(self.frame,1)
             except Exception:
+                traceback.print_exc()
                 self.updateStatus(self.frame,2)
         except Exception:
+            traceback.print_exc()
             self.updateStatus(self.frame,2)
 
 class ZfbButton(Button):
