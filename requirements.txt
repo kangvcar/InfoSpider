@@ -7,3 +7,4 @@ numpy
 wxPython
 python_dateutil
 beautifulsoup4
+XlsxWriter
