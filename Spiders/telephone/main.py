@@ -1,6 +1,7 @@
 import json
 import os
 import re
+import xlsxwriter
 
 import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
@@ -8,49 +9,6 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 # 禁用安全请求警告
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-
-class YiDong(object):
-    def __init__(self, cookie):
-        self.session = requests.session()
-        self.headers = {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
-        }
-        cookie_dict = {}
-        list = cookie.split(';')
-        for i in list:
-            try:
-                cookie_dict[i.split('=')[0]] = i.split('=')[1]
-            except IndexError:
-                cookie_dict[''] = i
-        requests.utils.add_dict_to_cookiejar(self.session.cookies, cookie_dict)
-        self.mobile = None
-
-    def get_user_info(self):
-        url = 'https://shop.10086.cn/i/v1/auth/loginfo'
-        resp = self.session.get(url, headers=self.headers, verify=False)
-        mobile = json.loads(resp.content.decode())['data']['loginValue']
-        area = json.loads(self.session.get('https://shop.10086.cn/i/v1/res/numarea/{}'.format(mobile),
-                                           headers=self.headers).content.decode())['data']['id_name_cd']
-        ret_json = self.session.get('https://shop.10086.cn/i/v1/cust/mergecust/{}'.format(mobile),
-                                    headers=self.headers).content.decode()
-
-        dict = json.loads(ret_json)
-        dict['mobile'] = mobile
-        dict['area'] = area
-        ret_str = json.dumps(dict)
-        file_path = os.path.join(os.path.dirname(__file__) + '/' + '10086_user.json')
-        with open(file_path, 'w') as f:
-            f.write(ret_str)
-        self.mobile = dict['mobile']
-
-    # 近5个月账单信息
-    def get_bill_info(self):
-        url = 'https://shop.10086.cn/i/v1/fee/billinfo/{}'.format(self.mobile)
-        self.headers['Referer'] = 'https://shop.10086.cn/i/?f=home&welcome'
-        resp = self.session.get(url, headers=self.headers, verify=False)
-        file_path = os.path.join(os.path.dirname(__file__) + '/' + '10086_bill_info.json')
-        with open(file_path, 'w') as f:
-            f.write(resp.content.decode())
 
 
 class LianTong(object):

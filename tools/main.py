@@ -18,7 +18,8 @@ from ctrip.main import Ctrip
 from mail.main import YSpider
 from shgjj.main import GjjSpider
 from taobao.spider import TaobaoSpider
-from telephone.main import YiDong, LianTong, DianXin
+from telephone.main import LianTong, DianXin
+from yidong.main import YiDong
 
 
 class Button:
@@ -176,7 +177,6 @@ class YidongButton(Button):
                     break
             try:
                 y = YiDong(cookie_str)
-                y.get_user_info()
                 y.get_bill_info()
                 self.updateStatus(self.frame,1)
             except Exception:
@@ -235,18 +235,12 @@ class A12306Button(Button):
 
             try:
                 a = main12306.Info(cookie_str)
-                user = a.get_user_info()
-                a.save_json('user.json', user)
-                OrderNoComplete = a.get_OrderNoComplete()
-                a.save_json('OrderNoComplete.json', OrderNoComplete)
-                Order = a.get_Order()
-                a.save_json('Order.json', Order)
-                passengers = a.get_passengers()
-                a.save_json('passengers.json', passengers)
-                address = a.get_address()
-                a.save_json('address.json', address)
-                insurance = a.get_insurance()
-                a.save_json('insurance.json', insurance)
+                #OrderNoComplete = a.get_OrderNoComplete()
+                #a.save_json('OrderNoComplete.json', OrderNoComplete)
+                #Order = a.get_Order()
+                #a.save_json('Order.json', Order)
+                #passengers = a.get_passengers()
+                #a.save_json('passengers.json', passengers)
                 History_Order = a.get_History_Order()
                 a.save_json('History_Order.json', History_Order)
 

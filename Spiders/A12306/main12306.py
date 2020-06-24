@@ -122,10 +122,12 @@ class Info(object):
         #         'queryType': 1,
         #         'sequeue_train_name': ''}
 
-        data = 'come_from_flag=my_order&pageIndex=0&pageSize=8&query_where=H&queryStartDate=2019-03-24&queryEndDate=2019-04-08&queryType=1&sequeue_train_name=15659358815'
+        data = 'come_from_flag=my_order&pageIndex=0&pageSize=8&query_where=H&queryStartDate=2019-06-01&queryEndDate=2019-06-21&queryType=1&sequeue_train_name=15659358815'
         resp = self.session.post(url, headers=self.headers, data=data, verify=False)
-        # json_data = json.loads(resp.content.decode())
-        return resp.content.decode()
+        print(resp)
+        print(resp.headers)
+        print(resp.content)
+        return resp.content
 
     # 会员信息
     def get_level(self):
