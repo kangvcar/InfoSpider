@@ -132,7 +132,8 @@ class TaobaoSpider(object):
                 data_list.append(good_merchant)
                 data_list.append(good_name)
                 #print(good_time_and_id, good_merchant, good_name)
-                file_path = os.path.join(os.path.dirname(__file__) + '/user_orders.json')
+                #file_path = os.path.join(os.path.dirname(__file__) + '/user_orders.json')
+                file_path = "../Spiders/taobao/user_orders.json"
                 json_str = json.dumps(data_list)
                 with open(file_path, 'a') as f:
                     f.write(json_str)

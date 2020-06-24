@@ -25,7 +25,7 @@ MyDataHomes.Spider旨在安全快捷的帮助用户拿回自己的数据，工�
 
 2. [安装Chrome浏览器的驱动](http://chromedriver.storage.googleapis.com/index.html)
 
-3. 安装依赖库 ./install_deps.sh
+3. 安装依赖库 ./install_deps.sh    （windows下只需pip install -r requirements.txt）
 
 ### 工具运行
 
