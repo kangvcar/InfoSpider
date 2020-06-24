@@ -25,7 +25,7 @@ MyDataHomes.Spider旨在安全快捷的帮助用户拿回自己的数据，工�
 
 2. [安装Chrome浏览器的驱动](http://chromedriver.storage.googleapis.com/index.html)
 
-3. 安装依赖库 ./install_deps.sh
+3. 安装依赖库 ./install_deps.sh    （windows下只需pip install -r requirements.txt）
 
 ### 工具运行
 
@@ -40,16 +40,7 @@ MyDataHomes.Spider旨在安全快捷的帮助用户拿回自己的数据，工�
 
 ## 如何贡献代码
 
-完善MyDataHomes.Spider工具需要众多开发者的力量, 主要有三方面的工作:
-
-1. 增加更多的数据源爬虫, 具体步骤如下:
-  - 在Spiders目录中新建一个数据源目录
-  - 提交爬虫源码 + ReadMe + 数据格式定义文件或示例
-  - 给前端工具界面（tools/main.py）增加对应的数据源按钮
-
-2. 完善已有数据源下载函数,使得其能够下载更为完整的用户数据。
-
-(为保持统一, 要求 Python3 开发,数据存为 JSON 格式)
+[CONTRIBUTING](CONTRIBUTING.md)
 
 ## 数据源
 目前已支持数据源:
