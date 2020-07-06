@@ -25,16 +25,16 @@ try:
 except OSError:
     pass
 
-import shgjj
-from A12306 import main12306
-from JdSpider.jd_more_info import JSpider
-from alipay.main import ASpider
-from ctrip.main import Ctrip
-from mail.main import YSpider
-from shgjj.main import GjjSpider
-from taobao.spider import TaobaoSpider
-from telephone.main import LianTong, DianXin
-from yidong.main import YiDong
+import Scripts.shgjj
+from Spiders.A12306 import main12306
+from Spiders.JdSpider.jd_more_info import JSpider
+from Spiders.alipay.main import ASpider
+from Spiders.ctrip.main import Ctrip
+from Spiders.mail.main import YSpider
+from Spiders.shgjj.main import GjjSpider
+from Spiders.taobao.spider import TaobaoSpider
+from Spiders.telephone.main import LianTong, DianXin
+from Spiders.yidong.main import YiDong
 
 
 class Button:
@@ -167,7 +167,7 @@ class ChisButton(Button):
             self.updateStatus(self.frame,2)
             return
 
-        from chsi.main import Chis
+        from Spiders.chsi.main import Chis
         try:
             chis = Chis(cookie_str)
             p1, p2, x = chis.get_xueji_info()
@@ -538,7 +538,11 @@ class ZfbButton(Button):
         
 class GithubButton(Button):
     def OnClick(self, event):
-        pass
+        dlg = wx.TextEntryDialog(None, u"请输入Github用户名:", u"获取Github用户信息")
+        if dlg.ShowModal() == wx.ID_OK:
+            message = dlg.GetValue()  # 获取文本框中输入的值
+            # print(message)
+        dlg.Destroy()
 
 class QqButton(Button):
     def OnClick(self, event):
