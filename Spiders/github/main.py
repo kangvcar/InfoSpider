@@ -10,16 +10,7 @@ class Github(object):
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
         }
 
-        self.proxypool_url = 'http://127.0.0.1:5555/random'
 
-    def get_random_proxy(self):
-        """
-        get random proxy from proxypool
-        :return: proxy
-        """
-        proxies = {'https': 'https://' + requests.get(self.proxypool_url).text.strip()}
-        print(proxies)
-        return proxies
 
     # 用户信息
     def get_user_info(self):
@@ -34,7 +25,7 @@ class Github(object):
     # 用户仓库信息
     def get_user_repos(self):
         url = 'https://api.github.com/users/' + self.username + '/repos'
-        resp = requests.get(url, headers=self.headers, proxies=self.get_random_proxy())
+        resp = requests.get(url, headers=self.headers)
         # print(resp.text)
         file_path = os.path.join(os.path.dirname(__file__) + '/user_repository.json')
         with open(file_path, 'w') as f:
@@ -44,8 +35,8 @@ class Github(object):
     # 用户的关注信息
     def get_user_following(self):
         url = 'https://api.github.com/users/' + self.username + '/following'
-        resp = requests.get(url, headers=self.headers, proxies=self.get_random_proxy())
-        print(resp.text)
+        resp = requests.get(url, headers=self.headers)
+        # print(resp.text)
         file_path = os.path.join(os.path.dirname(__file__) + '/user_following.json')
         with open(file_path, 'w') as f:
             f.write(resp.text.encode("gbk", 'ignore').decode("gbk", "ignore"))
@@ -54,7 +45,7 @@ class Github(object):
     # 用户的粉丝信息
     def get_user_followers(self):
         url = 'https://api.github.com/users/' + self.username + '/followers'
-        resp = requests.get(url, headers=self.headers, proxies=self.get_random_proxy())
+        resp = requests.get(url, headers=self.headers)
         # print(resp.text)
         file_path = os.path.join(os.path.dirname(__file__) + '/user_followers.json')
         with open(file_path, 'w') as f:
@@ -64,8 +55,8 @@ class Github(object):
     # 用户activity信息
     def get_user_activity(self):
         url = 'https://api.github.com/users/' + self.username + '/received_events'
-        resp = requests.get(url, headers=self.headers, proxies=self.get_random_proxy())
-        print(resp.text)
+        resp = requests.get(url, headers=self.headers)
+        # print(resp.text)
         file_path = os.path.join(os.path.dirname(__file__) + '/user_activity.json')
         with open(file_path, 'w') as f:
             f.write(resp.text.encode("gbk", 'ignore').decode("gbk", "ignore"))
@@ -90,8 +81,8 @@ class Github(object):
 if __name__ == '__main__':
     github = Github('kangvcar')
     github.get_user_info()
-    # github.get_user_repos()
-    # github.get_user_following()
-    # github.get_user_followers()
-    # github.get_user_activity()
-    # github.get_user_repos_detail()
+    github.get_user_repos()
+    github.get_user_following()
+    github.get_user_followers()
+    github.get_user_activity()
+    github.get_user_repos_detail()

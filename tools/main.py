@@ -25,16 +25,17 @@ try:
 except OSError:
     pass
 
-import Scripts.shgjj
-from Spiders.A12306 import main12306
-from Spiders.JdSpider.jd_more_info import JSpider
-from Spiders.alipay.main import ASpider
-from Spiders.ctrip.main import Ctrip
-from Spiders.mail.main import YSpider
-from Spiders.shgjj.main import GjjSpider
-from Spiders.taobao.spider import TaobaoSpider
-from Spiders.telephone.main import LianTong, DianXin
-from Spiders.yidong.main import YiDong
+# import Scripts.shgjj
+# from Spiders.shgjj.main import GjjSpider
+from A12306 import main12306
+from JdSpider.jd_more_info import JSpider
+from alipay.main import ASpider
+from ctrip.main import Ctrip
+from mail.main import YSpider
+from shgjj.main import GjjSpider
+from taobao.spider import TaobaoSpider
+from telephone.main import LianTong, DianXin
+from yidong.main import YiDong
 
 
 class Button:
@@ -116,10 +117,10 @@ class Button:
         if status == 0:
             frame.SetStatusText("爬取中...", 1)
         elif status == 1:
-            self.driver.quit()
+            # self.driver.quit()
             frame.SetStatusText("爬取完成！", 1)
         else:
-            self.driver.quit()
+            # self.driver.quit()
             frame.SetStatusText("爬取失败！", 1)
 
 class JdButton(Button):
@@ -543,6 +544,24 @@ class GithubButton(Button):
             message = dlg.GetValue()  # 获取文本框中输入的值
             # print(message)
         dlg.Destroy()
+        from github.main import Github
+        github = Github(message)
+        self.updateStatus(self.frame, 0)
+        try:
+            github.get_user_info()
+            github.get_user_repos()
+            github.get_user_following()
+            github.get_user_followers()
+            github.get_user_activity()
+            self.updateStatus(self.frame, 1)
+        except:
+            self.updateStatus(self.frame, 2)
+            pass
+        try:
+            github.get_user_repos_detail()
+        except:
+            pass
+
 
 class QqButton(Button):
     def OnClick(self, event):
