@@ -1,3 +1,5 @@
+import locale
+
 import selenium
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -6,47 +8,64 @@ import tkinter as tk
 from tkinter.filedialog import asksaveasfilename
 from bs4 import BeautifulSoup
 import lxml
-import openpyxl
-from openpyxl import Workbook
+# import openpyxl
+# from openpyxl import Workbook
 
-
+locale.setlocale(locale.LC_ALL, 'en')
 class Qqfriend(object):
     def __init__(self):
-        pass
+        # 浏览器位置
+        self.driver = webdriver.Chrome()
+        self.browser = self.driver
+        # self.browser = webdriver.Chrome()
+        self.browser.get("https://pay.qq.com/index.shtml")
+        self.root = tk.Tk()
+        # 设置窗口标题
+        self.root.title('从QQ充值获取好友列表')
+        # 设置窗口大小
+        self.root.geometry('400x200')
+        # 进入消息循环（检测到事件，就刷新组件）
+        # button1 = tk.Button(root, text='已登陆并打开充值界面且点开列表(不用选择表项),保存为excel', command=self.callback_excel)
+        # button1.pack()
+        button2 = tk.Button(self.root, text='已登陆并打开充值界面且，点开列表(不用选择表项),保存为json', command=self.callback_json)
+        button2.pack()
+        button3 = tk.Button(self.root, text='爬取完成后点击此按钮', command=self.close_chrome)
+        button3.pack()
+        self.root.mainloop()
 
     # 存储为excel
-    def callback_excel():
-        driver.switch_to_frame('webpay-iframe')
-        iframe = driver.find_element_by_xpath('//*[@id="midas-webpay-main-1450000186"]/div[2]/div[1]/iframe')
-        driver.switch_to_frame(iframe)
-        html = driver.page_source
-        soup = BeautifulSoup(html, "lxml")
-        a = soup.find_all(attrs={'class': 'icon-friend-s'})
-        wb = Workbook()
-        ws = wb.active
-        ws.append(["原始数据", "分组", "显示名", "QQ号"])
-        for i in a:
-            if i.next_sibling != ' {{el.name}}({{el.qq}})':
-                k = 0
-                for x in i.next_sibling:
+    # def callback_excel():
+    #     driver.switch_to_frame('webpay-iframe')
+    #     iframe = driver.find_element_by_xpath('//*[@id="midas-webpay-main-1450000186"]/div[2]/div[1]/iframe')
+    #     driver.switch_to_frame(iframe)
+    #     html = driver.page_source
+    #     soup = BeautifulSoup(html, "lxml")
+    #     a = soup.find_all(attrs={'class': 'icon-friend-s'})
+    #     wb = Workbook()
+    #     ws = wb.active
+    #     ws.append(["raw", "group", "view_name", "qqnumber"])
+    #     for i in a:
+    #         if i.next_sibling != ' {{el.name}}({{el.qq}})':
+    #             k = 0
+    #             for x in i.next_sibling:
 
-                    if x == '(':
-                        f = k
-                    if x == ')':
-                        l = k
-                    k = k + 1
-                ws.append([i.next_sibling, i.next_sibling.parent.parent.parent.parent.find(
-                    attrs={'class': 'icon-more-friend'}).next_sibling, i.next_sibling[:f], i.next_sibling[f + 1:l]])
-                print([i.next_sibling, i.next_sibling.parent.parent.parent.parent.find(
-                    attrs={'class': 'icon-more-friend'}).next_sibling, i.next_sibling[:f], i.next_sibling[f + 1:l]])
-        wb.save(asksaveasfilename(defaultextension='.xlsx', filetypes=[('Excel 工作簿', '*.xlsx')]))
+    #                 if x == '(':
+    #                     f = k
+    #                 if x == ')':
+    #                     l = k
+    #                 k = k + 1
+    #             ws.append([i.next_sibling, i.next_sibling.parent.parent.parent.parent.find(
+    #                 attrs={'class': 'icon-more-friend'}).next_sibling, i.next_sibling[:f], i.next_sibling[f + 1:l]])
+    #             print([i.next_sibling, i.next_sibling.parent.parent.parent.parent.find(
+    #                 attrs={'class': 'icon-more-friend'}).next_sibling, i.next_sibling[:f], i.next_sibling[f + 1:l]])
+    #     wb.save(asksaveasfilename(defaultextension='.xlsx', filetypes=[('Excel 工作簿', '*.xlsx')]))
 
     # 存储为json
-    def callback_json():
-        driver.switch_to_frame('webpay-iframe')
-        iframe = driver.find_element_by_xpath('//*[@id="midas-webpay-main-1450000186"]/div[2]/div[1]/iframe')
-        driver.switch_to_frame(iframe)
-        html = driver.page_source
+    def callback_json(self):
+        self.driver.switch_to_frame('webpay-iframe')
+        iframe = self.driver.find_element_by_xpath('//*[@id="midas-webpay-main-1450000186"]/div[2]/div[1]/iframe')
+        self.driver.switch_to_frame(iframe)
+        html = self.driver.page_source
         soup = BeautifulSoup(html, "lxml")
         a = soup.find_all(attrs={'class': 'icon-friend-s'})
         friend_list = []
@@ -72,9 +91,9 @@ class Qqfriend(object):
         with open('friend_list.json', 'w', encoding="utf-8") as f:
             f.write(friend_list_json)
 
-    def close_chrome():
-        browser.close()
-        root.quit()
+    def close_chrome(self):
+        self.browser.close()
+        self.root.quit()
 
     def get_friend_list(self):
         # 浏览器位置
@@ -88,8 +107,8 @@ class Qqfriend(object):
         # 设置窗口大小
         root.geometry('400x200')
         # 进入消息循环（检测到事件，就刷新组件）
-        button1 = tk.Button(root, text='已登陆并打开充值界面且点开列表(不用选择表项),保存为excel', command=self.callback_excel)
-        button1.pack()
+        # button1 = tk.Button(root, text='已登陆并打开充值界面且点开列表(不用选择表项),保存为excel', command=self.callback_excel)
+        # button1.pack()
         button2 = tk.Button(root, text='已登陆并打开充值界面且，点开列表(不用选择表项),保存为json', command=self.callback_json)
         button2.pack()
         button3 = tk.Button(root, text='爬取完成后点击此按钮', command=self.close_chrome)

@@ -10,6 +10,8 @@ from selenium import webdriver
 from selenium.webdriver import ChromeOptions
 
 import sys
+import locale
+locale.setlocale(locale.LC_ALL, '')
 
 MAIN_FILE_PATH = os.path.dirname(os.path.abspath(__file__))
 print(MAIN_FILE_PATH)
@@ -566,14 +568,14 @@ class GithubButton(Button):
 class QqButton(Button):
     def OnClick(self, event):
         from qqfriend.main import Qqfriend
-        try:
-            self.updateStatus(self.frame, 0)
-            qq_friend = Qqfriend()
-            qq_friend.get_friend_list()
-            self.updateStatus(self.frame, 1)
-        except:
-            self.updateStatus(self.frame, 2)
-            pass
+        # try:
+            # self.updateStatus(self.frame, 0)
+        qq_friend = Qqfriend()
+        # qq_friend.get_friend_list()
+            # self.updateStatus(self.frame, 1)
+        # except:
+            # self.updateStatus(self.frame, 2)
+            # pass
 
 class ZhihuButton(Button):
     def OnClick(self, event):
