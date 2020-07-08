@@ -565,7 +565,15 @@ class GithubButton(Button):
 
 class QqButton(Button):
     def OnClick(self, event):
-        pass
+        from qqfriend.main import Qqfriend
+        try:
+            self.updateStatus(self.frame, 0)
+            qq_friend = Qqfriend()
+            qq_friend.get_friend_list()
+            self.updateStatus(self.frame, 1)
+        except:
+            self.updateStatus(self.frame, 2)
+            pass
 
 class ZhihuButton(Button):
     def OnClick(self, event):
