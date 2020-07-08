@@ -1,5 +1,3 @@
-import locale
-
 import selenium
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -11,7 +9,6 @@ import lxml
 # import openpyxl
 # from openpyxl import Workbook
 
-locale.setlocale(locale.LC_ALL, 'en')
 class Qqfriend(object):
     def __init__(self):
         # 浏览器位置
@@ -93,7 +90,7 @@ class Qqfriend(object):
 
     def close_chrome(self):
         self.browser.close()
-        self.root.quit()
+        # self.root.quit()
 
     def get_friend_list(self):
         # 浏览器位置
