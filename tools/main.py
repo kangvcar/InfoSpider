@@ -579,9 +579,13 @@ class QqButton(Button):
 class QqqunButton(Button):
     def OnClick(self, event):
         from qqqun.main import Qqqun
-        self.updateStatus(self.frame, 0)
-        qq_qun = Qqqun()
-        self.updateStatus(self.frame, 1)
+        try:
+            self.updateStatus(self.frame, 0)
+            qq_qun = Qqqun()
+            self.updateStatus(self.frame, 1)
+        except:
+            self.updateStatus(self.frame, 2)
+            pass
 
 class ZhihuButton(Button):
     def OnClick(self, event):

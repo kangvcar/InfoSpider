@@ -5,7 +5,7 @@ selenium
 requests
 nltk
 numpy
-wxPython
+wxPython==4.0.7
 python_dateutil
 beautifulsoup4
 XlsxWriter

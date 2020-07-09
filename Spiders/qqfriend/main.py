@@ -91,13 +91,12 @@ class Qqfriend(object):
 
     def close_chrome(self):
         self.browser.close()
-        # self.root.quit()
+        self.root.destroy()
         return 0
 
     def get_friend_list(self):
         # 浏览器位置
         driver = webdriver.Chrome()
-
         browser = driver
         browser.get("https://pay.qq.com/index.shtml")
         root = tk.Tk()
@@ -106,9 +105,9 @@ class Qqfriend(object):
         # 设置窗口大小
         root.geometry('400x200')
         # 进入消息循环（检测到事件，就刷新组件）
-        # button1 = tk.Button(root, text='已登陆并打开充值界面且点开列表(不用选择表项),保存为excel', command=self.callback_excel)
+        # button1 = tk.Button(root, text='已登陆并打开充值界面且点开列表(不用选择表项),保存为excel', pady=5, command=self.callback_excel)
         # button1.pack()
-        button2 = tk.Button(root, text='已登陆并打开充值界面且，点开列表(不用选择表项),保存为json', command=self.callback_json)
+        button2 = tk.Button(root, text='已登陆并打开充值界面且，点开列表(不用选择表项),保存为json', pady=5, command=self.callback_json)
         button2.pack()
         button3 = tk.Button(root, text='爬取完成后点击此按钮', command=self.close_chrome)
         button3.pack()
