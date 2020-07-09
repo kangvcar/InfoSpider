@@ -13,6 +13,7 @@ import time
 import os
 import json
 
+
 # path = askdirectory()
 # path = os.path.join(os.path.dirname(__file__) + '/all_group_friend')
 
@@ -37,59 +38,12 @@ class Qqqun(object):
         self.root.mainloop()
 
     # 去字符串两端'\n'、'\t'
-    def delNT(s):
+    def delNT(self, s):
         while s.startswith('\n') or s.startswith('\t'):
             s = s[1:]
         while s.endswith('\t') or s.endswith('\n'):
             s = s[:-1]
         return s
-
-    # def callback_excel(self):
-    #     a = self.driver.find_elements_by_class_name('icon-def-gicon')
-    #     Num = len(a)
-    #     time_start = time.time()
-    #     for i in range(0, Num):
-    #         # 点击进入具体群
-    #         a = self.driver.find_elements_by_class_name('icon-def-gicon')
-    #         # time.sleep(0.5)
-    #         a[i].click()
-    #         time.sleep(1)
-    #         html = self.driver.page_source
-    #         soup = BeautifulSoup(html, "lxml")
-    #         groupTit = self.delNT(soup.find(attrs={'id': 'groupTit'}).text)
-    #         groupMemberNum = self.delNT(soup.find(attrs={'id': 'groupMemberNum'}).text)
-    #
-    #         while len(soup.find_all(attrs={'class': 'td-no'})) < int(groupMemberNum):
-    #             self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight);")
-    #             time.sleep(0.1)
-    #             html = self.driver.page_source
-    #             soup = BeautifulSoup(html, "lxml")
-    #
-    #         res_elements = etree.HTML(html)
-    #         table = res_elements.xpath('//*[@id="groupMember"]')
-    #         table = etree.tostring(table[0], encoding='utf-8').decode()
-    #         df = pd.read_html(table, encoding='utf-8', header=0)[0]
-    #         try:
-    #             print(str(int((time.time() - time_start) / 60)) + ':' + str(int((time.time() - time_start) % 60)),
-    #                   '第' + str(i + 1) + '群,' + str(int((i + 1) / Num * 100)) + '%  ' + groupTit + '  此表完成')
-    #             writer = pd.ExcelWriter(path + '/' + groupTit + '.xlsx')
-    #             df.to_excel(writer, 'Sheet1')
-    #             writer.save()
-    #         except:
-    #             k = 0
-    #             for v in groupTit:
-    #                 if v == '(':
-    #                     f = k
-    #                 if v == ')':
-    #                     l = k
-    #                 k = k + 1
-    #
-    #             writer = pd.ExcelWriter(path + '/' + groupTit[f + 1:l] + '.xlsx')
-    #             df.to_excel(writer, 'Sheet1')
-    #             writer.save()
-    #         self.driver.find_element_by_id('changeGroup').click()
-    #         time.sleep(1)
-    #     return 0
 
     def callback_json(self):
         a = self.driver.find_elements_by_class_name('icon-def-gicon')
@@ -115,8 +69,8 @@ class Qqqun(object):
             res_elements = etree.HTML(html)
             table = res_elements.xpath('//*[@id="groupMember"]')
             table = etree.tostring(table[0], encoding='utf-8').decode()
-            # df = pd.read_html(table, encoding='utf-8', header=0)[0]
-            df = pd.read_html(table, header=0)[0]
+            df = pd.read_html(table, encoding='utf-8', header=0)[0]
+            # df = pd.read_html(table, header=0)[0]
             try:
                 print(str(int((time.time() - time_start) / 60)) + ':' + str(int((time.time() - time_start) % 60)),
                       '第' + str(i + 1) + '群,' + str(int((i + 1) / Num * 100)) + '%  ' + groupTit + '  此表完成')
@@ -135,7 +89,7 @@ class Qqqun(object):
                     item['last_post'] = data[8]
                     qun_friend_list.append(item)
                 qun_friend_list_json = json.dumps(qun_friend_list, ensure_ascii=False)
-                with open(path + '/' + groupTit + '.json', 'w', encoding="utf-8") as f:
+                with open(self.path + '/' + groupTit + '.json', 'w', encoding="utf-8") as f:
                     f.write(qun_friend_list_json)
             except:
                 k = 0
@@ -153,5 +107,3 @@ class Qqqun(object):
         self.browser.close()
         self.root.quit()
         return 0
-
-
