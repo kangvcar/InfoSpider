@@ -1,9 +1,9 @@
+# -*- coding: utf-8 -*-
 import json
 import os
 import re
 import threading
 import traceback
-
 import wx
 import time
 from selenium import webdriver
@@ -568,14 +568,20 @@ class GithubButton(Button):
 class QqButton(Button):
     def OnClick(self, event):
         from qqfriend.main import Qqfriend
-        # try:
-            # self.updateStatus(self.frame, 0)
-        qq_friend = Qqfriend()
-        # qq_friend.get_friend_list()
-            # self.updateStatus(self.frame, 1)
-        # except:
-            # self.updateStatus(self.frame, 2)
-            # pass
+        try:
+            self.updateStatus(self.frame, 0)
+            qq_friend = Qqfriend()
+            self.updateStatus(self.frame, 1)
+        except:
+            self.updateStatus(self.frame, 2)
+            pass
+
+class QqqunButton(Button):
+    def OnClick(self, event):
+        from qqqun.main import Qqqun
+        self.updateStatus(self.frame, 0)
+        qq_qun = Qqqun()
+        self.updateStatus(self.frame, 1)
 
 class ZhihuButton(Button):
     def OnClick(self, event):
@@ -643,9 +649,11 @@ class CreateFrame(wx.Frame):
             '支付宝', 'resource/icon/alipay.png'))
         GithubButton(self, self.pnl, Item(start_x, start_y+ystep*3, 'Github',
             'resource/icon/github.png'))
-        QqButton(self, self.pnl, Item(start_x+xstep, start_y+ystep*3, 'QQ',
+        QqButton(self, self.pnl, Item(start_x+xstep, start_y+ystep*3, 'QQ好友',
             'resource/icon/qq.png'))
-        ZhihuButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep*3, '知乎',
+        QqqunButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep*3, 'QQ群',
+            'resource/icon/qqqun.png'))
+        ZhihuButton(self, self.pnl, Item(start_x+xstep*3, start_y+ystep*3, '知乎',
             'resource/icon/zhihu.png'))
 
 if __name__ == '__main__':

@@ -87,10 +87,12 @@ class Qqfriend(object):
         print(friend_list_json)
         with open('friend_list.json', 'w', encoding="utf-8") as f:
             f.write(friend_list_json)
+        return 0
 
     def close_chrome(self):
         self.browser.close()
         # self.root.quit()
+        return 0
 
     def get_friend_list(self):
         # 浏览器位置
