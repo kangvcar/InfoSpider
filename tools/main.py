@@ -559,14 +559,26 @@ class GithubButton(Button):
         except:
             self.updateStatus(self.frame, 2)
             pass
-        try:
-            github.get_user_repos_detail()
-        except:
-            pass
+        # try:
+            # github.get_user_repos_detail()
+        # except:
+        #     pass
 
 
 class QqButton(Button):
     def OnClick(self, event):
+        # 弹窗提示操作步骤
+        messagestr = u'''
+1. 选择导出目录，然后会自动打开QQ充值，请网页登陆
+2. 点击“Q币充值”，打开充值界面
+3. 充值账号处点击“更换”，打开列表
+4. 点击窗口的"已登陆并打开充值界面且，点开列表(不用选择表项),保存为json"按钮即可
+        '''
+        dlg = wx.MessageDialog(None, messagestr, u"操作步骤提示", wx.YES_NO | wx.ICON_INFORMATION)
+        if dlg.ShowModal() == wx.ID_YES:
+            dlg.Close()
+            # self.Close(True)
+
         from qqfriend.main import Qqfriend
         try:
             self.updateStatus(self.frame, 0)
@@ -578,6 +590,16 @@ class QqButton(Button):
 
 class QqqunButton(Button):
     def OnClick(self, event):
+        # 弹窗提示操作步骤
+        messagestr = u'''
+1. 选择导出目录，然后会自动打开QQ群管理，请网页登陆
+2. 登陆成功会在选择QQ群界面
+3. 点击窗口的"已登陆并打开界面，保存为json"按钮即可
+        '''
+        dlg = wx.MessageDialog(None, messagestr, u"操作步骤提示", wx.YES_NO | wx.ICON_INFORMATION)
+        if dlg.ShowModal() == wx.ID_YES:
+            dlg.Close()
+            
         from qqqun.main import Qqqun
         try:
             self.updateStatus(self.frame, 0)

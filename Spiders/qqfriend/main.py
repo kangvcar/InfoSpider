@@ -87,7 +87,7 @@ class Qqfriend(object):
                     friend_list.append(item)
             friend_list_json = json.dumps(friend_list, ensure_ascii=False)
             # print(friend_list_json)
-            with open(self.path + 'friend_list.json', 'w', encoding="utf-8") as f:
+            with open(self.path + '/friend_list.json', 'w', encoding="utf-8") as f:
                 f.write(friend_list_json)
             return 0
 
