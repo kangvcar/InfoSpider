@@ -54,7 +54,9 @@ class Button:
         option.add_experimental_option('excludeSwitches', ['enable-automation'])
         self.driver = webdriver.Chrome(options=option)
         url = str(url)
+        self.driver.delete_all_cookies()
         self.driver.get(url)
+        
 
     def getCookie3(self, login_url, quit):
         self.updateStatus(self.frame,0)
@@ -89,6 +91,32 @@ class Button:
                     self.driver.quit()
                 break
         return cookie_str
+
+    # 获取知乎 Cookie
+    # https://www.zhihu.com/signin
+    # https://www.zhihu.com
+    # https://www.zhihu.com/hot
+    def getCookie4(self, login_url, curr_url, quit):
+        self.updateStatus(self.frame, 0)
+        self.Automation(login_url)
+        cookie_str = ''
+        while 1:
+            # self.driver.delete_all_cookies()
+            time.sleep(10)
+            # self.driver.implicitly_wait(5)
+            print(self.driver.current_url)
+            # if self.driver.current_url == curr_url:
+                # get_cookies = self.driver.get_cookies()
+            get_cookies = self.driver.get_cookies()
+            cookie_str = ''
+            for s in get_cookies:
+                cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
+            # cookie_str = str(get_cookies)
+            if (quit == 1) and (cookie_str != ''):
+                self.driver.quit()
+                break
+        return cookie_str
+
 
     def getCookie(self, login):
         while True:
@@ -611,7 +639,34 @@ class QqqunButton(Button):
 
 class ZhihuButton(Button):
     def OnClick(self, event):
-        pass
+        dlg = wx.TextEntryDialog(None, u"请输入知乎用户名(必须英文):", u"获取知乎用户信息")
+        if dlg.ShowModal() == wx.ID_OK:
+            message = dlg.GetValue()  # 获取文本框中输入的值
+        dlg.Destroy()
+        ## 测试：message = 'gao-nan-bao'
+        self.updateStatus(self.frame, 0)
+        from zhihu.main import Zhihu
+        try:
+            zhihu = Zhihu(message)
+            # 获取用户基本信息
+            zhihu.get_user_profile()
+            # 获取用户关注的人
+            zhihu.get_user_followees()
+            # 获取用户的粉丝
+            zhihu.get_user_followers()
+            # 获取用户发布的文章
+            zhihu.get_user_articles()
+            # 获取用户的收藏
+            zhihu.get_user_collections()
+            # 获取用户发布的视频
+            zhihu.get_user_zvideos()
+            # 获取用户的动态
+            zhihu.get_user_activities()
+            self.updateStatus(self.frame, 1)
+        except:
+            self.updateStatus(self.frame, 2)
+            pass
+
 
 class Item:
     x = 0
