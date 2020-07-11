@@ -15,7 +15,7 @@ import pandas
 
 class Qqqun(object):
     def __init__(self):
-        self.path = askdirectory()
+        self.path = askdirectory(title='选择信息保存文件夹')
         self.driver = webdriver.Chrome()
         self.browser = self.driver
         self.browser.get("https://qun.qq.com/member.html")
@@ -86,6 +86,7 @@ class Qqqun(object):
                 writer.save()
             self.driver.find_element_by_id('changeGroup').click()
             time.sleep(1)
+        self.close_chrome()
         return 0
 
     def callback_json(self):
@@ -144,6 +145,7 @@ class Qqqun(object):
                     k = k + 1
             self.driver.find_element_by_id('changeGroup').click()
             time.sleep(1)
+        self.close_chrome()
         return 0
 
     def close_chrome(self):

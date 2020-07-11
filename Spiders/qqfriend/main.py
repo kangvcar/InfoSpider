@@ -60,7 +60,7 @@ class Qqfriend(object):
 
         # 存储为json
         def callback_json(self):
-            self.path = askdirectory()
+            self.path = askdirectory(title='选择信息保存文件夹')
             self.driver.switch_to_frame('webpay-iframe')
             iframe = self.driver.find_element_by_xpath('//*[@id="midas-webpay-main-1450000186"]/div[2]/div[1]/iframe')
             self.driver.switch_to_frame(iframe)

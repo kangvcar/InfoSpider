@@ -45,7 +45,9 @@ class Button:
     def __init__(self, frame, pnl, item):
         pic_jd = wx.Image(item.img, wx.BITMAP_TYPE_ANY).ConvertToBitmap()
         btn_jd = wx.BitmapButton(pnl, -1, pic_jd, pos=(item.x, item.y), size=(100, 100))
-        wx.StaticText(pnl, -1, item.title, pos=(item.x + 30, item.y + 110))
+        # wx.StaticText(pnl, -1, item.title, pos=(item.x + 30, item.y + 110))
+        wx.StaticText(pnl, -1, item.title, pos=(item.x, item.y+110), size=(100, 15), style=wx.ALIGN_CENTRE)
+        # wx.TipWindow(pnl, "我来提示你！", maxLength=10).SetBoundingRect(wx.Rect(item.x, item.y, 100, 100))
         self.frame = frame
         self.frame.Bind(wx.EVT_BUTTON, self.OnClick, btn_jd)
 
@@ -667,6 +669,21 @@ class ZhihuButton(Button):
             self.updateStatus(self.frame, 2)
             pass
 
+class CloudmusicButton(Button):
+    def OnClick(self, event):
+        pass
+
+class WechatButton(Button):
+    def OnClick(self, event):
+        pass
+
+class WechatmomentButton(Button):
+    def OnClick(self, event):
+        pass
+
+class MomentsalbumButton(Button):
+    def OnClick(self, event):
+        pass
 
 class Item:
     x = 0
@@ -694,53 +711,50 @@ class CreateFrame(wx.Frame):
         statusBar.SetStatusWidths([-5, -1])
 
         # create buttons
-        start_x = 149
+        # start_x = 149
+        # start_y = 25
+        # xstep = 200
+        # ystep = 150
+        start_x = 25
         start_y = 25
-        xstep = 200
+        xstep = 125
         ystep = 150
-        JdButton(self, self.pnl, Item(start_x, start_y, '京东',
-            'resource/icon/jd.png'))
-        ChisButton(self, self.pnl, Item(start_x + xstep, start_y, '学信网',
-            'resource/icon/xuexin.png'))
-        YidongButton(self, self.pnl, Item(start_x + xstep*2, start_y, '移动',
-            'resource/icon/yidong.png'))
-        LiantongButton(self, self.pnl, Item(start_x +xstep*3, start_y, '联通',
-            'resource/icon/liantong.png'))
-        DianxingButton(self, self.pnl, Item(start_x +xstep*4, start_y, '电信',
-            'resource/icon/dianxin.png'))
-        GjjButton(self, self.pnl, Item(start_x, start_y +ystep, '公积金',
-            'resource/icon/gjj.png'))
-        A12306Button(self, self.pnl, Item(start_x+xstep, start_y+ystep,
-            '12306', 'resource/icon/12306.png'))
-        CtripButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep,
-            '携程', 'resource/icon/ctrip.png'))
-        WymailButton(self, self.pnl, Item(start_x+xstep*3, start_y+ystep,
-            '网易邮箱', 'resource/icon/wangyi.png'))
-        HotmailButton(self, self.pnl, Item(start_x+xstep*4, start_y+ystep,
-            'Hotmail', 'resource/icon/hotmail.png'))
-        QqmailButton(self, self.pnl, Item(start_x, start_y+ystep*2, 'QQ邮箱',
-            'resource/icon/qmail.png'))
-        AlimailButton(self, self.pnl, Item(start_x+xstep, start_y+ystep*2,
-            '阿里邮箱', 'resource/icon/alimail.png'))
-        XlmailButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep*2,
-            '新浪邮箱', 'resource/icon/sina.png'))
-        TaobaoButton(self, self.pnl, Item(start_x+xstep*3, start_y+ystep*2,
-            '淘宝', 'resource/icon/taobao.png'))
-        ZfbButton(self, self.pnl, Item(start_x+xstep*4, start_y+ystep*2,
-            '支付宝', 'resource/icon/alipay.png'))
-        GithubButton(self, self.pnl, Item(start_x, start_y+ystep*3, 'Github',
-            'resource/icon/github.png'))
-        QqButton(self, self.pnl, Item(start_x+xstep, start_y+ystep*3, 'QQ好友',
-            'resource/icon/qq.png'))
-        QqqunButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep*3, 'QQ群',
-            'resource/icon/qqqun.png'))
-        ZhihuButton(self, self.pnl, Item(start_x+xstep*3, start_y+ystep*3, '知乎',
-            'resource/icon/zhihu.png'))
+        ## row 1
+        GithubButton(self, self.pnl, Item(start_x, start_y, 'Github', 'resource/icon/github.png'))
+        QqButton(self, self.pnl, Item(start_x+xstep, start_y, 'QQ好友', 'resource/icon/qq.png'))
+        QqqunButton(self, self.pnl, Item(start_x+xstep*2, start_y, 'QQ群', 'resource/icon/qqqun.png'))
+        QqmailButton(self, self.pnl, Item(start_x+xstep*3, start_y, 'QQ邮箱', 'resource/icon/qmail.png'))
+        WymailButton(self, self.pnl, Item(start_x+xstep*4, start_y, '网易邮箱', 'resource/icon/wangyi.png'))
+        HotmailButton(self, self.pnl, Item(start_x+xstep*5, start_y, 'Hotmail', 'resource/icon/hotmail.png'))
+        ## row 2
+        ZhihuButton(self, self.pnl, Item(start_x, start_y+ystep, '知乎', 'resource/icon/zhihu.png'))
+        JdButton(self, self.pnl, Item(start_x+xstep, start_y+ystep, '京东', 'resource/icon/jd.png'))
+        TaobaoButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep, '淘宝', 'resource/icon/taobao.png'))
+        ZfbButton(self, self.pnl, Item(start_x+xstep*3, start_y+ystep, '支付宝', 'resource/icon/alipay-logo.png'))
+        A12306Button(self, self.pnl, Item(start_x+xstep*4, start_y+ystep, '12306', 'resource/icon/12306.png'))
+        CtripButton(self, self.pnl, Item(start_x+xstep*5, start_y+ystep, '携程', 'resource/icon/ctrip.png'))
+        ## row 3
+        ChisButton(self, self.pnl, Item(start_x, start_y+ystep*2, '学信网', 'resource/icon/xuexin.png'))
+        YidongButton(self, self.pnl, Item(start_x +xstep, start_y+ystep*2, '移动', 'resource/icon/yidong.png'))
+        LiantongButton(self, self.pnl, Item(start_x +xstep*2, start_y+ystep*2, '联通', 'resource/icon/liantong.png'))
+        DianxingButton(self, self.pnl, Item(start_x +xstep*3, start_y+ystep*2, '电信', 'resource/icon/dianxin.png'))
+        GjjButton(self, self.pnl, Item(start_x +xstep*4, start_y+ystep*2, '公积金', 'resource/icon/gjj.png'))
+        AlimailButton(self, self.pnl, Item(start_x+xstep*5, start_y+ystep*2, '阿里邮箱', 'resource/icon/alimail.png'))
+        ## row 4
+        CloudmusicButton(self, self.pnl, Item(start_x, start_y+ystep*3, '网易云音乐', 'resource/icon/netease_cloudmusic.png'))
+        XlmailButton(self, self.pnl, Item(start_x+xstep, start_y+ystep*3, '新浪邮箱', 'resource/icon/sina.png'))
+        WechatButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep*3, '微信好友', 'resource/icon/wechat.png'))
+        WechatmomentButton(self, self.pnl, Item(start_x+xstep*3, start_y+ystep*3, '微信朋友圈', 'resource/icon/wechat-moments.png'))
+        MomentsalbumButton(self, self.pnl, Item(start_x+xstep*4, start_y+ystep*3, '生成朋友圈相册', 'resource/icon/wechat-moments-album.png'))
+
+        
+        
+        
 
 if __name__ == '__main__':
     """When this module is run (not imported) then create the app, the
     frame, show it, and start the event loop."""
     app = wx.App()
-    frm = CreateFrame(None, title='KingOfData', size=(1200, 700))
+    frm = CreateFrame(None, title='KingOfData', size=(800, 700))
     frm.Show()
     app.MainLoop()
