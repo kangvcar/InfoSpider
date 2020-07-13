@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <link rel="shortcut icon" href="/_media/favicon.ico" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/themes/buble.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
 </head>
 <body>
   <div id="app"></div>
@@ -19,27 +19,11 @@
       coverpage: true,
       auto2top: true,
       logo: '/_media/infospider.png',
-      name: 'INFO-SPIDER',
       themeColor: 'red',
       mergeNavbar: true,
       topMargin: 90,
       ga: '239520865',
     }
-  </script>
-  <div id='gitalk-container'></div>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-  <script>
-    const gitalk = new Gitalk({
-      clientID: '561ee9c329d53731929e',
-      clientSecret: '01f698fd7eac3c671bdbe386e2f0e5cc503568c7',
-      repo: 'InfoSpider',
-      owner: 'kangvcar',
-      admin: ['kangvcar'],
-      
-      distractionFreeMode: false
-    });
-    gitalk.render('gitalk-container');
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
