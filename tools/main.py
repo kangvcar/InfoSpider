@@ -641,6 +641,7 @@ class QqqunButton(Button):
 
 class ZhihuButton(Button):
     def OnClick(self, event):
+        
         dlg = wx.TextEntryDialog(None, u"请输入知乎用户名(必须英文):", u"获取知乎用户信息")
         if dlg.ShowModal() == wx.ID_OK:
             message = dlg.GetValue()  # 获取文本框中输入的值
@@ -671,7 +672,30 @@ class ZhihuButton(Button):
 
 class CloudmusicButton(Button):
     def OnClick(self, event):
-        pass
+        dlg1 = wx.TextEntryDialog(None, u"请输入网易云账号：手机或者邮箱(推荐):", u"登录网易云音乐")
+        if dlg1.ShowModal() == wx.ID_OK:
+            username = dlg1.GetValue()  # 获取文本框中输入的值
+        dlg1.Destroy()
+        dlg2 = wx.TextEntryDialog(None, u"请输入网易云账号的密码:", u"登录网易云音乐", style=wx.TE_PASSWORD|wx.OK|wx.CANCEL)
+        if dlg2.ShowModal() == wx.ID_OK:
+            password = dlg2.GetValue()  # 获取文本框中输入的值
+        dlg2.Destroy()
+        print(username, password)
+        self.updateStatus(self.frame, 0)
+        from cloudmusic.main import Cloudmusic
+        try:
+            music = Cloudmusic(username, password)
+            music.get_user_detail()
+            music.get_playlist()
+            music.get_user_follows()
+            music.get_user_followeds()
+            music.get_user_event()
+            music.get_user_record_week()
+            music.get_user_record_all()
+            self.updateStatus(self.frame, 1)
+        except:
+            self.updateStatus(self.frame, 2)
+            pass
 
 class WechatButton(Button):
     def OnClick(self, event):
