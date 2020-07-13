@@ -72,5 +72,3 @@
 
 ## 协议
 GPL-3.0
-
-## 评论 :id=gitalk-comment
