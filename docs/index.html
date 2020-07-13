@@ -26,6 +26,7 @@
       ga: '239520865',
     }
   </script>
+  <div id='gitalk-container'></div>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
   <script>
@@ -35,8 +36,10 @@
       repo: 'InfoSpider',
       owner: 'kangvcar',
       admin: ['kangvcar'],
+      
       distractionFreeMode: false
-    })
+    });
+    gitalk.render('gitalk-container');
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
