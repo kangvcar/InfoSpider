@@ -2070,15 +2070,8 @@
 </details>
 
 ***
-# 开发者
-
-## kangvcar 
-
-[https://github.com/kangvcar](https://github.com/kangvcar)
-
-[kangvcar@gmail.com](kangvcar@gmail.com)
-
 # License
 GPL-3.0
 
+***
 # 交流
