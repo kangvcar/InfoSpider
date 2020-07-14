@@ -4,7 +4,7 @@ from tkinter.filedialog import askdirectory
 
 class Zhihu(object):
     def __init__(self, userToken):
-        self.path = askdirectory(title='选择信息保存文件夹')skdirectory()
+        self.path = askdirectory(title='选择信息保存文件夹')
         self.userToken = userToken
         self.session = requests.session()
         self.headers = {

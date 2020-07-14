@@ -2,6 +2,7 @@ import json
 import os
 import re
 import requests
+from tkinter.filedialog import askdirectory
 
 class Github(object):
     def __init__(self, username):
@@ -9,6 +10,7 @@ class Github(object):
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
         }
+        self.path = askdirectory(title='选择信息保存文件夹')
 
 
 
@@ -17,7 +19,7 @@ class Github(object):
         url = 'https://api.github.com/users/' + self.username
         resp = requests.get(url, headers=self.headers)
         # print(resp.text)
-        file_path = os.path.join(os.path.dirname(__file__) + '/user_infomation.json')
+        file_path = self.path + '/user_infomation.json'
         with open(file_path, 'w') as f:
             f.write(resp.text.encode("gbk", 'ignore').decode("gbk", "ignore"))
         return file_path
@@ -27,7 +29,7 @@ class Github(object):
         url = 'https://api.github.com/users/' + self.username + '/repos'
         resp = requests.get(url, headers=self.headers)
         # print(resp.text)
-        file_path = os.path.join(os.path.dirname(__file__) + '/user_repository.json')
+        file_path = self.path + '/user_repository.json'
         with open(file_path, 'w') as f:
             f.write(resp.text.encode("gbk", 'ignore').decode("gbk", "ignore"))
         return file_path
@@ -37,7 +39,7 @@ class Github(object):
         url = 'https://api.github.com/users/' + self.username + '/following'
         resp = requests.get(url, headers=self.headers)
         # print(resp.text)
-        file_path = os.path.join(os.path.dirname(__file__) + '/user_following.json')
+        file_path = self.path + '/user_following.json'
         with open(file_path, 'w') as f:
             f.write(resp.text.encode("gbk", 'ignore').decode("gbk", "ignore"))
         return file_path
@@ -47,7 +49,7 @@ class Github(object):
         url = 'https://api.github.com/users/' + self.username + '/followers'
         resp = requests.get(url, headers=self.headers)
         # print(resp.text)
-        file_path = os.path.join(os.path.dirname(__file__) + '/user_followers.json')
+        file_path = self.path + '/user_followers.json'
         with open(file_path, 'w') as f:
             f.write(resp.text.encode("gbk", 'ignore').decode("gbk", "ignore"))
         return file_path
@@ -57,7 +59,7 @@ class Github(object):
         url = 'https://api.github.com/users/' + self.username + '/received_events'
         resp = requests.get(url, headers=self.headers)
         # print(resp.text)
-        file_path = os.path.join(os.path.dirname(__file__) + '/user_activity.json')
+        file_path = self.path + '/user_activity.json'
         with open(file_path, 'w') as f:
             f.write(resp.text.encode("gbk", 'ignore').decode("gbk", "ignore"))
         return file_path
@@ -73,7 +75,7 @@ class Github(object):
             repo_detail.append(detail.text.encode("gbk", 'ignore').decode("gbk", "ignore"))
             print('正在下载仓库信息 >>> ', name['name'])
         print(repo_detail)
-        file_path = os.path.join(os.path.dirname(__file__) + '/user_all_repos_detail.json')
+        file_path = self.path + '/user_all_repos_detail.json'
         with open(file_path, 'w') as f:
             f.write(str(repo_detail))
         return file_path

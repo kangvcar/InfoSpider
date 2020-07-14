@@ -574,7 +574,6 @@ class GithubButton(Button):
         dlg = wx.TextEntryDialog(None, u"请输入Github用户名:", u"获取Github用户信息")
         if dlg.ShowModal() == wx.ID_OK:
             message = dlg.GetValue()  # 获取文本框中输入的值
-            # print(message)
         dlg.Destroy()
         from github.main import Github
         github = Github(message)
@@ -585,14 +584,11 @@ class GithubButton(Button):
             github.get_user_following()
             github.get_user_followers()
             github.get_user_activity()
+            # github.get_user_repos_detail()
             self.updateStatus(self.frame, 1)
         except:
             self.updateStatus(self.frame, 2)
             pass
-        # try:
-            # github.get_user_repos_detail()
-        # except:
-        #     pass
 
 
 class QqButton(Button):
