@@ -703,7 +703,34 @@ class WechatmomentButton(Button):
 
 class MomentsalbumButton(Button):
     def OnClick(self, event):
-        pass
+        # 弹窗提示操作步骤
+        messagestr = u'''
+--------------------------使用须知：---------------------------------
+首先，关注微信公众号【出书啦】，然后根据公众号指引开始制作微信书。
+该过程中【出书啦】小编添加你为好友，然后你将朋友圈开放给他看，等一会后采集完毕后，小编会发给你一个<专属链接>，这个链接里面的内容就是你的个人朋友圈数据。你必须先获得该链接才能进行本程序的下一步！
+
+--------------------------再次确认---------------------------------
+请确保你已经获得公众号【出书啦】小编发给你的包含你的朋友圈数据的链接！！！
+链接类似：https://chushu.la/book/*********
+
+已获得链接点击“是”按钮，否则点击“否”。
+        '''
+        dlg = wx.MessageDialog(None, messagestr, u"操作指引", wx.YES_NO | wx.ICON_INFORMATION)
+        if dlg.ShowModal() == wx.ID_YES:
+            dlg.Close()
+
+            from moments_album.main import Momentsablum
+            try:
+                self.updateStatus(self.frame, 0)
+                ma = Momentsablum()
+                ma.make_album()
+                self.updateStatus(self.frame, 1)
+            except:
+                self.updateStatus(self.frame, 2)
+                pass
+        else:
+            dlg.Close()
+
 
 class Item:
     x = 0

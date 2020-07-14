@@ -33,6 +33,8 @@
 
 3. 安装依赖库 `./install_deps.sh`    (Windows下只需`pip install -r requirements.txt`)
 
+!> 目前该工具箱仅在Windows环境下正常运行, 还未在Linux/MacOS环境下进行测试, 后续更新会兼容多平台.
+
 ### 工具运行
 
 1. 进入 tools 目录
@@ -2038,15 +2040,37 @@
 ***
 ## 生成朋友圈相册
 
+!> **说明**：使用该功能前需要您先获取包含您朋友圈数据的链接, 参照使用步骤说明.
 
-<details>
-<summary>.json 👉 </summary>
+### 使用步骤
 
-```json
+1. 点击微信公众号“**出书啦**”
+2. 根据公众号指引添加“**出书啦**”小编为你的好友，然后你将朋友圈开放给他看
+3. 小编会自动开始采集你的朋友圈数据，采集完毕后，小编会发给你一个“**专属链接**”
+4. 这个“**专属链接**”里面的内容就是你的个人朋友圈数据。
 
-```
+!> 你必须先获得该“**专属链接**”才能进行本程序的下一步！
 
-</details>
+5. 点击**生成朋友圈相册**数据源按钮
+
+    ![momentsalbum1.png](https://i.loli.net/2020/07/14/KZ61TPzSCDqBg5I.png ':size=10%')
+
+6. 选择数据保存路径
+
+    ![Ua6cE8.png](https://s1.ax1x.com/2020/07/14/Ua6cE8.png ':size=50%')
+
+7. 等待浏览器自动打开，并在弹窗中输入你的“**专属链接**”, 点击确定即可自动生成相册
+
+    ![momentsalbum3.png](https://i.loli.net/2020/07/14/mQBPSKJkTVqZvCg.png ':size=50%')
+
+8. 查看爬取的数据 (PDF格式)
+
+    ![momentsalbum4.png](https://i.loli.net/2020/07/14/pcQvykVh6KrjeHS.png ':size=50%')
+
+
+### 数据说明
+
+自行查看生成的PDF文件
 
 ***
 # License
