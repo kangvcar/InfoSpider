@@ -775,6 +775,7 @@ if __name__ == '__main__':
     """When this module is run (not imported) then create the app, the
     frame, show it, and start the event loop."""
     app = wx.App()
-    frm = CreateFrame(None, title='INFO-SPIDER', size=(800, 700))
+    frm = CreateFrame(None, title='INFO-SPIDER  ————  拿回你的个人信息', size=(800, 700), pos = (20,20))
+    frm.SetBackgroundColour('#E1E1E1')
     frm.Show()
     app.MainLoop()

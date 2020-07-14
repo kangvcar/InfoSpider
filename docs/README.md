@@ -19,6 +19,9 @@
 
 [INFO-SPIDER](https://github.com/kangvcar/InfoSpider) 旨在安全快捷的帮助用户拿回自己的数据，工具代码开源，流程透明。
 
+## Screenshot
+
+![screenshot.png](https://i.loli.net/2020/07/14/PCzXGvwVyJW1aIb.png ':size=70%')
 
 ## QuickStart
 
