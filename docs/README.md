@@ -29,7 +29,7 @@
 
 1. 安装[python3](https://www.python.org/downloads/)和Chrome浏览器
 
-2. [安装与Chrome浏览器相同版本的驱动](http://chromedriver.storage.googleapis.com/index.html)
+2. 安装与Chrome浏览器相同版本的[驱动](http://chromedriver.storage.googleapis.com/index.html)
 
 3. 安装依赖库 `./install_deps.sh`    (Windows下只需`pip install -r requirements.txt`)
 
@@ -75,6 +75,7 @@
 # **使用说明**
 
 ## GitHub
+
 !> **说明**：无需登录账号, 输入GitHub用户名即可 (如 kangvcar ) .
 
 ### 使用步骤
@@ -2033,31 +2034,6 @@
 ```
 
 </details>
-
-***
-## QQ邮箱
-
-
-***
-## 网易邮箱
-
-
-
-***
-## 京东
-
-***
-## 淘宝
-
-***
-## 支付宝
-
-
-***
-## 微信好友
-
-***
-## 微信朋友圈
 
 ***
 ## 生成朋友圈相册
