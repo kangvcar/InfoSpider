@@ -94,19 +94,19 @@
 
 1. 点击**京东**数据源按钮
 
-    ![jd1.png](https://i.loli.net/2020/07/15/huZyEaSBgF4xrvH.png)
+    ![jd1.png](https://i.loli.net/2020/07/15/huZyEaSBgF4xrvH.png ':size=10%')
 
 2. 在弹出的浏览器中登录京东(建议扫码登录)
 
-    ![jd2.png](https://i.loli.net/2020/07/15/XZ7Kn84tC2dA1qg.png)
+    ![jd2.png](https://i.loli.net/2020/07/15/XZ7Kn84tC2dA1qg.png ':size=50%')
 
 3. 选择数据保存路径
 
-    ![jd3.png](https://i.loli.net/2020/07/15/rzjg3bWlq4s5eyi.png)
+    ![jd3.png](https://i.loli.net/2020/07/15/rzjg3bWlq4s5eyi.png ':size=50%')
 
 4. 查看爬取的数据 (json格式)
 
-    ![jd4.png](https://i.loli.net/2020/07/15/1e5hcOqjPWdzXUp.png)
+    ![jd4.png](https://i.loli.net/2020/07/15/1e5hcOqjPWdzXUp.png ':size=50%')
 
 ### 数据说明
 
