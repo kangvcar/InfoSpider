@@ -53,21 +53,31 @@
 
 ## 数据源
 
-- [x] 淘宝
 - [x] 京东
-- [x] 支付宝
-- [x] 三大运营商
-- [x] 公积金
-- [x] 学信网
-- [x] 邮箱
-- [x] 携程
+- [ ] 淘宝
 - [x] GitHub
 - [x] QQ好友
 - [x] QQ群
 - [x] 知乎
-- [x] 微信
+- [ ] Twitter
+- [ ] 微信好友
+- [ ] 微信朋友圈
 - [x] 网易云音乐
+- [x] 生成朋友圈相册
 - [x] 浏览器浏览历史
+- [ ] 支付宝
+- [ ] 中国移动
+- [ ] 中国联通
+- [ ] 中国电信
+- [ ] 公积金
+- [ ] 学信网
+- [ ] 网易邮箱
+- [ ] 携程
+- [ ] QQ邮箱
+- [ ] Hotmail
+- [ ] 12306
+- [ ] 阿里邮箱
+- [ ] 新浪邮箱
 - [ ] 社保
 - [ ] 保单
 - [ ] 健康报告
@@ -76,6 +86,300 @@
 
 # **使用说明**
 
+## 京东
+
+!> **说明**：需登录账号 (建议扫码登录).
+
+### 使用步骤
+
+1. 点击**京东**数据源按钮
+
+    ![jd1.png](https://i.loli.net/2020/07/15/huZyEaSBgF4xrvH.png)
+
+2. 在弹出的浏览器中登录京东(建议扫码登录)
+
+    ![jd2.png](https://i.loli.net/2020/07/15/XZ7Kn84tC2dA1qg.png)
+
+3. 选择数据保存路径
+
+    ![jd3.png](https://i.loli.net/2020/07/15/rzjg3bWlq4s5eyi.png)
+
+4. 查看爬取的数据 (json格式)
+
+    ![jd4.png](https://i.loli.net/2020/07/15/1e5hcOqjPWdzXUp.png)
+
+### 数据说明
+
+?> 👍 由于数据信息过长, 这里只作主要数据项说明, **点击展开查看示例**
+
+<details>
+<summary>addr.json 👉 你的地址信息</summary>
+
+```json
+[
+    {
+        "name": "************",
+        "addr": "************",
+        "detail_addr": "************",
+        "mobile": "13*********",
+        "tel": "************",
+        "email": "************"
+    },
+    ...
+]
+```
+
+</details>
+
+<details>
+<summary>creditData.json 👉 你的信用数据</summary>
+
+```json
+{
+    "isOverdue": 0,
+    "totalDebt": 0.00,
+    "creditLimit": 1000.00,
+    "jtTotalDebt": "0.00",
+    "jtCreditLimit": "0.00",
+    "tourCreditLimit": 1000.00,
+    "actStatus": 3,
+    "jieqianActStatus": 2,
+    "creditWaitPaySeven": "0.00",
+    "creditWaitPayPercent": 0,
+    "tourCreditWaitPaySeven": 0.00,
+    "jtAvailableLimit": "0.00",
+    "availableLimit": 1000.00,
+    "jtCreditWaitPay": "0.00",
+    "tourCreditWaitPayPercent": 0,
+    "tourActStatus": 3,
+    "creditWaitPay": "0.00",
+    "tourTotalDebt": "0.00",
+    "tourCreditWaitPay": 0.00,
+    "jtCreditWaitPaySeven": "0.00",
+    "delinquencyBalance": "0.00",
+    "jtCreditWaitPayPercent": 0,
+    "jtDelinquencyBalance": "0.00",
+    "tourDelinquencyBalance": 0.00,
+    "jtActStatus": 2,
+    "tourAvailableLimit": 1050.00
+}
+```
+
+</details>
+
+<details>
+<summary>finance_income.json 👉 你的收入信息</summary>
+
+```json
+{
+    "data": {
+        "incomeYes": 0,
+        "incomeTotal": 0.00,
+        "holdAmount": null,
+        "incomeToday": null
+    }
+}
+```
+
+</details>
+
+<details>
+<summary>follow_products.json 👉 你关注的商品信息</summary>
+
+```json
+[
+    {
+        "name": "Redmi 10X 5G ******", 
+        "url": "******", 
+        "price": "1599.00", 
+        "status": "100%"
+    },
+    ...
+] 
+```
+
+</details>
+
+<details>
+<summary>follow_shops.json 👉 你关注的店铺信息</summary>
+
+```json
+[
+    {
+        "name": "**********",
+        "url": "//honor.jd.com"
+    },
+    ...
+]
+```
+
+</details>
+
+<details>
+<summary>income.json 👉 你每天的收入信息</summary>
+
+```json
+{
+    "maxIncome": 10,
+    "incomeData": [
+        {
+            "date": "2020-05-10",
+            "income": 0
+        },
+        {
+            "date": "2020-05-11",
+            "income": 0
+        },
+        ...
+    ]
+}
+```
+
+</details>
+
+<details>
+<summary>jd_orders_2018.json 👉 你2018年的所有订单信息</summary>
+
+```json
+[
+    {
+        "mainProductId": 0,
+        "wareType": 0,
+        "jiFen": 0,
+        "stock": 5,
+        "cardKey": null,
+        "discountPrice": 0,
+        "stockName": null,
+        "singleShouldPrice": null,
+        "jingDouNum": 0,
+        "cid": 0,
+        "price": null,
+        "imgPath": "//img10.360buyimg.com/N6/s60x60_jfs/t1/59734/28/571/259980/5ced2888E43337972/5c882bf17abbcd2b.jpg",
+        "productId": 1914332,
+        "num": 0,
+        "wareUrl": "//item.jd.com/1914332.html",
+        "categoryString": "670;686;689",
+        "secondHandNameAndUrl": "\u5356\u4e86\u6362\u94b1,//huishou.paipai.com",
+        "snCode": null,
+        "yb": false,
+        "isShowHuiShouJiuJiLink": 0,
+        "showSellForMoneyLink": 1,
+        "cxlFlag": 0,
+        "dynamicIcon": 0,
+        "giftWare": false,
+        "color": null,
+        "name": "\u7f57\u6280\uff08Logitech\uff09K380 \u952e\u76d8 \u65e0\u7ebf\u84dd\u7259\u952e\u76d8 \u529e\u516c\u952e\u76d8 \u5973\u6027 \u4fbf\u643a \u8d85\u8584\u952e\u76d8 \u7b14\u8bb0\u672c\u952e\u76d8 \u6df1\u7070\u8272",
+        "state": 1,
+        "goods-number": "",
+        "consignee tooltip": "",
+        "amount": "",
+        "order-shop": ""
+    },
+    ...
+]
+```
+
+</details>
+
+<details>
+<summary>jiaoyi_bill.json 👉 你的发票信息</summary>
+
+```json
+{
+    "resultList": {
+        "list": [],
+        "totalPage": 3,
+        "count": 3
+    },
+    "account_merged": 2,
+    "pageView": {
+        "list": [],
+        "totalPage": 0,
+        "count": 0
+    },
+    "pin": "jd_404e59e6f8dd8",
+    "resultCount": 3
+}
+```
+
+</details>
+
+<details>
+<summary>user_info.json 👉 你的个人基本信息</summary>
+
+```json
+[
+    {
+        "isAuthenticated": 1,
+        "userNickName": "ddddddr",
+        "userRank": "Diamonds",
+        "isEmploy": 0,
+        "isStudent": 1,
+        "flagInfo": "10000000000003303000000000010500100100002000006300001000000080000000000000000000000000000000000000",
+        "headImg": "http://storage.360buyimg.com/i.imageUpload/6a645f3430346535396536dd1363831353232323232343432393732_mid.jpg",
+        "jdScore": "1114",
+        "plusStage": "TRYEXPIRE"
+    }
+]
+```
+
+</details>
+
+<details>
+<summary>wallet.json 👉 你的钱包信息</summary>
+
+```json
+{
+    "data": {
+        "walletMoney": 1.00,
+        "freezeMoney": 0.00,
+        "walletMoneyAvailable": 1.00,
+        "balance": 0,
+        "balanceFreeze": 0,
+        "balanceAvailable": 0,
+        "currIncome": 0.00,
+        "totalIncome": 0.00,
+        "borrow": 0,
+        "investAmount": null,
+        "totalMoney": 1.00,
+        "rate": 0.00,
+        "currency": null,
+        "fundIncome": 0.00,
+        "finance": 0.00,
+        "fund": 0.00,
+        "billoanKeep": 0,
+        "insuranceKeep": 0,
+        "bankKeep": 0,
+        "fundsKeep": 0,
+        "incomeSumYesterday": 0.00,
+        "incomeTotal": 0.00,
+        "incomeFinanceYesterday": 0,
+        "incomeFinanceSum": 0.00,
+        "p2pAmount": 0,
+        "trustAmount": 0,
+        "firmFinance": 0,
+        "secondaryAmount": 0,
+        "lastestIncomeFlag": "0",
+        "lecaiAmount": null,
+        "stockAmount": 0,
+        "jgtAmount": 0,
+        "cmaAmount": 0,
+        "pensionAmount": null,
+        "gdScrtKeep": 0,
+        "ztAmount": 0,
+        "mmlc": 0,
+        "balancePercent": 0,
+        "fundPercent": 0,
+        "walletMoneyAvailablePercent": 100
+    },
+    "enableProof": "enable",
+    "pick": "****"
+}
+```
+
+</details>
+
+***
 ## GitHub
 
 !> **说明**：无需登录账号, 输入GitHub用户名即可 (如 kangvcar ) .

@@ -47,18 +47,20 @@ class Button:
         btn_jd = wx.BitmapButton(pnl, -1, pic_jd, pos=(item.x, item.y), size=(100, 100))
         # wx.StaticText(pnl, -1, item.title, pos=(item.x + 30, item.y + 110))
         wx.StaticText(pnl, -1, item.title, pos=(item.x, item.y+110), size=(100, 15), style=wx.ALIGN_CENTRE)
-        # wx.TipWindow(pnl, "我来提示你！", maxLength=10).SetBoundingRect(wx.Rect(item.x, item.y, 100, 100))
         self.frame = frame
         self.frame.Bind(wx.EVT_BUTTON, self.OnClick, btn_jd)
 
     def Automation(self, url):
         option = ChromeOptions()
         option.add_experimental_option('excludeSwitches', ['enable-automation'])
+        option.add_experimental_option('useAutomationExtension', False)
         self.driver = webdriver.Chrome(options=option)
+        self.driver.execute_cdp_cmd('Page.addScriptToEvaluateOnNewDocument', {
+            'source': 'Object.defineProperty(navigator, "webdriver", {get:()=>undefined})'
+        })
         url = str(url)
-        self.driver.delete_all_cookies()
         self.driver.get(url)
-        
+        time.sleep(10)
 
     def getCookie3(self, login_url, quit):
         self.updateStatus(self.frame,0)
@@ -121,38 +123,20 @@ class Button:
 
 
     def getCookie(self, login):
-        while True:
-            try:
-                if self.driver.get_log('driver')[0]['level'] == "WARNING":
-                    return 0
-            except:
-                pass
-
-            time.sleep(1)
-
-            try:
-                # if not login -> exception
-                self.driver.find_element_by_css_selector(login)
-            except Exception as e:
-                #print(e)
-                pass
-            else:
-                cookie_list = self.driver.get_cookies()
-                self.driver.close()
-
-                res = ''
-                for cookie in cookie_list:
-                    res += cookie.get('name') + '=' + cookie.get('value').replace('\"', '') + ';'
-                return res
+        cookie_list = self.driver.get_cookies()
+        res = ''
+        for cookie in cookie_list:
+            res += cookie.get('name') + '=' + cookie.get('value').replace('\"', '') + ';'
+        return res
 
     def updateStatus(self, frame, status):
         if status == 0:
             frame.SetStatusText("爬取中...", 1)
         elif status == 1:
-            # self.driver.quit()
+            self.driver.quit()
             frame.SetStatusText("爬取完成！", 1)
         else:
-            # self.driver.quit()
+            self.driver.quit()
             frame.SetStatusText("爬取失败！", 1)
 
 class JdButton(Button):
@@ -162,26 +146,27 @@ class JdButton(Button):
         self.Automation(url)
         login_element = "[class='user_logout']"
         cookie = self.getCookie(login_element)
-        #print(cookie)
         if cookie:
             try:
                 spider = JSpider(cookie, DATA_DIR)
                 spider.getAndStoreBoughtItems()
-                '''
+                
                 spider.get_creditData()
                 spider.get_browseDataNew()
                 spider.get_income()
                 spider.get_user_info()
                 spider.get_addr()
+                
                 #spider.get_YHK()
                 spider.get_xjk_info()
                 spider.get_finance_income()
-                spider.get_GB_num()
+                # spider.get_GB_num()
                 spider.get_JY_bill()
                 spider.get_follow_shops()
                 spider.get_follow_products()
-                spider.get_cart()
+                # spider.get_cart()
                 spider.get_orders()
+                '''
                 '''
                 self.updateStatus(self.frame, 1)
             except Exception as e:

@@ -1,20 +1,21 @@
 # coding: utf8
-
 import json
 import os
 import re
-
+import sys
 import requests
 from lxml import etree
-
 import datetime
 import bs4
-
 from pprint import pprint
+from tkinter.filedialog import askdirectory
 
 class JSpider(object):
     def __init__(self, cookie, data_dir="./"):
-        self.data_dir = data_dir
+        # self.data_dir = data_dir
+        self.data_dir = askdirectory(title='选择信息保存文件夹')
+        if str(self.data_dir) == "":
+            sys.exit(1)
         self.session = requests.session()
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
@@ -45,10 +46,12 @@ class JSpider(object):
     def write_json(self, name, str):
         #file_path = os.path.join(os.path.dirname(__file__) + '/' + name)
         try:
-            os.mkdir(os.path.join(self.data_dir, "./jd"))
+            # os.mkdir(os.path.join(self.data_dir, "./jd"))
+            os.mkdir(os.path.join(self.data_dir))
         except OSError:
             pass
-        file_path = os.path.join(self.data_dir, './jd/' + name)
+        # file_path = os.path.join(self.data_dir, './jd/' + name)
+        file_path = os.path.join(self.data_dir, name)
         with open(file_path, 'w') as f:
             f.write(str)
 
@@ -490,7 +493,8 @@ class JSpider(object):
     
     def writeDatatableIntoFile(self, filename, datatable):
 
-        file_dic = os.path.join(self.data_dir, "./jd/")
+        # file_dic = os.path.join(self.data_dir, "./jd/")
+        file_dic = os.path.join(self.data_dir)
         if not os.path.exists(file_dic):
             os.mkdir(file_dic)
         with open(os.path.join(file_dic+filename), "w+") as f:
