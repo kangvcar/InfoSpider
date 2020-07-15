@@ -318,7 +318,7 @@ class LiantongButton(Button):
             url = 'https://uac.10010.com/portal/mallLogin.jsp?redirectURL=http://iservice.10010.com/e4/query/basic/personal_xx_iframe.html'
             self.Automation(url)
             while 1:
-                time.sleep(0.2)
+                time.sleep(1)
                 if self.driver.current_url == 'http://iservice.10010.com/e4/query/basic/personal_xx_iframe.html':
                     self.driver.minimize_window()
                     time.sleep(5)
@@ -330,7 +330,7 @@ class LiantongButton(Button):
                     break
             try:
                 y = LianTong(cookie_str)
-                y.get_user_info()
+                # y.get_user_info()
                 y.get_bill_info()
                 self.updateStatus(self.frame,1)
             except Exception:

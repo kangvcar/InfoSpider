@@ -1,18 +1,19 @@
 import json
 import os
 import re
+import sys
 import xlsxwriter
-
 import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
-
 # 禁用安全请求警告
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
-
-
+from tkinter.filedialog import askdirectory
 
 class LianTong(object):
     def __init__(self, cookie):
+        self.path = askdirectory(title='选择信息保存文件夹')
+        if str(self.path) == "":
+            sys.exit(1)
         self.session = requests.session()
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
@@ -28,13 +29,11 @@ class LianTong(object):
         self.mobile = None
 
     def get_user_info(self):
-        # resp = self.session.get(url, headers=self.headers, verify=False)
         import time
-        # data = int(time.time())
         url = 'http://iservice.10010.com/e3/static/query/searchPerInfoUser/'
         resp = self.session.post(url, headers=self.headers, verify=False)
-        file_path = os.path.join(os.path.dirname(__file__) + '/' + '10010_user.json')
-        with open(file_path, 'w') as f:
+        file_path = os.path.join(self.path + '/10010_user_info.json')
+        with open(file_path, 'w', encoding='utf-8') as f:
             f.write(resp.content.decode())
 
     # 查询账单 http://iservice.10010.com/e3/static/wohistory/bill?dat=201902 可传入时间
@@ -43,8 +42,9 @@ class LianTong(object):
             url = 'http://iservice.10010.com/e3/static/wohistory/bill?dat={}'.format(dat)
             self.headers['Referer'] = 'http://iservice.10010.com/e4/skip.html?menuCode=000100020001'
             resp = self.session.post(url, data='', headers=self.headers, verify=False)
-            file_path = os.path.join(os.path.dirname(__file__) + '/' + '10010_bill_info.json')
-            with open(file_path, 'w') as f:
+            print(resp)
+            file_path = os.path.join(self.path + '/10010_bill_info.json')
+            with open(file_path, 'w', encoding='utf-8') as f:
                 f.write(resp.content.decode())
         except Exception:
             # 捕获到异常说明是短信登录，非服务密码登录
@@ -53,6 +53,9 @@ class LianTong(object):
 
 class DianXin(object):
     def __init__(self, cookie):
+        self.path = askdirectory(title='选择信息保存文件夹')
+        if str(self.path) == "":
+            sys.exit(1)
         self.session = requests.session()
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
