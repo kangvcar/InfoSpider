@@ -67,7 +67,7 @@
 - [x] 知乎
 - [x] 微信
 - [x] 网易云音乐
-- [x] 浏览器历史
+- [x] 浏览器浏览历史
 - [ ] 社保
 - [ ] 保单
 - [ ] 健康报告
@@ -2071,6 +2071,55 @@
 ### 数据说明
 
 自行查看生成的PDF文件
+
+****
+## Chrome历史记录
+
+!> **说明**：无需登录账号, 只支持Windows系统，且默认History数据库路径为`C:\Users\<Username>\AppData\Local\Google\Chrome\User Data\Default`
+
+### 使用步骤
+1. 点击**Chrome历史记录**数据源按钮
+
+    ![chrome1.png](https://i.loli.net/2020/07/15/2Jav6139lgHuNxI.png ':size=10%')
+
+2. 选择数据保存路径
+
+    ![chrome2.png](https://i.loli.net/2020/07/15/NQUxTyP2GA5iD9I.png ':size=50%')
+
+3. 查看爬取的数据 (json格式)
+
+    ![chrome3.png](https://i.loli.net/2020/07/15/KEWmrb39a7ZM25H.png ':size=50%')
+
+### 数据说明
+
+<details>
+<summary>browser_data.json 👉 你的Chrome浏览器历史记录信息</summary>
+
+```json
+[
+    {
+    "urls.id": 994, 
+    "urls.url": "https://www.youtube.com/?gl=HK&tab=r1", 
+    "urls.title": "(31) YouTube", 
+    "urls.visit_count": 38, 
+    "urls.last_visit_time": "2020-07-14 22:21:44", 
+    "visits.visit_time": "2020-07-09 12:20:26", 
+    "visits.visit_duration": 0
+    }, 
+    {
+    "urls.id": 999, 
+    "urls.url": "http://www.baidu.com/", 
+    "urls.title": "百度一下，你就知道", 
+    "urls.visit_count": 2, 
+    "urls.last_visit_time": "2020-07-12 13:27:32", 
+    "visits.visit_time": "2020-07-09 18:34:07", 
+    "visits.visit_duration": 0
+    }, 
+    ...
+]
+```
+
+</details>
 
 ***
 # License
