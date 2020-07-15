@@ -731,6 +731,16 @@ class MomentsalbumButton(Button):
         else:
             dlg.Close()
 
+class BrowserButton(Button):
+    def OnClick(self, event):
+        from browser.main import Browserhistory
+        try:
+            self.updateStatus(self.frame, 0)
+            bh = Browserhistory()
+            self.updateStatus(self.frame, 1)
+        except:
+            self.updateStatus(self.frame, 2)
+            pass
 
 class Item:
     x = 0
@@ -793,6 +803,7 @@ class CreateFrame(wx.Frame):
         WechatButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep*3, '微信好友', 'resource/icon/wechat.png'))
         WechatmomentButton(self, self.pnl, Item(start_x+xstep*3, start_y+ystep*3, '微信朋友圈', 'resource/icon/wechat-moments.png'))
         MomentsalbumButton(self, self.pnl, Item(start_x+xstep*4, start_y+ystep*3, '生成朋友圈相册', 'resource/icon/wechat-moments-album.png'))
+        BrowserButton(self, self.pnl, Item(start_x+xstep*5, start_y+ystep*3, 'Chrome历史记录', 'resource/icon/chrome-logo.png'))
 
         
         
