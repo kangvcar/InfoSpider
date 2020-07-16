@@ -11,7 +11,7 @@ from selenium.webdriver import ChromeOptions
 import requests
 from lxml import etree
 from selenium.webdriver.support.wait import WebDriverWait
-
+from tkinter.filedialog import askdirectory
 
 class YSpider(object):
     def gen_session(self, cookie):
@@ -29,11 +29,14 @@ class YSpider(object):
         requests.utils.add_dict_to_cookiejar(self.session.cookies, cookie_dict)
 
     def write_json(self, name, str):
-        file_path = os.path.join(os.path.dirname(__file__) + '/' + name)
-        with open(file_path, 'w') as f:
+        # file_path = os.path.join(os.path.dirname(__file__) + '/' + name)
+        with open(name, 'w') as f:
             f.write(str)
 
     def qq_mail(self, cookie, sid):
+        self.path = askdirectory(title='选择信息保存文件夹')
+        if str(self.path) == "":
+            sys.exit(1)
         pn = 0
         self.gen_session(cookie)
         while 1:
@@ -41,9 +44,11 @@ class YSpider(object):
                 pn, sid)
             pn += 1
             resp = self.session.get(url, headers=self.headers, verify=False)
+            print(resp, '>>>>>> 正在爬取第', pn, '页')
             try:
                 etree.HTML(resp.content.decode('gbk')).xpath('//a[text()="下一页"]')[0]
             except Exception:
+                print('Done. >>>>>> 爬取完成')
                 break
             obj_list = etree.HTML(resp.content.decode('gbk')).xpath('//div[@id="div_showbefore"]/table')
             json_list = []
@@ -65,13 +70,15 @@ class YSpider(object):
                     content = ''.join(detail_resp.xpath('//div[@id="contentDiv"]//text()'))
                     item['content'] = re.sub(r'[\t\n\s]', '', content)
                     json_list.append(item)
+                    print('1' + item)
                 except Exception:
                     continue
             if json_list == []:
                 time.sleep(2)
                 pn = pn - 1
             else:
-                self.write_json('qqmail_' + str(pn) + '.json', json.dumps(json_list))
+                self.write_json(self.path + os.sep + 'qqmail_' + str(pn) + '.json', json.dumps(json_list))
+            # break
 
     def sinamail(self, cookie):
         self.gen_session(cookie)

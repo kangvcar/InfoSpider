@@ -424,7 +424,12 @@ class QqmailButton(Button):
                     cookie_str = ''
                     for s in get_cookies:
                         cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
-                    sid = re.findall('sid=(\w+)&?', self.driver.current_url)[0]
+                    # sid = re.findall('sid=(\w+)&?', self.driver.current_url)[0]
+                    from urllib import parse
+                    sid = parse.parse_qs(parse.urlparse(self.driver.current_url).query)['sid'][0]
+                    # sid = 'svj8Q-vN5z8vd0cY'
+                    print(cookie_str)
+                    print(sid)
                     break
             try:
                 y = YSpider()
@@ -678,9 +683,37 @@ class CloudmusicButton(Button):
             self.updateStatus(self.frame, 2)
             pass
 
+
+class BilibiliButton(Button):
+    def OnClick(self, event):
+        self.updateStatus(self.frame,0)
+        url = 'https://passport.bilibili.com/login'
+        self.Automation(url)
+        while 1:
+            time.sleep(0.2)
+            if self.driver.current_url != url:
+                get_cookies = self.driver.get_cookies()
+                cookie_str = ''
+                for s in get_cookies:
+                    cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
+                self.driver.quit()
+                break
+        from bilibili.main import BilibiliHistory
+        bili = BilibiliHistory(cookie_str)
+        self.updateStatus(self.frame,1)
+
 class WechatButton(Button):
     def OnClick(self, event):
-        pass
+        # 弹窗提示操作步骤
+        messagestr = u'''
+目前该功能仅适用于开发者测试用途.
+
+================注意================
+非专业人员使用该功能可能会导致微信禁用你的网页登录功能
+        '''
+        dlg = wx.MessageDialog(None, messagestr, u"使用须知", wx.YES_NO | wx.ICON_INFORMATION)
+        if dlg.ShowModal() == wx.ID_YES:
+            dlg.Close()
 
 class WechatmomentButton(Button):
     def OnClick(self, event):
@@ -781,7 +814,8 @@ class CreateFrame(wx.Frame):
         LiantongButton(self, self.pnl, Item(start_x +xstep*2, start_y+ystep*2, '联通', 'resource/icon/liantong.png'))
         DianxingButton(self, self.pnl, Item(start_x +xstep*3, start_y+ystep*2, '电信', 'resource/icon/dianxin.png'))
         GjjButton(self, self.pnl, Item(start_x +xstep*4, start_y+ystep*2, '公积金', 'resource/icon/gjj.png'))
-        AlimailButton(self, self.pnl, Item(start_x+xstep*5, start_y+ystep*2, '阿里邮箱', 'resource/icon/alimail.png'))
+        BilibiliButton(self, self.pnl, Item(start_x+xstep*5, start_y+ystep*2, '哔哩哔哩', 'resource/icon/bilibili.png'))
+        # AlimailButton(self, self.pnl, Item(start_x+xstep*5, start_y+ystep*2, '阿里邮箱', 'resource/icon/alimail.png'))
         ## row 4
         CloudmusicButton(self, self.pnl, Item(start_x, start_y+ystep*3, '网易云音乐', 'resource/icon/netease_cloudmusic.png'))
         XlmailButton(self, self.pnl, Item(start_x+xstep, start_y+ystep*3, '新浪邮箱', 'resource/icon/sina.png'))
@@ -802,3 +836,4 @@ if __name__ == '__main__':
     frm.SetBackgroundColour('#E1E1E1')
     frm.Show()
     app.MainLoop()
+

@@ -59,25 +59,26 @@
 - [x] QQ好友
 - [x] QQ群
 - [x] 知乎
-- [ ] Twitter
+- [x] 哔哩哔哩
 - [ ] 微信好友
 - [ ] 微信朋友圈
 - [x] 网易云音乐
 - [x] 生成朋友圈相册
 - [x] 浏览器浏览历史
 - [ ] 支付宝
-- [x] 中国移动
-- [ ] 中国联通
+- [ ] 中国移动
+- [x] 中国联通
 - [ ] 中国电信
+- [ ] 12306
 - [ ] 公积金
 - [ ] 学信网
 - [ ] 网易邮箱
 - [ ] 携程
-- [ ] QQ邮箱
+- [x] QQ邮箱
 - [ ] Hotmail
-- [ ] 12306
 - [ ] 阿里邮箱
 - [ ] 新浪邮箱
+- [ ] Twitter
 - [ ] 社保
 - [ ] 保单
 - [ ] 健康报告
@@ -379,6 +380,201 @@
 
 </details>
 
+****
+## 哔哩哔哩
+
+!> **说明**：需登录账号 (建议扫码登录).
+
+### 使用步骤
+
+1. 点击**哔哩哔哩**数据源按钮
+
+    ![bilibili1.png](https://i.loli.net/2020/07/16/DuEHvpRKFPThkLZ.png ':size=10%')
+
+2. 在弹出的浏览器中登录哔哩哔哩(建议扫码登录)
+
+    ![bilibili2.png](https://i.loli.net/2020/07/16/amSnvbrHMjN69Bc.png ':size=50%')
+
+3. 选择数据保存路径
+
+    ![bilibili3.png](https://i.loli.net/2020/07/16/wGeFIENZMv8Lhgq.png ':size=50%')
+
+4. 查看爬取的数据 (json格式)
+
+    ![bilibili4.png](https://i.loli.net/2020/07/16/nEUlN1p2BrvkLCD.png ':size=50%')
+
+### 数据说明
+
+?> 👍 由于数据信息过长, 这里只作主要数据项说明, **点击展开查看示例**
+
+<details>
+<summary>user_info.json 👉 你的哔哩哔哩个人信息</summary>
+
+```json
+{
+    "code": 0, 
+    "message": "0", 
+    "ttl": 1, 
+    "data": 
+        {
+            "mid": 43922500, 
+            "uname": "小小r", 
+            "userid": "bili_803233053", 
+            "sign": "在读研究********算机/分享见闻 ...", 
+            "birthday": "19*****0", 
+            "sex": "男", 
+            "nick_free": false, 
+            "rank": "正式会员"
+        }
+}
+```
+
+</details>
+
+<details>
+<summary>bilibili_history.json 👉 你的哔哩哔哩观看历史信息</summary>
+
+```json
+[
+    {
+        "code": 0,
+        "message": "0",
+        "ttl": 1,
+        "data": [
+            {
+                "aid": 11497399,
+                "videos": 1,
+                "tid": 182,
+                "tname": "影视杂谈",
+                "copyright": 1,
+                "pic": "http://i0.hdslb.com/bfs/archive/6075ff852339c6159254995006d1ade45e6b3633.jpg",
+                "title": "【看电影了没】美军与索马里海盗的首次交手，真实改编《菲利普船长》",
+                "pubdate": 1498014930,
+                "ctime": 1498014929,
+                "desc": "这是一个索马里海盗绑架美帝船长勒索一千万美金的故事。\n菲利普船长 Captain Phillips (2013)",
+                "state": 0,
+                "attribute": 49152,
+                "duration": 716,
+                "rights": {
+                    "bp": 0,
+                    "elec": 0,
+                    "download": 0,
+                    "movie": 0,
+                    "pay": 0,
+                    "hd5": 0,
+                    "no_reprint": 0,
+                    "autoplay": 1,
+                    "ugc_pay": 0,
+                    "is_cooperation": 0,
+                    "ugc_pay_preview": 0,
+                    "no_background": 0
+                },
+                "owner": {
+                    "mid": 82366241,
+                    "name": "看电影了没",
+                    "face": "http://i2.hdslb.com/bfs/face/2e65498cc57597fba6699fcf934a02813b68cfd2.jpg"
+                },
+                "stat": {
+                    "aid": 11497399,
+                    "view": 39897,
+                    "danmaku": 234,
+                    "reply": 119,
+                    "favorite": 185,
+                    "coin": 218,
+                    "share": 46,
+                    "now_rank": 0,
+                    "his_rank": 0,
+                    "like": 156,
+                    "dislike": 0
+                },
+                "dynamic": "",
+                "cid": 19008391,
+                "dimension": {
+                    "width": 0,
+                    "height": 0,
+                    "rotate": 0
+                },
+                "favorite": false,
+                "type": 3,
+                "sub_type": 0,
+                "device": 2,
+                "page": {
+                    "cid": 19008391,
+                    "page": 1,
+                    "from": "vupload",
+                    "part": "P1",
+                    "duration": 716,
+                    "vid": "",
+                    "weblink": "",
+                    "dimension": {
+                        "width": 0,
+                        "height": 0,
+                        "rotate": 0
+                    }
+                },
+                "count": 1,
+                "progress": -1,
+                "view_at": 1594551867,
+                "kid": 11497399,
+                "business": "archive",
+                "redirect_link": "https://www.bilibili.com/video/av11497399",
+                "bvid": "BV1ix411h7YF"
+            },
+            ...
+        ]
+    }
+]
+```
+
+</details>
+
+****
+## QQ邮箱
+
+!> **说明**：需登录账号 (建议扫码登录).
+
+### 使用步骤
+
+1. 点击**QQ邮箱**数据源按钮
+
+    ![qqmail1.png](https://i.loli.net/2020/07/16/sfchWQSx5eIz1Zu.png ':size=10%')
+
+2. 在弹出的浏览器中登录QQ邮箱(建议扫码登录)
+
+    ![qqmail2.png](https://i.loli.net/2020/07/16/PqERnUDJvpx1Ofs.png ':size=50%')
+
+3. 选择数据保存路径
+
+    ![qqmail3.png](https://i.loli.net/2020/07/16/a4wJpluOq6HkQfg.png ':size=50%')
+
+4. 查看爬取的数据 (json格式)
+
+    ![qqmail4.png](https://i.loli.net/2020/07/16/gYb4ju6XDHLVUhS.png ':size=50%')
+
+### 数据说明
+
+?> 👍 由于数据信息过长, 这里只作主要数据项说明, **点击展开查看示例**
+
+<details>
+<summary>qqmail_1.json 👉 你的QQ邮箱收信箱第一页数据</summary>
+
+```json
+[
+    {
+        "send_user": "no_reply",
+        "mailid": "ZC2702-CkApVu7KhFyaayd5XnupXa7",
+        "title": "Apple *********************icloud.com",
+        "time": "*****e5",
+        "email_addr": "no_reply@email.apple.com",
+        "content": "****************"
+    },
+    ...
+]
+```
+
+</details>
+
+****
 ## 中国联通
 
 !> **说明**：需登录账号 (建议扫码登录).
