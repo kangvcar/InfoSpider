@@ -480,7 +480,11 @@ class XlmailButton(Button):
                 if self.driver.current_url != url:
                     self.driver.minimize_window()
                     time.sleep(2)
+                    self.driver.delete_cookie('NowDate')
                     get_cookies = self.driver.get_cookies()
+                    # print(get_cookies)
+                    # import sys
+                    # sys.exit(1)
                     cookie_str = ''
                     for s in get_cookies:
                         cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
