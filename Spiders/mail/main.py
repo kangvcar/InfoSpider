@@ -2,7 +2,7 @@ import json
 import os
 import re
 import time
-
+import sys
 from nltk.sem.drt import DrtParser
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -184,44 +184,54 @@ class YSpider(object):
         self.write_json('aliyun_mail.json', json.dumps(obj_list))
 
     def get_wangyi(self, cookie):
+        self.path = askdirectory(title='选择信息保存文件夹')
+        if str(self.path) == "":
+            sys.exit(1)
         self.gen_session(cookie)
-        sid = re.findall('sid=(\w*);?', cookie)[0]
-        data = {
-            'var': '<?xml version="1.0"?><object><string name="id">{}</string><boolean name="header">true</boolean><boolean name="returnImageInfo">true</boolean><boolean name="returnAntispamInfo">true</boolean><boolean name="autoName">true</boolean><object name="returnHeaders"><string name="Resent-From">A</string><string name="Sender">A</string><string name="List-Unsubscribe">A</string><string name="Reply-To">A</string></object><boolean name="supportTNEF">true</boolean></object>'.format(
-                sid)
-        }
-        list_url = 'https://mail.126.com/js6/s?sid={}&func=mbox:listMessages'.format(sid)
-        self.headers['Referer'] = 'https://mail.126.com/js6/main.jsp?sid={}&df=mail126_letter'.format(sid)
-        self.headers['Host'] = 'mail.126.com'
-        self.headers['Origin'] = 'https://mail.126.com'
-
-        # 可以定义抓多页，由<int name="start">0觉得从哪里开始抓 每页20
-        list_data = {
-            'var': '<?xml version="1.0"?><object><int name="fid">1</int><string name="order">date</string><boolean name="desc">true</boolean><int name="limit">20</int><int name="start">0</int><boolean name="skipLockedFolders">false</boolean><string name="topFlag">top</string><boolean name="returnTag">true</boolean><boolean name="returnTotal">true</boolean></object>'}
-        list_resp = self.session.post(list_url, data=list_data, headers=self.headers)
-
-        xml = list_resp.content.decode()
-        result = Xml2Json(xml).result
-        obj_list = result['result']['array']['object']
-        json_list = []
-        for obj in obj_list[:100]:
-            item = {}
-            item['mid'] = obj['string'][0]
-            item['send_user'] = obj['string'][3]
-            item['time'] = obj['date'][0]
-
-            read_data = {
+        offset = 0
+        while 1:
+            sid = re.findall('sid=(\w*);?', cookie)[0]
+            data = {
                 'var': '<?xml version="1.0"?><object><string name="id">{}</string><boolean name="header">true</boolean><boolean name="returnImageInfo">true</boolean><boolean name="returnAntispamInfo">true</boolean><boolean name="autoName">true</boolean><object name="returnHeaders"><string name="Resent-From">A</string><string name="Sender">A</string><string name="List-Unsubscribe">A</string><string name="Reply-To">A</string></object><boolean name="supportTNEF">true</boolean></object>'.format(
-                    item['mid'])}
-            # url = 'https://mail.126.com/js6/s?sid={}&func=mbox:readMessage&l=read&action=read'.format(sid)
-            h = self.headers
-            h['Referer'] = 'https://mail.126.com/js6/main.jsp?sid={}&df=mail126_letter'.format(sid)
-            url = 'https://mail.126.com/js6/read/readhtml.jsp?mid={}&userType=browser&font=15&color=138144'.format(
-                item['mid'])
-            read_resp = self.session.get(url, headers=h).content.decode()
-            item['content'] = read_resp
-            json_list.append(item)
-        self.write_json('wangyiemail.json', json.dumps(json_list))
+                    sid)
+            }
+            list_url = 'https://mail.126.com/js6/s?sid={}&func=mbox:listMessages'.format(sid)
+            self.headers['Referer'] = 'https://mail.126.com/js6/main.jsp?sid={}&df=mail126_letter'.format(sid)
+            self.headers['Host'] = 'mail.126.com'
+            self.headers['Origin'] = 'https://mail.126.com'
+
+            # 可以定义抓多页，由<int name="start">0决定从哪里开始抓 每页20
+            list_data = {
+                'var': '<?xml version="1.0"?><object><int name="fid">1</int><string name="order">date</string><boolean name="desc">true</boolean><int name="limit">20</int><int name="start">{}</int><boolean name="skipLockedFolders">false</boolean><string name="topFlag">top</string><boolean name="returnTag">true</boolean><boolean name="returnTotal">true</boolean></object>'.format(offset)}
+            list_resp = self.session.post(list_url, data=list_data, headers=self.headers)
+            try:
+                xml = list_resp.content.decode()
+                result = Xml2Json(xml).result
+                obj_list = result['result']['array']['object']
+            except:
+                print('Done. >>>>>> 爬取完成')
+                break
+            json_list = []
+            for obj in obj_list[:100]:
+                item = {}
+                item['mid'] = obj['string'][0]
+                item['send_user'] = obj['string'][3]
+                item['time'] = obj['date'][0]
+
+                read_data = {
+                    'var': '<?xml version="1.0"?><object><string name="id">{}</string><boolean name="header">true</boolean><boolean name="returnImageInfo">true</boolean><boolean name="returnAntispamInfo">true</boolean><boolean name="autoName">true</boolean><object name="returnHeaders"><string name="Resent-From">A</string><string name="Sender">A</string><string name="List-Unsubscribe">A</string><string name="Reply-To">A</string></object><boolean name="supportTNEF">true</boolean></object>'.format(
+                        item['mid'])}
+                # url = 'https://mail.126.com/js6/s?sid={}&func=mbox:readMessage&l=read&action=read'.format(sid)
+                h = self.headers
+                h['Referer'] = 'https://mail.126.com/js6/main.jsp?sid={}&df=mail126_letter'.format(sid)
+                url = 'https://mail.126.com/js6/read/readhtml.jsp?mid={}&userType=browser&font=15&color=138144'.format(
+                    item['mid'])
+                read_resp = self.session.get(url, headers=h).content.decode()
+                item['content'] = read_resp
+                json_list.append(item)
+            offset += 20
+            self.write_json(self.path + os.sep + 'wangyiemail_' + str(offset) + '.json', json.dumps(json_list))
+            print('>>>>>> 已爬取', offset , '封邮件')
 
 
 from xml.parsers.expat import ParserCreate

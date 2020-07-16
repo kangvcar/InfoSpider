@@ -366,27 +366,27 @@ class DianxingButton(Button):
             self.updateStatus(self.frame,2)
 class WymailButton(Button):
     def OnClick(self, event):
-        try:
-            self.updateStatus(self.frame,0)
-            url = 'https://mail.126.com/'
-            self.Automation(url)
-            while 1:
-                time.sleep(0.2)
-                if self.driver.current_url != url:
-                    get_cookies = self.driver.get_cookies()
-                    cookie_str = ''
-                    for s in get_cookies:
-                        cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
-                    self.driver.quit()
-                    break
-            try:
-                y = YSpider()
-                y.get_wangyi(cookie_str)
-                self.updateStatus(self.frame,1)
-            except Exception:
-                self.updateStatus(self.frame,2)
-        except Exception:
-            self.updateStatus(self.frame,2)
+        # try:
+        self.updateStatus(self.frame,0)
+        url = 'https://mail.126.com/'
+        self.Automation(url)
+        while 1:
+            time.sleep(0.2)
+            if self.driver.current_url != url:
+                get_cookies = self.driver.get_cookies()
+                cookie_str = ''
+                for s in get_cookies:
+                    cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
+                self.driver.quit()
+                break
+            # try:
+        y = YSpider()
+        y.get_wangyi(cookie_str)
+        self.updateStatus(self.frame,1)
+        #     except Exception:
+        #         self.updateStatus(self.frame,2)
+        # except Exception:
+        #     self.updateStatus(self.frame,2)
 class HotmailButton(Button):
     def OnClick(self, event):
         try:
