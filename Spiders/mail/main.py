@@ -34,6 +34,7 @@ class YSpider(object):
         with open(name, 'w') as f:
             f.write(str)
 
+    ## 爬取QQ邮箱
     def qq_mail(self, cookie, sid):
         self.path = askdirectory(title='选择信息保存文件夹')
         if str(self.path) == "":
@@ -81,6 +82,7 @@ class YSpider(object):
                 self.write_json(self.path + os.sep + 'qqmail_' + str(pn) + '.json', json.dumps(json_list))
             # break
 
+    ## 爬取新浪邮箱
     def sinamail(self, cookie):
         self.path = askdirectory(title='选择信息保存文件夹')
         if str(self.path) == "":
@@ -134,6 +136,7 @@ class YSpider(object):
         except Exception as e:
             print(e)
 
+    ## 爬取hotmail/outlook邮箱
     def get_hotmail(self, cookie_list):
         self.path = askdirectory(title='选择信息保存文件夹')
         if str(self.path) == "":
@@ -160,7 +163,11 @@ class YSpider(object):
                 continue
         self.write_json(self.path + os.sep + 'hotmail.json', json.dumps(json_list))
 
+    ## 爬取阿里邮箱
     def get_aliyun_mail(self, cookie):
+        self.path = askdirectory(title='选择信息保存文件夹')
+        if str(self.path) == "":
+            sys.exit(1)
         self.gen_session(cookie)
         h = {
             'Host': 'mail.aliyun.com',
@@ -184,8 +191,9 @@ class YSpider(object):
         url = 'https://mail.aliyun.com/alimail/ajax/mail/queryMailList.txt'
         resp = self.session.post(url, headers=h, data=data)
         obj_list = json.loads(resp.content.decode())['dataList']
-        self.write_json('aliyun_mail.json', json.dumps(obj_list))
+        self.write_json(self.path + os.sep + 'aliyun_mail.json', json.dumps(obj_list))
 
+    ## 爬取网易邮箱
     def get_wangyi(self, cookie):
         self.path = askdirectory(title='选择信息保存文件夹')
         if str(self.path) == "":

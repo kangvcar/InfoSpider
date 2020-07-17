@@ -427,9 +427,6 @@ class QqmailButton(Button):
                     # sid = re.findall('sid=(\w+)&?', self.driver.current_url)[0]
                     from urllib import parse
                     sid = parse.parse_qs(parse.urlparse(self.driver.current_url).query)['sid'][0]
-                    # sid = 'svj8Q-vN5z8vd0cY'
-                    print(cookie_str)
-                    print(sid)
                     break
             try:
                 y = YSpider()
@@ -451,14 +448,13 @@ class AlimailButton(Button):
             while 1:
                 time.sleep(0.2)
                 if self.driver.current_url != url:
-                    # self.driver.minimize_window()
+                    self.driver.minimize_window()
                     get_cookies = self.driver.get_cookies()
                     cookie_str = ''
                     for s in get_cookies:
                         cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
                     break
             try:
-                # self.SetStatusText("爬取中...", 3)
                 y = YSpider()
                 t = threading.Thread(target=y.get_aliyun_mail, args=(cookie_str,))
                 t.start()
@@ -814,9 +810,10 @@ class CreateFrame(wx.Frame):
         YidongButton(self, self.pnl, Item(start_x +xstep, start_y+ystep*2, '移动', 'resource/icon/yidong.png'))
         LiantongButton(self, self.pnl, Item(start_x +xstep*2, start_y+ystep*2, '联通', 'resource/icon/liantong.png'))
         DianxingButton(self, self.pnl, Item(start_x +xstep*3, start_y+ystep*2, '电信', 'resource/icon/dianxin.png'))
-        GjjButton(self, self.pnl, Item(start_x +xstep*4, start_y+ystep*2, '公积金', 'resource/icon/gjj.png'))
+        AlimailButton(self, self.pnl, Item(start_x+xstep*4, start_y+ystep*2, '阿里邮箱', 'resource/icon/alimail.png'))
+        # GjjButton(self, self.pnl, Item(start_x +xstep*4, start_y+ystep*2, '公积金', 'resource/icon/gjj.png'))
         BilibiliButton(self, self.pnl, Item(start_x+xstep*5, start_y+ystep*2, '哔哩哔哩', 'resource/icon/bilibili.png'))
-        # AlimailButton(self, self.pnl, Item(start_x+xstep*5, start_y+ystep*2, '阿里邮箱', 'resource/icon/alimail.png'))
+        
         ## row 4
         CloudmusicButton(self, self.pnl, Item(start_x, start_y+ystep*3, '网易云音乐', 'resource/icon/netease_cloudmusic.png'))
         XlmailButton(self, self.pnl, Item(start_x+xstep, start_y+ystep*3, '新浪邮箱', 'resource/icon/sina.png'))

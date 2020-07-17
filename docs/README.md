@@ -74,7 +74,7 @@
 - [x] 新浪邮箱
 - [x] Hotmail邮箱
 - [x] Outlook邮箱
-- [ ] 阿里邮箱
+- [x] 阿里邮箱
 - [ ] 12306
 - [ ] 公积金
 - [ ] 学信网
@@ -738,6 +738,95 @@
 ```
 </details>
 
+
+****
+## 阿里邮箱
+
+!> **说明**：需登录账号.
+
+### 使用步骤
+
+1. 点击**阿里邮箱**数据源按钮
+
+    ![alimail1.png](https://i.loli.net/2020/07/17/Cdt7lAqIS1BFHaQ.png ':size=10%')
+
+2. 在弹出的浏览器中登录阿里邮箱
+
+    ![alimail2.png](https://i.loli.net/2020/07/17/hoki6tIlfeqa2yj.png ':size=50%')
+
+3. 选择数据保存路径
+
+    ![alimail3.png](https://i.loli.net/2020/07/17/YEr41OUX7lKJ5Vy.png ':size=50%')
+
+4. 查看爬取的数据 (json格式)
+
+    ![alimail4.png](https://i.loli.net/2020/07/17/6v2frAw9XPtO3E4.png ':size=50%')
+
+### 数据说明
+
+?> 👍 由于数据信息过长, 这里只作主要数据项说明, **点击展开查看示例**
+
+<details>
+<summary>aliyun_mail.json 👉 你的阿里邮箱所有邮件</summary>
+
+```json
+[
+    {
+        "clientExtraInfo": {
+            "avatarRcp": {
+                "clientExtraInfo": {},
+                "displayEmail": "***@gmail.com",
+                "displayName": " *** ",
+                "email": "***@gmail.com",
+                "encDisplayEmail": "***@gmail.com",
+                "encDisplayName": "***",
+                "name": "****"
+            },
+            "encFullDisplayTime": "2020\u5e747\u670817\u65e5(\u661f\u671f\u4e94) 15:14",
+            "displaySize": "3KB",
+            "encDisplayTime": "15:14",
+            "encRcpLineContent": "*****"
+        },
+        "encSubject": "13",
+        "encSummary": "13",
+        "folderId": "2",
+        "from": {
+            "clientExtraInfo": {},
+            "displayEmail": "***@gmail.com",
+            "displayName": "***",
+            "email": "***@gmail.com",
+            "encDisplayEmail": "***@gmail.com",
+            "encDisplayName": "*****",
+            "name": "******"
+        },
+        "id": "DzzzzyUvf-h$---112z7wiM",
+        "mailId": "2_0:DzzzzyUvf-h$---112z7wiM",
+        "markedSubject": "13",
+        "owner": "***@aliyun.com",
+        "saveToSendFolder": true,
+        "separatedSend": false,
+        "sessionId": "DzzzzyUvf-h---112wtmq3",
+        "status": 4,
+        "subject": "13",
+        "tagList": [],
+        "timestamp": 1594970066000,
+        "to": [
+            {
+                "clientExtraInfo": {},
+                "displayEmail": "***@aliyun.com",
+                "displayName": "",
+                "email": "***@aliyun.com",
+                "encDisplayEmail": "****@aliyun.com",
+                "encDisplayName": "",
+                "name": ""
+            }
+        ]
+    },
+    ...
+]
+```
+
+</details>
 
 ****
 ## 中国联通
