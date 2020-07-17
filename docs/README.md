@@ -66,7 +66,7 @@
 - [x] 生成朋友圈相册
 - [x] 浏览器浏览历史
 - [ ] 支付宝
-- [ ] 中国移动
+- [x] 中国移动
 - [x] 中国联通
 - [ ] 中国电信
 - [x] 网易邮箱
@@ -377,6 +377,108 @@
     "enableProof": "enable",
     "pick": "****"
 }
+```
+
+</details>
+
+****
+## 淘宝
+
+!> **说明**：需登录账号 (建议扫码登录).
+
+### 使用步骤
+
+1. 点击**淘宝**数据源按钮
+
+    ![taobao1.png](https://i.loli.net/2020/07/17/UIBEi6zQRnYyV5J.png ':size=10%')
+
+2. 在弹出的浏览器中登录淘宝(建议扫码登录)
+
+    ![taobao2.png](https://i.loli.net/2020/07/17/WqwRzJHct8b4ojB.png ':size=50%')
+
+3. 选择数据保存路径
+
+    ![taobao3.png](https://i.loli.net/2020/07/17/MWSk6TBEqHxL4no.png ':size=50%')
+
+4. 查看爬取的数据 (json格式)
+
+    ![taobao4.png](https://i.loli.net/2020/07/17/V5OetacmDBzZY4X.png ':size=50%')
+
+### 数据说明
+
+?> 👍 由于数据信息过长, 这里只作主要数据项说明, **点击展开查看示例**
+
+<details>
+<summary>addr.json 👉 你的淘宝地址信息</summary>
+
+```json
+[
+    {
+        "name": [
+            "**********"
+        ],
+        "area": [
+            "*************************"
+        ],
+        "detail_area": [
+            "*************************"
+        ],
+        "youbian": [
+            "*****"
+        ],
+        "mobile": [
+            "13**********"
+        ]
+    },
+    ...
+]
+```
+
+</details>
+
+<details>
+<summary>addr.json 👉 你的淘宝收藏商品信息</summary>
+
+```json
+[
+    {
+        "title": "4G\u5168\u7f51\u901aNokia/\u8bfa\u57fa\u4e9a\u65b0106\u8001\u4eba\u673a\u79fb\u52a8\u7535\u4fe1\u7248\u8d85\u957f\u5f85\u673a\u5b66\u751f\u6309\u952e\u529f\u80fd\u5927\u5b57\u5927\u58f0\u8001\u5e74\u513f\u7ae5\u7ecf\u5178\u5c0f\u624b\u673a\u5b98\u65b9\u65d7\u8230\u5e97220",
+        "url": "//item.taobao.com/item.htm?id=585241267088&_u=t2dmg8j26111",
+        "price": "\u00a5119.00\u00a5199.00"
+    },
+    ...
+]
+```
+
+</details>
+
+<details>
+<summary>addr.json 👉 你的淘宝浏览足迹信息</summary>
+
+```json
+[
+    {
+        "date": "2020-07-16",
+        "url": "//item.taobao.com/item.htm?scm=1007.13982.82927.0&id=591107748490&last_time=1594896161",
+        "name": "\u5c0f\u7c73Qin1s\u591a\u4eb2ai\u624b\u673a\u79fb\u52a8\u8054\u901a4G\u7535\u4fe1\u8001\u4eba\u667a\u80fd\u5c0f\u7231\u540c\u5b66\u751f\u6309\u952e\u624b\u673a",
+        "price": "\u00a5299\u00a5299.0"
+    },
+    ...
+]
+```
+
+</details>
+
+<details>
+<summary>addr.json 👉 你的淘宝订单信息</summary>
+
+```json
+[
+    "2020-07-15\u8ba2\u5355\u53f7:608693548110926703",
+    "\u521b\u4e8e\u4f73\u8baf\u6570\u7801\u4e13\u8425\u5e97",
+    "\u30104G\u5168\u7f51\u901a\u3011\u7ebd\u66fc M560\u6b63\u54c1\u8001\u4eba\u673a\u8d85\u957f\u5f85\u673a\u76f4\u677f\u8001\u5e74\u624b\u673a\u5927\u5c4f\u5927\u5b57\u5927\u58f0\u97f3\u79fb\u52a8\u8054\u901a\u7535\u4fe1\u7248\u5973\u5c0f\u5b66\u751f\u6309\u952e\u667a\u80fd\u624b\u673a[\u4ea4\u6613\u5feb\u7167]\u673a\u8eab\u989c\u8272\uff1a\u7ea2\u8272\u5957\u9910\u7c7b\u578b\uff1a\u5b98\u65b9\u6807\u914d\u5b58\u50a8\u5bb9\u91cf\uff1a256MB\u7248\u672c\u7c7b\u578b\uff1a\u3010\u9876\u914d\u7248\u3011\u79fb\u52a8/\u8054\u901a2.8\u82f1\u5bf8\u5c4f \uffe5528.00\uffe595.00 1 \u589e\u503c\u670d\u52a1\uff1a\u5168\u56fd\u8054\u4fdd \uffe50.00 1",
+    "\uffe5528.00\uffe595.00 \uffe592.00 \uffe50.00"
+]
 ```
 
 </details>
@@ -824,6 +926,42 @@
     },
     ...
 ]
+```
+
+</details>
+
+****
+## 中国移动
+
+!> **说明**：需登录账号 (建议扫码登录).
+
+### 使用步骤
+
+1. 点击**中国移动**数据源按钮
+
+    ![yidong1.png](https://i.loli.net/2020/07/17/7THJCGrxlOiqE3b.png ':size=10%')
+
+2. 在弹出的浏览器中登录中国移动
+
+    ![yidong2.png](https://i.loli.net/2020/07/17/L6WEU98sNiDGufB.png ':size=50%')
+
+3. 选择数据保存路径
+
+    ![yidong3.png](https://i.loli.net/2020/07/17/xGv7O5saFdEuorp.png ':size=50%')
+
+4. 查看爬取的数据 (json格式)
+
+    ![yidong4.png](https://i.loli.net/2020/07/17/Y6tjDRCHNcT4IEp.png ':size=50%')
+
+### 数据说明
+
+?> 👍 由于数据信息过长, 这里只作主要数据项说明, **点击展开查看示例**
+
+<details>
+<summary>yidong_bill.json 👉 你的中国移动账单信息</summary>
+
+```json
+
 ```
 
 </details>

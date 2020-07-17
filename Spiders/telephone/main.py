@@ -4,10 +4,11 @@ import re
 import sys
 import xlsxwriter
 import requests
+from tkinter.filedialog import askdirectory
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 # 禁用安全请求警告
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
-from tkinter.filedialog import askdirectory
+
 
 class LianTong(object):
     def __init__(self, cookie):

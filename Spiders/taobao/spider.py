@@ -1,36 +1,32 @@
 import json
 import random
 import time
-
+import sys
+import os
 import requests
+import numpy as np
+import math
 from lxml import etree
+from pyquery import PyQuery as pq
 from selenium import webdriver
 from selenium.webdriver import ChromeOptions
-import os
-from pyquery import PyQuery as pq
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-
 from selenium.webdriver import ChromeOptions, ActionChains
-import numpy as np
-import math
-
+from tkinter.filedialog import askdirectory
 
 def ease_out_quad(x):
     return 1 - (1 - x) * (1 - x)
 
-
 def ease_out_quart(x):
     return 1 - pow(1 - x, 4)
-
 
 def ease_out_expo(x):
     if x == 1:
         return 1
     else:
         return 1 - pow(2, -10 * x)
-
 
 def get_tracks(distance, seconds, ease_func):
     tracks = [0]
@@ -41,7 +37,6 @@ def get_tracks(distance, seconds, ease_func):
         tracks.append(offset - offsets[-1])
         offsets.append(offset)
     return offsets, tracks
-
 
 def drag_and_drop(browser, offset=26.5):
     knob = browser.find_element_by_id('nc_1_n1z')
@@ -63,9 +58,11 @@ def gen_session(cookie):
     requests.utils.add_dict_to_cookiejar(session.cookies, cookie_dict)
     return session
 
-
 class TaobaoSpider(object):
     def __init__(self, cookies_list):
+        self.path = askdirectory(title='选择信息保存文件夹')
+        if str(self.path) == "":
+            sys.exit(1)
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
         }
@@ -78,7 +75,7 @@ class TaobaoSpider(object):
         for i in cookies_list:
             self.driver.add_cookie(cookie_dict=i)
         self.driver.get('https://i.taobao.com/my_taobao.htm')
-        self.wait = WebDriverWait(self.driver, 10)  # 超时时长为10s
+        self.wait = WebDriverWait(self.driver, 20)  # 超时时长为10s
 
     # 模拟向下滑动浏览
     def swipe_down(self, second):
@@ -95,7 +92,7 @@ class TaobaoSpider(object):
         self.driver.execute_script(js)
         time.sleep(0.1)
 
-    # 爬取淘宝 我已买到的宝贝商品数据
+    # 爬取淘宝 我已买到的宝贝商品数据, pn 定义爬取多少页数据
     def crawl_good_buy_data(self, pn=3):
 
         # 对我已买到的宝贝商品数据进行爬虫
@@ -120,25 +117,30 @@ class TaobaoSpider(object):
 
             # 遍历该页的所有宝贝
             for item in good_items:
-                good_time_and_id = item.find('.bought-wrapper-mod__head-info-cell___29cDO').text().replace('\n',
-                                                                                                           "").replace(
-                    '\r', "")
-                good_merchant = item.find('.seller-mod__container___1w0Cx').text().replace('\n', "").replace('\r',
-                                                                                                             "")
-                good_name = item.find('.sol-mod__no-br___1PwLO').text().replace('\n', "").replace('\r', "")
+                # 商品购买时间、订单号
+                good_time_and_id = item.find('.bought-wrapper-mod__head-info-cell___29cDO').text().replace('\n', "").replace('\r', "")
+                # 商家名称
+                # good_merchant = item.find('.seller-mod__container___1w0Cx').text().replace('\n', "").replace('\r', "")
+                good_merchant = item.find('.bought-wrapper-mod__seller-container___3dAK3').text().replace('\n', "").replace('\r', "")
+                # 商品名称
+                # good_name = item.find('.sol-mod__no-br___1PwLO').text().replace('\n', "").replace('\r', "")
+                good_name = item.find('.sol-mod__no-br___3Ev-2').text().replace('\n', "").replace('\r', "")
+                # 商品价格  
+                good_price = item.find('.price-mod__price___cYafX').text().replace('\n', "").replace('\r', "")
                 # 只列出商品购买时间、订单号、商家名称、商品名称
                 # 其余的请自己实践获取
                 data_list.append(good_time_and_id)
                 data_list.append(good_merchant)
                 data_list.append(good_name)
+                data_list.append(good_price)
                 #print(good_time_and_id, good_merchant, good_name)
                 #file_path = os.path.join(os.path.dirname(__file__) + '/user_orders.json')
-                file_path = "../Spiders/taobao/user_orders.json"
+                # file_path = "../Spiders/taobao/user_orders.json"
                 json_str = json.dumps(data_list)
-                with open(file_path, 'a') as f:
+                with open(self.path + os.sep + 'user_orders.json', 'a') as f:
                     f.write(json_str)
 
-            print('\n\n')
+            # print('\n\n')
 
             # 大部分人被检测为机器人就是因为进一步模拟人工操作
             # 模拟人工向下浏览商品，即进行模拟下滑操作，防止被识别出是机器人
@@ -188,9 +190,9 @@ class TaobaoSpider(object):
                 if item['price'] == '':
                     item['price'] = '失效'
                 json_list.append(item)
-        file_path = os.path.join(os.path.dirname(__file__) + '/shoucang_item.json')
+        # file_path = os.path.join(os.path.dirname(__file__) + '/shoucang_item.json')
         json_str = json.dumps(json_list)
-        with open(file_path, 'a') as f:
+        with open(self.path + os.sep + 'shoucang_item.json', 'w') as f:
             f.write(json_str)
 
     # 浏览足迹 传入爬几页 默认三页  https://shoucang.taobao.com/nodejs/item_collect_chunk.htm?ifAllTag=0&tab=0&tagId=&categoryCount=0&type=0&tagName=&categoryName=&needNav=false&startRow=60
@@ -212,9 +214,9 @@ class TaobaoSpider(object):
                 item['price'] = ''.join([i.strip() for i in obj.xpath('.//div[@class="price-box"]//text()')])
                 json_list.append(item)
             self.driver.execute_script('window.scrollTo(0,1000000)')
-        file_path = os.path.join(os.path.dirname(__file__) + '/footmark_item.json')
+        # file_path = os.path.join(os.path.dirname(__file__) + '/footmark_item.json')
         json_str = json.dumps(json_list)
-        with open(file_path, 'w') as f:
+        with open(self.path + os.sep + 'footmark_item.json', 'w') as f:
             f.write(json_str)
 
     # 地址
@@ -232,9 +234,9 @@ class TaobaoSpider(object):
             item['youbian'] = obj.xpath('.//td[4]//text()')
             item['mobile'] = obj.xpath('.//td[5]//text()')
             data_list.append(item)
-        file_path = os.path.join(os.path.dirname(__file__) + '/addr.json')
+        # file_path = os.path.join(os.path.dirname(__file__) + '/addr.json')
         json_str = json.dumps(data_list)
-        with open(file_path, 'a') as f:
+        with open(self.path + os.sep + 'address.json', 'w') as f:
             f.write(json_str)
 
 

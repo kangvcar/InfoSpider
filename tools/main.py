@@ -502,26 +502,23 @@ class TaobaoButton(Button):
             while 1:
                 time.sleep(0.2)
                 if self.driver.current_url != url:
-                    # self.driver.minimize_window()
+                    self.driver.minimize_window()
                     cookies_list = self.driver.get_cookies()
                     # 保存cookie
-                    #file_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/Spiders/taobao/taobao_cookies.json')
                     file_path = '../Spiders/taobao/taobao_cookies.json'
-                    #print(file_path)
                     cookie_str = json.dumps(cookies_list)
                     self.driver.quit()
                     with open(file_path, 'w') as f:
                         f.write(cookie_str)
                     break
             try:
-                # self.SetStatusText("爬取中...", 3)
                 cookie_list = json.loads(open(file_path, 'r').read())
                 t = TaobaoSpider(cookie_list)
 
-                #t.get_addr()
-                #t.get_choucang_item()
-                #t.get_footmark_item()
-                t.crawl_good_buy_data()
+                t.get_addr()
+                t.get_choucang_item()
+                t.get_footmark_item()
+                # t.crawl_good_buy_data()
                 self.updateStatus(self.frame,1)
             except Exception:
                 traceback.print_exc()
@@ -807,9 +804,9 @@ class CreateFrame(wx.Frame):
         CtripButton(self, self.pnl, Item(start_x+xstep*5, start_y+ystep, '携程', 'resource/icon/ctrip.png'))
         ## row 3
         ChisButton(self, self.pnl, Item(start_x, start_y+ystep*2, '学信网', 'resource/icon/xuexin.png'))
-        YidongButton(self, self.pnl, Item(start_x +xstep, start_y+ystep*2, '移动', 'resource/icon/yidong.png'))
-        LiantongButton(self, self.pnl, Item(start_x +xstep*2, start_y+ystep*2, '联通', 'resource/icon/liantong.png'))
-        DianxingButton(self, self.pnl, Item(start_x +xstep*3, start_y+ystep*2, '电信', 'resource/icon/dianxin.png'))
+        YidongButton(self, self.pnl, Item(start_x +xstep, start_y+ystep*2, '中国移动', 'resource/icon/yidong.png'))
+        LiantongButton(self, self.pnl, Item(start_x +xstep*2, start_y+ystep*2, '中国联通', 'resource/icon/liantong.png'))
+        DianxingButton(self, self.pnl, Item(start_x +xstep*3, start_y+ystep*2, '中国电信', 'resource/icon/dianxin.png'))
         AlimailButton(self, self.pnl, Item(start_x+xstep*4, start_y+ystep*2, '阿里邮箱', 'resource/icon/alimail.png'))
         # GjjButton(self, self.pnl, Item(start_x +xstep*4, start_y+ystep*2, '公积金', 'resource/icon/gjj.png'))
         BilibiliButton(self, self.pnl, Item(start_x+xstep*5, start_y+ystep*2, '哔哩哔哩', 'resource/icon/bilibili.png'))
