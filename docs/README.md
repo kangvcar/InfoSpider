@@ -55,31 +55,31 @@
 
 - [x] 京东
 - [x] 淘宝
-- [x] GitHub
-- [x] QQ好友
-- [x] QQ群
-- [x] 知乎
-- [x] 哔哩哔哩
-- [ ] 微信好友
-- [ ] 微信朋友圈
-- [x] 网易云音乐
-- [x] 生成朋友圈相册
-- [x] 浏览器浏览历史
-- [ ] 支付宝
+- [x] 支付宝
 - [x] 中国移动
 - [x] 中国联通
 - [ ] 中国电信
+- [x] GitHub
+- [x] 哔哩哔哩
+- [x] 网易云音乐
+- [x] QQ好友
+- [x] QQ群
+- [x] 知乎
+- [x] 浏览器浏览历史
 - [x] 网易邮箱
 - [x] QQ邮箱
 - [x] 新浪邮箱
 - [x] Hotmail邮箱
 - [x] Outlook邮箱
 - [x] 阿里邮箱
+- [x] 生成朋友圈相册
 - [ ] 12306
 - [ ] 公积金
 - [ ] 学信网
 - [ ] 携程
 - [ ] Twitter
+- [ ] 微信好友
+- [ ] 微信朋友圈
 - [ ] 社保
 - [ ] 保单
 - [ ] 健康报告
@@ -482,6 +482,94 @@
 ```
 
 </details>
+
+****
+## 支付宝
+
+!> **说明**：需登录账号 (建议扫码登录).
+
+### 使用步骤
+
+1. 点击**支付宝**数据源按钮
+
+    ![alipay1.png](https://i.loli.net/2020/07/17/Pg2dExiljZhma9t.png ':size=10%')
+
+2. 在弹出的浏览器中登录支付宝(建议扫码登录)
+
+    ![alipay2.png](https://i.loli.net/2020/07/17/HFKneX9aCkhNA73.png ':size=50%')
+
+3. 选择数据保存路径
+
+    ![alipay3.png](https://i.loli.net/2020/07/17/35r6YdxT9F8st1j.png ':size=50%')
+
+4. 查看爬取的数据 (json格式)
+
+    ![alipay4.png](https://i.loli.net/2020/07/17/QHu8z2jeo4lhbVx.png ':size=50%')
+
+### 数据说明
+
+?> 👍 由于数据信息过长, 这里只作主要数据项说明, **点击展开查看示例**
+
+<details>
+<summary>addr.json 👉 你的支付宝个人信息</summary>
+
+```json
+{
+    "name": "**********",
+    "email": "**********",
+    "mobile": "**********",,
+    "tb_name": "**********",,
+    "register_time": "2015**********",
+}
+```
+
+</details>
+
+<details>
+<summary>addr.json 👉 你的支付宝余额信息</summary>
+
+```json
+{
+    "YuE": "0.00"
+}
+```
+
+</details>
+
+<details>
+<summary>addr.json 👉 你的支付宝账单信息</summary>
+
+```json
+[
+    {
+        "number": "202007***0149183*****",
+        "time": "2020-07-10 12:25:25",
+        "info": "*****5063938600101",
+        "income": "",
+        "outcome": "- 16150.00",
+        "balance": "0.00",
+        "from": "******",
+        "detail": "*******"
+    },
+    ...
+]
+```
+
+</details>
+
+<details>
+<summary>addr.json 👉 你的余额宝信息</summary>
+
+```json
+{
+    "eye-val": "290.91",
+    "total_val": "291.93",
+    "Unavailable_val": "1.02"
+}
+```
+
+</details>
+
 
 ****
 ## 哔哩哔哩

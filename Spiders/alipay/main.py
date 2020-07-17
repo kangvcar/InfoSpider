@@ -1,16 +1,18 @@
 import json
 import os
 import re
-
+import os
 import requests
 from lxml import etree
 from selenium import webdriver
 from selenium.webdriver import ChromeOptions
-import os
-
+from tkinter.filedialog import askdirectory
 
 class ASpider(object):
     def __init__(self, cookie):
+        self.path = askdirectory(title='选择信息保存文件夹')
+        if str(self.path) == "":
+            sys.exit(1)
         self.session = requests.session()
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
@@ -35,11 +37,11 @@ class ASpider(object):
         item['mobile'] = ''.join(obj.xpath('./tr[3]/td[1]//text()')).strip()
         item['tb_name'] = ''.join(obj.xpath('./tr[4]/td[1]//text()')).strip()
         item['register_time'] = ''.join(obj.xpath('./tr[7]/td[1]//text()')).strip()
-        self.write_json('user_info.json', json.dumps(item))
+        self.write_json(self.path + os.sep + 'user_info.json', json.dumps(item))
 
     def write_json(self, name, str):
-        file_path = os.path.join(os.path.dirname(__file__) + '/' + name)
-        with open(file_path, 'w') as f:
+        # file_path = os.path.join(os.path.dirname(__file__) + '/' + name)
+        with open(name, 'w') as f:
             f.write(str)
 
     def get_YEB(self):
@@ -47,15 +49,11 @@ class ASpider(object):
         resp = self.session.get(url)
         ele = etree.HTML(resp.content.decode('gbk'))
         item = {}
-        print(etree.tostring(ele))
+        # print(etree.tostring(ele))
         item['eye-val'] = re.sub('\s', '', ele.xpath('.//span[@class="eye-val"]/text()')[0])
-        print(2)
         item['total_val'] = re.sub('\s', '', ele.xpath('.//div[@class="box-bill-foot-account eye-val"]/text()')[0])
-        print(3)
-        item['Unavailable_val'] = re.sub('\s', '',
-                                         ele.xpath('.//div[@class="box-bill-foot-account eye-val"]/text()')[1])
-        print(4)
-        self.write_json('余额宝.json', json.dumps(item))
+        item['Unavailable_val'] = re.sub('\s', '', ele.xpath('.//div[@class="box-bill-foot-account eye-val"]/text()')[1])
+        self.write_json(self.path + os.sep + 'yu_e_bao.json', json.dumps(item))
 
     def get_bills(self):
         url = 'https://lab.alipay.com/consume/record/items.htm'
@@ -76,8 +74,8 @@ class ASpider(object):
             json_list.append(item)
         ye = ''.join(obj_list[0].xpath('./td[6]//text()')).strip()
         ye_dict = {'YuE': ye}
-        self.write_json('bill_list.json', json.dumps(json_list))
-        self.write_json('余额.json', json.dumps(ye_dict))
+        self.write_json(self.path + os.sep + 'bill_list.json', json.dumps(json_list))
+        self.write_json(self.path + os.sep + 'balance.json', json.dumps(ye_dict))
 
 
 if __name__ == '__main__':
