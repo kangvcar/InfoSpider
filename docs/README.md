@@ -21,7 +21,7 @@
 
 ## Screenshot
 
-![screenshot.png](https://i.loli.net/2020/07/14/PCzXGvwVyJW1aIb.png ':size=70%')
+![screenshot.png](https://i.loli.net/2020/07/18/53MWoKZCsdzDX7g.png ':size=70%')
 
 ## QuickStart
 
@@ -52,37 +52,32 @@
 !> 😘😘😘 如果你运行程序的过程中出现了错误, 或者爬取不到信息, 你可以通过 GitHub 提交[Issues](https://github.com/kangvcar/InfoSpider/issues)来告诉我们, 我们很乐意不断完善此项目.
 
 ## 数据源
-
+- [x] GitHub
+- [x] QQ邮箱
+- [x] 网易邮箱
+- [x] 阿里邮箱
+- [x] 新浪邮箱
+- [x] Hotmail邮箱
+- [x] Outlook邮箱
 - [x] 京东
 - [x] 淘宝
 - [x] 支付宝
 - [x] 中国移动
 - [x] 中国联通
 - [ ] 中国电信
-- [x] GitHub
+- [x] 知乎
 - [x] 哔哩哔哩
 - [x] 网易云音乐
 - [x] QQ好友
 - [x] QQ群
-- [x] 知乎
-- [x] 浏览器浏览历史
-- [x] 网易邮箱
-- [x] QQ邮箱
-- [x] 新浪邮箱
-- [x] Hotmail邮箱
-- [x] Outlook邮箱
-- [x] 阿里邮箱
 - [x] 生成朋友圈相册
+- [x] 浏览器浏览历史
 - [x] 12306
-- [ ] 公积金
 - [ ] 学信网
 - [ ] 携程
-- [ ] Twitter
 - [ ] 微信好友
 - [ ] 微信朋友圈
-- [ ] 社保
-- [ ] 保单
-- [ ] 健康报告
+- [ ] 微博
 
 !> 😊 如果没有找到你需要的数据源, 你可以通过 GitHub 提交[Issues](https://github.com/kangvcar/InfoSpider/issues)来告诉我们, 我们很乐意不断完善此项目.
 

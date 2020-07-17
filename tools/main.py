@@ -790,35 +790,33 @@ class CreateFrame(wx.Frame):
         ystep = 150
         ## row 1
         GithubButton(self, self.pnl, Item(start_x, start_y, 'Github', 'resource/icon/github.png'))
-        QqButton(self, self.pnl, Item(start_x+xstep, start_y, 'QQ好友', 'resource/icon/qq.png'))
-        QqqunButton(self, self.pnl, Item(start_x+xstep*2, start_y, 'QQ群', 'resource/icon/qqqun.png'))
-        QqmailButton(self, self.pnl, Item(start_x+xstep*3, start_y, 'QQ邮箱', 'resource/icon/qmail.png'))
-        WymailButton(self, self.pnl, Item(start_x+xstep*4, start_y, '网易邮箱', 'resource/icon/wangyi.png'))
+        QqmailButton(self, self.pnl, Item(start_x+xstep, start_y, 'QQ邮箱', 'resource/icon/qmail.png'))
+        WymailButton(self, self.pnl, Item(start_x+xstep*2, start_y, '网易邮箱', 'resource/icon/wangyi.png'))
+        AlimailButton(self, self.pnl, Item(start_x+xstep*3, start_y, '阿里邮箱', 'resource/icon/alimail.png'))
+        XlmailButton(self, self.pnl, Item(start_x+xstep*4, start_y, '新浪邮箱', 'resource/icon/sina.png'))
         HotmailButton(self, self.pnl, Item(start_x+xstep*5, start_y, 'Hotmail/Outlook', 'resource/icon/hotmail.png'))
         ## row 2
-        ZhihuButton(self, self.pnl, Item(start_x, start_y+ystep, '知乎', 'resource/icon/zhihu.png'))
-        JdButton(self, self.pnl, Item(start_x+xstep, start_y+ystep, '京东', 'resource/icon/jd.png'))
-        TaobaoButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep, '淘宝', 'resource/icon/taobao.png'))
-        ZfbButton(self, self.pnl, Item(start_x+xstep*3, start_y+ystep, '支付宝', 'resource/icon/alipay-logo.png'))
-        A12306Button(self, self.pnl, Item(start_x+xstep*4, start_y+ystep, '12306', 'resource/icon/12306.png'))
-        CtripButton(self, self.pnl, Item(start_x+xstep*5, start_y+ystep, '携程', 'resource/icon/ctrip.png'))
+        JdButton(self, self.pnl, Item(start_x, start_y+ystep, '京东', 'resource/icon/jd.png'))
+        TaobaoButton(self, self.pnl, Item(start_x+xstep, start_y+ystep, '淘宝', 'resource/icon/taobao.png'))
+        ZfbButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep, '支付宝', 'resource/icon/alipay-logo.png'))
+        YidongButton(self, self.pnl, Item(start_x +xstep*3, start_y+ystep, '中国移动', 'resource/icon/yidong.png'))
+        LiantongButton(self, self.pnl, Item(start_x +xstep*4, start_y+ystep, '中国联通', 'resource/icon/liantong.png'))
+        DianxingButton(self, self.pnl, Item(start_x +xstep*5, start_y+ystep, '中国电信', 'resource/icon/dianxin.png'))
         ## row 3
-        ChisButton(self, self.pnl, Item(start_x, start_y+ystep*2, '学信网', 'resource/icon/xuexin.png'))
-        YidongButton(self, self.pnl, Item(start_x +xstep, start_y+ystep*2, '中国移动', 'resource/icon/yidong.png'))
-        LiantongButton(self, self.pnl, Item(start_x +xstep*2, start_y+ystep*2, '中国联通', 'resource/icon/liantong.png'))
-        DianxingButton(self, self.pnl, Item(start_x +xstep*3, start_y+ystep*2, '中国电信', 'resource/icon/dianxin.png'))
-        AlimailButton(self, self.pnl, Item(start_x+xstep*4, start_y+ystep*2, '阿里邮箱', 'resource/icon/alimail.png'))
-        # GjjButton(self, self.pnl, Item(start_x +xstep*4, start_y+ystep*2, '公积金', 'resource/icon/gjj.png'))
-        BilibiliButton(self, self.pnl, Item(start_x+xstep*5, start_y+ystep*2, '哔哩哔哩', 'resource/icon/bilibili.png'))
-        
+        ZhihuButton(self, self.pnl, Item(start_x, start_y+ystep*2, '知乎', 'resource/icon/zhihu.png'))
+        BilibiliButton(self, self.pnl, Item(start_x+xstep, start_y+ystep*2, '哔哩哔哩', 'resource/icon/bilibili.png'))
+        CloudmusicButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep*2, '网易云音乐', 'resource/icon/netease_cloudmusic.png'))
+        QqButton(self, self.pnl, Item(start_x+xstep*3, start_y+ystep*2, 'QQ好友', 'resource/icon/qq.png'))
+        QqqunButton(self, self.pnl, Item(start_x+xstep*4, start_y+ystep*2, 'QQ群', 'resource/icon/qqqun.png'))
+        MomentsalbumButton(self, self.pnl, Item(start_x+xstep*5, start_y+ystep*2, '生成朋友圈相册', 'resource/icon/wechat-moments-album.png'))
         ## row 4
-        CloudmusicButton(self, self.pnl, Item(start_x, start_y+ystep*3, '网易云音乐', 'resource/icon/netease_cloudmusic.png'))
-        XlmailButton(self, self.pnl, Item(start_x+xstep, start_y+ystep*3, '新浪邮箱', 'resource/icon/sina.png'))
-        WechatButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep*3, '微信好友', 'resource/icon/wechat.png'))
-        WechatmomentButton(self, self.pnl, Item(start_x+xstep*3, start_y+ystep*3, '微信朋友圈', 'resource/icon/wechat-moments.png'))
-        MomentsalbumButton(self, self.pnl, Item(start_x+xstep*4, start_y+ystep*3, '生成朋友圈相册', 'resource/icon/wechat-moments-album.png'))
-        BrowserButton(self, self.pnl, Item(start_x+xstep*5, start_y+ystep*3, 'Chrome历史记录', 'resource/icon/chrome-logo.png'))
-
+        BrowserButton(self, self.pnl, Item(start_x, start_y+ystep*3, 'Chrome历史记录', 'resource/icon/chrome-logo.png'))
+        A12306Button(self, self.pnl, Item(start_x+xstep, start_y+ystep*3, '12306', 'resource/icon/12306.png'))
+        CtripButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep*3, '携程', 'resource/icon/ctrip.png'))
+        ChisButton(self, self.pnl, Item(start_x+xstep*3, start_y+ystep*3, '学信网', 'resource/icon/xuexin.png'))
+        WechatButton(self, self.pnl, Item(start_x+xstep*4, start_y+ystep*3, '微信好友', 'resource/icon/wechat.png'))
+        WechatmomentButton(self, self.pnl, Item(start_x+xstep*5, start_y+ystep*3, '微信朋友圈', 'resource/icon/wechat-moments.png'))
+        # GjjButton(self, self.pnl, Item(start_x +xstep*4, start_y+ystep*2, '公积金', 'resource/icon/gjj.png'))
         
         
         
