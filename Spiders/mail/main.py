@@ -82,6 +82,9 @@ class YSpider(object):
             # break
 
     def sinamail(self, cookie):
+        self.path = askdirectory(title='选择信息保存文件夹')
+        if str(self.path) == "":
+            sys.exit(1)
         self.gen_session(cookie)
         pn = 1
         url = 'https://m0.mail.sina.com.cn/wa.php?a=list_mail'
@@ -114,7 +117,7 @@ class YSpider(object):
                 content_json = json.loads(detail_resp.content.decode())
                 item['content_json'] = content_json
                 json_list.append(item)
-            self.write_json('sina_' + str(pn) + '.json', json.dumps(json_list))
+            self.write_json(self.path + os.sep + 'sina_' + str(pn) + '.json', json.dumps(json_list))
             pn += 1
 
     def gen_driver(self, cookies_list):

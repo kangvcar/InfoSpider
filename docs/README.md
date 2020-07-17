@@ -71,9 +71,10 @@
 - [ ] 中国电信
 - [x] 网易邮箱
 - [x] QQ邮箱
+- [x] 新浪邮箱
 - [ ] Hotmail
 - [ ] 阿里邮箱
-- [ ] 新浪邮箱
+
 - [ ] 12306
 - [ ] 公积金
 - [ ] 学信网
@@ -618,7 +619,75 @@
 
 </details>
 
+****
+## 新浪邮箱
 
+!> **说明**：需登录账号.
+
+### 使用步骤
+
+1. 点击**新浪邮箱**数据源按钮
+
+    ![sina1.png](https://i.loli.net/2020/07/17/x3jEXtABmisCZcW.png ':size=10%')
+
+2. 在弹出的浏览器中登录新浪邮箱
+
+    ![sina2.png](https://i.loli.net/2020/07/17/OremUH5oFGaBgfK.png ':size=50%')
+
+3. 选择数据保存路径
+
+    ![sina3.png](https://i.loli.net/2020/07/17/JETMBk1xNRZPY2r.png ':size=50%')
+
+4. 查看爬取的数据 (json格式)
+
+    ![sina4.png](https://i.loli.net/2020/07/17/6QJ7WEVhsnlBGOu.png ':size=50%')
+
+### 数据说明
+
+?> 👍 由于数据信息过长, 这里只作主要数据项说明, **点击展开查看示例**
+
+<details>
+<summary>sina_1.json 👉 你的新浪邮箱第一页所有邮件</summary>
+
+```json
+[
+    {
+        "mid": "043F7CE6001807666676A0F28FCF4914800220000001",
+        "title": "Fwd: Buy Your Logo and Save $5 USD Now [Time-Limited]",
+        "send_user": "126 *******@126.com>",
+        "email_addr": "*******@@sina.cn",
+        "content_json": {
+            "result": true,
+            "errno": 0,
+            "msg": "",
+            "data": {
+                "actual_sender": "",
+                "from": "126 <<*******@@126.com>",
+                "to": "*******@@sina.cn",
+                "cc": "",
+                "bcc": "",
+                "date": 1594922100,
+                "subject": "Fwd: Buy Your Logo and Save $5 USD Now [Time-Limited]",
+                "priority": false,
+                "notification_to": false,
+                "xmsgid": "",
+                "isstar": false,
+                "size": 9740,
+                "body": "*******@",
+                "ishtml": true,
+                "attlist": [],
+                "mid": "043F7CE6001807666676A0F28FCF49148000*******@001",
+                "fid": "new",
+                "sendstatus": null,
+                "neednotify": false
+            }
+        }
+    },
+    ...
+]
+```
+
+</details>
 
 ****
 ## 中国联通
