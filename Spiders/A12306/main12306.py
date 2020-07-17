@@ -1,9 +1,9 @@
 import json
 import datetime
 import os
-
+import sys
 import requests
-
+from tkinter.filedialog import askdirectory
 
 # session = requests.session()
 # cookie_dict = {
@@ -17,6 +17,9 @@ import requests
 
 class Info(object):
     def __init__(self, cookie):
+        self.path = askdirectory(title='选择信息保存文件夹')
+        if str(self.path) == "":
+            sys.exit(1)
         self.session = requests.session()
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
@@ -35,7 +38,8 @@ class Info(object):
         url = 'https://kyfw.12306.cn/otn/modifyUser/initQueryUserInfoApi'
         resp = self.session.get(url)
         json_data = json.loads(resp.content.decode())
-        return resp.content.decode()
+        self.save_json('user_info.json', resp.content.decode())
+        return 0
 
     # 未完成订单 https://kyfw.12306.cn/otn/queryOrder/queryMyOrderNoComplete
     def get_OrderNoComplete(self):
@@ -43,7 +47,8 @@ class Info(object):
         data = '_json_att='
         resp = self.session.post(url, data=data, verify=False)
         json_data = json.loads(resp.content.decode())
-        return resp.content.decode()
+        self.save_json('user_order_no_complete.json', resp.content.decode())
+        return 0
 
     # 未出行订单 https://kyfw.12306.cn/otn/queryOrder/queryMyOrder
     def get_Order(self):
@@ -63,7 +68,8 @@ class Info(object):
                 'sequeue_train_name': ''}
         resp = self.session.post(url, data=data)
         json_data = json.loads(resp.content.decode())
-        return resp.content.decode()
+        self.save_json('user_order.json', resp.content.decode())
+        return 0
 
     # 联系人  https://kyfw.12306.cn/otn/passengers/query
     def get_passengers(self):
@@ -72,7 +78,8 @@ class Info(object):
                 'pageSize': 10}
         resp = self.session.post(url, data=data)
         json_data = json.loads(resp.content.decode())
-        return resp.content.decode()
+        self.save_json('user_passengers.json', resp.content.decode())
+        return 0
 
     # 车票快递地址  https://kyfw.12306.cn/otn/address/initApi
     def get_address(self):
@@ -80,7 +87,8 @@ class Info(object):
         data = None
         resp = self.session.post(url, data=data)
         json_data = json.loads(resp.content.decode())
-        return resp.content.decode()
+        self.save_json('user_address.json', resp.content.decode())
+        return 0
 
     # 保险订单  https://kyfw.12306.cn/otn/insurance/queryMyIns
     def get_insurance(self):
@@ -99,7 +107,8 @@ class Info(object):
                 'sequeue_train_name': ''}
         data = 'queryStartDate=2019-04-09&queryEndDate=2019-04-09&pageSize=8&pageIndex=1&query_where=H&sequeue_train_name=&come_from_flag=my_ins'
         resp = self.session.post(url, data=data)
-        return resp.content.decode()
+        self.save_json('user_insurance.json', resp.content.decode())
+        return 0
 
     # 历史订单 https://kyfw.12306.cn/otn/queryOrder/queryMyOrder
     def get_History_Order(self):
@@ -124,21 +133,20 @@ class Info(object):
 
         data = 'come_from_flag=my_order&pageIndex=0&pageSize=8&query_where=H&queryStartDate=2019-06-01&queryEndDate=2019-06-21&queryType=1&sequeue_train_name=15659358815'
         resp = self.session.post(url, headers=self.headers, data=data, verify=False)
-        print(resp)
-        print(resp.headers)
-        print(resp.content)
-        return resp.content
+        self.save_json('user_history_order.json', resp.content.decode())
+        return 0
 
     # 会员信息
     def get_level(self):
         url = 'https://cx.12306.cn/tlcx/memberInfo/memberPointQuery'
         data = 'queryType=0'
         resp = self.session.post(url, data=data)
-        return resp.content.decode()
+        self.save_json('user_level.json', resp.content.decode())
+        return 0
 
     def save_json(self, name, ret):
-        file_path = os.path.join(os.path.dirname(__file__) + '/' + name)
-        with open(file_path, 'a') as f:
+        # file_path = os.path.join(os.path.dirname(__file__) + '/' + name)
+        with open(self.path + os.sep + name, 'w', encoding='utf-8') as f:
             f.write(ret)
 
 

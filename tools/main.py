@@ -85,9 +85,11 @@ class Button:
         while 1:
             time.sleep(0.2)
             if self.driver.current_url == curr_url:
-                if extra_url == '':
-                    self.driver.get(extra_url)
+                # if extra_url == '':
+                #     self.driver.get(extra_url)
                 get_cookies = self.driver.get_cookies()
+                print(get_cookies)
+                print()
                 cookie_str = ''
                 for s in get_cookies:
                     cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
@@ -185,8 +187,9 @@ class ChisButton(Button):
             self.updateStatus(self.frame,2)
             return
 
-        from Spiders.chsi.main import Chis
+        from chsi.main import Chis
         try:
+        
             chis = Chis(cookie_str)
             p1, p2, x = chis.get_xueji_info()
             chis.save_ret(p1, '录取前照片.jpg')
@@ -269,33 +272,29 @@ class A12306Button(Button):
                     cookie_str = ''
                     for s in get_cookies:
                         cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
+                    self.driver.quit()
                     break
-
             try:
                 a = main12306.Info(cookie_str)
-                #OrderNoComplete = a.get_OrderNoComplete()
-                #a.save_json('OrderNoComplete.json', OrderNoComplete)
-                #Order = a.get_Order()
-                #a.save_json('Order.json', Order)
-                #passengers = a.get_passengers()
-                #a.save_json('passengers.json', passengers)
-                History_Order = a.get_History_Order()
-                a.save_json('History_Order.json', History_Order)
-
+                # 个人信息，json格式
+                a.get_user_info()
+                # 未完成订单
+                a.get_OrderNoComplete()
+                # 未出行订单 
+                a.get_Order()
+                # 联系人
+                a.get_passengers()
+                # 车票快递地址
+                a.get_address()
+                # 保险订单
+                # a.get_insurance()
+                # 历史订单
+                a.get_History_Order()
+                # 会员信息
+                # a.get_level()
+                self.updateStatus(self.frame,1)
             except Exception:
                 self.updateStatus(self.frame,2)
-
-            self.driver.get('https://cx.12306.cn/tlcx/personal.html')
-            # 换json
-            get_cookies = self.driver.get_cookies()
-            cookie_str = ''
-            for s in get_cookies:
-                cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
-            a = main12306.Info(cookie_str)
-            level = a.get_level()
-            a.save_json('level.json', level)
-            self.driver.quit()
-            self.updateStatus(self.frame,1)
         except Exception:
             self.updateStatus(self.frame,2)
 

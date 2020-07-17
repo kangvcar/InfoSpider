@@ -73,7 +73,7 @@
 - [x] Outlook邮箱
 - [x] 阿里邮箱
 - [x] 生成朋友圈相册
-- [ ] 12306
+- [x] 12306
 - [ ] 公积金
 - [ ] 学信网
 - [ ] 携程
@@ -3559,6 +3559,238 @@
     }, 
     ...
 ]
+```
+
+</details>
+
+***
+## 12306
+
+!> **说明**：需登录账号.
+
+### 使用步骤
+
+1. 点击**12306**数据源按钮
+
+    ![tielu1.png](https://i.loli.net/2020/07/17/oEsDFyM2dTcw1bu.png ':size=10%')
+
+2. 在弹出的浏览器中登录12306
+
+    ![tielu2.png](https://i.loli.net/2020/07/17/2Pi9bLja7vTAysc.png ':size=50%')
+
+3. 选择数据保存路径
+
+    ![tielu3.png](https://i.loli.net/2020/07/17/Eph5MVUnWAjTKxB.png ':size=50%')
+
+4. 查看爬取的数据 (json格式)
+
+    ![tielu4.png](https://i.loli.net/2020/07/17/NwZsEJo52iykU3Q.png ':size=50%')
+
+### 数据说明
+
+?> 👍 由于数据信息过长, 这里只作主要数据项说明, **点击展开查看示例**
+
+<details>
+<summary>user_info.json 👉 你的12306账号基本信息</summary>
+
+```json
+{
+    "validateMessagesShowId": "_validatorMessage",
+    "status": true,
+    "httpstatus": 200,
+    "data": {
+        "userTypeName": "成人",
+        "picFlag": "1",
+        "canUpload": "N",
+        "userPassword": "",
+        "notice1": "",
+        "canAddGAT": false,
+        "isMobileCheck": "Y",
+        "userDTO": {
+            "loginUserDTO": {
+                "center": "E",
+                "login_channel": "E",
+                "login_site": "E",
+                "login_id": "0atMvH8w1z0aaackKOhCL8y1BR9",
+                "agent_contact": "1*******",
+                "user_type": "1",
+                "user_name": "*******",
+                "name": "*******",
+                "id_type_code": "1",
+                "id_type_name": "中国居民身份证",
+                "id_no": "4**************",
+                "member_id": "*",
+                "member_level": "*",
+                "userIpAddress": "14.210*******",
+                "is_active": "Y",
+                "allEncStr": "25da32345**************4a17601355663f11",
+                "isYongThan12": "N",
+                "isAdult": "Y",
+                "isYongThan10": "N",
+                "isOldThan60": "N",
+                "isYongThan14": "N",
+                "isYongThan18": "N",
+                "isDisable": "N",
+                "gat_born_date": "",
+                "gat_valid_date_start": "",
+                "gat_valid_date_end": "",
+                "gat_version": ""
+            },
+            "studentInfoDTO": {},
+            "is_receive": "Y",
+            "password": "",
+            "password_new": "",
+            "pwd_question": "",
+            "pwd_answer": "",
+            "sex_code": "M",
+            "born_date": "199*******00:00",
+            "country_code": "CN",
+            "mobile_no": "1*******",
+            "phone_no": "",
+            "email": "*******.com",
+            "address": "",
+            "postalcode": "",
+            "is_active": "Y",
+            "revSm_code": "Y",
+            "last_login_time": "",
+            "user_id": 1000004*******641,
+            "phone_flag": "*",
+            "encourage_flag": "*",
+            "user_status": "1",
+            "check_id_flag": "0",
+            "is_valid": "Y",
+            "display_control_flag": "1",
+            "needModifyEmail": "N",
+            "flag_member": "N",
+            "pic_control_flag": "",
+            "regist_time": "",
+            "allEncStr": "c41be36f14c*******89e2812f079c",
+            "ivr_passwd": ""
+        },
+        "notice": "已通过"
+    },
+    "messages": [],
+    "validateMessages": {}
+}
+```
+
+</details>
+
+<details>
+<summary>user_address.json 👉 你的12306账号车票快递地址信息</summary>
+
+```json
+{
+    "validateMessagesShowId": "_validatorMessage",
+    "status": true,
+    "httpstatus": 200,
+    "data": {
+        "isNeedAgree": false,
+        "can_operate_passenger_days_after": 30,
+        "isCanAddAddress": true,
+        "errorMsg": "操作失败",
+        "address_max_size": 20,
+        "addresses": []
+    },
+    "messages": [],
+    "validateMessages": {}
+}
+```
+
+</details>
+
+<details>
+<summary>user_passengers.json 👉 你的12306账号联系人信息</summary>
+
+```json
+{
+    "validateMessagesShowId": "_validatorMessage",
+    "status": true,
+    "httpstatus": 200,
+    "data": {
+        "datas": [
+            {
+                "passenger_name": "***",
+                "sex_code": "M",
+                "sex_name": "男",
+                "born_date": "199***0 00:00:00",
+                "country_code": "CN",
+                "passenger_id_type_code": "1",
+                "passenger_id_type_name": "中国居民身份证",
+                "passenger_id_no": "4*****************4",
+                "passenger_type": "1",
+                "passenger_flag": "0",
+                "passenger_type_name": "成人",
+                "mobile_no": "13**********",
+                "phone_no": "",
+                "email": "******",
+                "address": "",
+                "postalcode": "",
+                "first_letter": "***",
+                "recordCount": "1",
+                "isUserSelf": "Y",
+                "total_times": "99",
+                "delete_time": "19****",
+                "allEncStr": "4590e72569be9bbcc58",
+                "isAdult": "Y",
+                "isYongThan10": "N",
+                "isYongThan14": "N",
+                "isOldThan60": "N",
+                "if_receive": "Y",
+                "is_active": "Y",
+                "is_buy_ticket": "N",
+                "last_time": "20190116",
+                "mobile_check_time": "",
+                "email_active_time": "",
+                "last_update_time": "",
+                "passenger_uuid": "bdc07135fbb079712a0f1c2",
+                "gat_born_date": "",
+                "gat_valid_date_start": "",
+                "gat_valid_date_end": "",
+                "gat_version": ""
+            }
+        ],
+        "flag": true,
+        "pageTotal": 1
+    },
+    "messages": [],
+    "validateMessages": {}
+}
+```
+
+</details>
+
+<details>
+<summary>user_order.json 👉 你的12306账号未出行订单信息</summary>
+
+```json
+{
+    "validateMessagesShowId": "_validatorMessage",
+    "status": true,
+    "httpstatus": 200,
+    "data": {
+        "order_total_number": "",
+        "show_catering_button": true,
+        "OrderDTODataList": [测试账号没有订单记录]
+    },
+    "messages": [],
+    "validateMessages": {}
+}
+```
+
+</details>
+
+<details>
+<summary>user_order_no_complete.json 👉 你的12306账号未完成订单信息</summary>
+
+```json
+{
+    "validateMessagesShowId": "_validatorMessage",
+    "status": true,
+    "httpstatus": 200,
+    "messages": [],
+    "validateMessages": {测试账号没有订单记录}
+}
 ```
 
 </details>
