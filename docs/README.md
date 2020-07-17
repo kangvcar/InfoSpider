@@ -717,7 +717,7 @@
 ?> 👍 由于数据信息过长, 这里只作主要数据项说明, **点击展开查看示例**
 
 <details>
-<summary>sina_1.json 👉 你的Hotmail/Outlook邮箱所有邮件</summary>
+<summary>hotmail.json 👉 你的Hotmail/Outlook邮箱所有邮件</summary>
 
 ```json
 [
