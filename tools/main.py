@@ -200,27 +200,27 @@ class ChisButton(Button):
 
 class YidongButton(Button):
     def OnClick(self, event):
-        try:
-            self.updateStatus(self.frame,0)
-            url = 'https://login.10086.cn/html/login/login.html'
-            self.Automation(url)
-            while 1:
-                time.sleep(0.2)
-                if self.driver.current_url.startswith('https://shop.10086.cn/i/?f=home&welcome'):
-                    get_cookies = self.driver.get_cookies()
-                    cookie_str = ''
-                    for s in get_cookies:
-                        cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
-                    self.driver.quit()
-                    break
-            try:
-                y = YiDong(cookie_str)
-                y.get_bill_info()
-                self.updateStatus(self.frame,1)
-            except Exception:
-                self.updateStatus(self.frame,2)
-        except Exception:
-            self.updateStatus(self.frame,2)
+        # try:
+        self.updateStatus(self.frame,0)
+        url = 'https://login.10086.cn/html/login/login.html'
+        self.Automation(url)
+        while 1:
+            time.sleep(0.2)
+            if self.driver.current_url.startswith('https://shop.10086.cn/i/?f=home&welcome'):
+                get_cookies = self.driver.get_cookies()
+                cookie_str = ''
+                for s in get_cookies:
+                    cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
+                self.driver.quit()
+                break
+            # try:
+        y = YiDong(cookie_str)
+        y.get_bill_info()
+        self.updateStatus(self.frame,1)
+        #     except Exception:
+        #         self.updateStatus(self.frame,2)
+        # except Exception:
+        #     self.updateStatus(self.frame,2)
 
 class GjjButton(Button):
     def OnClick(self, event):

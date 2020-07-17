@@ -47,7 +47,9 @@ class YiDong(object):
         # print('执行----> get_bill_json')
         # constract the request url
         begin_month = '202001'
-        end_month = '202004'
+        # end_month = '202004'
+        import datetime
+        end_month = str(datetime.date.today().strftime('%Y%m'))
         url = 'https://touch.10086.cn/i/v1/fee/touchbillinfo/'+self.mobile+'?bgnMonth='+begin_month+'&endMonth='+end_month+'&time=202062215373895&channel=02'
         self.headers['Referer'] = 'https://touch.10086.cn/i/mobile/billqry.html'
 
@@ -72,8 +74,8 @@ class YiDong(object):
                     for k in bill_item:
                         item_month.append(k)
             bill_details[month] = item_month
-        with open(sys.path + os.sep + 'yidong_bill.json', 'w', encoding='utf-8') as f:
-            f.write(bill_details)
+        with open(self.path + os.sep + 'yidong_bill.json', 'w', encoding='utf-8') as f:
+            f.write(json.dumps(bill_details))
         # print(bill_details)
         print('Done.')
 
