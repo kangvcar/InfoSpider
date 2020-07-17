@@ -72,9 +72,9 @@
 - [x] 网易邮箱
 - [x] QQ邮箱
 - [x] 新浪邮箱
-- [ ] Hotmail
+- [x] Hotmail邮箱
+- [x] Outlook邮箱
 - [ ] 阿里邮箱
-
 - [ ] 12306
 - [ ] 公积金
 - [ ] 学信网
@@ -688,6 +688,56 @@
 ```
 
 </details>
+
+****
+## Hotmail/Outlook邮箱
+
+!> **说明**：需登录账号.
+
+### 使用步骤
+
+1. 点击**Hotmail**数据源按钮
+
+    ![hotmail1.png](https://i.loli.net/2020/07/17/aZQRYmusC7xH8ko.png ':size=10%')
+
+2. 在弹出的浏览器中登录Hotmail/Outlook邮箱
+
+    ![hotmail2.png](https://i.loli.net/2020/07/17/ZCcjaq1mOt6pTSV.png ':size=50%')
+
+3. 选择数据保存路径
+
+    ![hotmail3.png](https://i.loli.net/2020/07/17/YCgsnoQd4r2UJqA.png ':size=50%')
+
+4. 查看爬取的数据 (json格式)
+
+    ![hotmail4.png](https://i.loli.net/2020/07/17/q9PI6x2oL4mnHfV.png ':size=50%')
+
+### 数据说明
+
+?> 👍 由于数据信息过长, 这里只作主要数据项说明, **点击展开查看示例**
+
+<details>
+<summary>sina_1.json 👉 你的Hotmail/Outlook邮箱所有邮件</summary>
+
+```json
+[
+    {
+        "send_user": "***@gmail.com",
+        "title": "Welcome to Disqus, ******!",
+        "time": "11:05",
+        "content": "Forwarded message -  Disqus <hello@success.disqus.com> Date: 2020 Subject: Welcome to Disqus****"
+    },
+    {
+        "send_user": "***@gmail.com",
+        "title": "********",
+        "time": "11:05",
+        "content": "*****************"
+    },
+    ...
+]
+```
+</details>
+
 
 ****
 ## 中国联通

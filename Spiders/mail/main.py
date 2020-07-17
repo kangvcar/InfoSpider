@@ -121,7 +121,6 @@ class YSpider(object):
             pn += 1
 
     def gen_driver(self, cookies_list):
-        print(cookies_list)
         try: 
             option = ChromeOptions()
             option.add_experimental_option('excludeSwitches', ['enable-automation'])
@@ -136,19 +135,19 @@ class YSpider(object):
             print(e)
 
     def get_hotmail(self, cookie_list):
-        print(1)
+        self.path = askdirectory(title='选择信息保存文件夹')
+        if str(self.path) == "":
+            sys.exit(1)
         self.gen_driver(cookie_list)
-        # url = 'https://mail.aliyun.com/alimail/'
-        # self.driver.get(url)
-        print(2)
         time.sleep(2)
         page_source = self.driver.page_source
         obj_list = etree.HTML(page_source).xpath('//div[contains(@class,"customScrollBar")]')[1].xpath('./div/div')[1:]
         json_list = []
-        print(obj_list)
+        i = 0
         for obj in obj_list[:100]:
             try:
-                print(obj)
+                i += 1
+                print('进度 >>>>>>>>>>>', i, '/' , len(obj_list))
                 item = {}
                 item['send_user'] = ''.join(obj.xpath('./div/div/div/div[2]/div[1]//text()')).strip()
                 #item['email_addr'] = obj.xpath('./div/div/div/div[2]/div[1]//span/@title')[0]
@@ -156,10 +155,10 @@ class YSpider(object):
                 item['time'] = ''.join(obj.xpath('./div/div/div/div[2]/div[2]/span//text()')).strip()
                 item['content'] = ''.join(obj.xpath('./div/div/div/div[2]/div[3]//text()')).strip()
                 json_list.append(item)
-                print(item)
+                # print(item)
             except Exception:
                 continue
-        self.write_json('hotmail.json', json.dumps(json_list))
+        self.write_json(self.path + os.sep + 'hotmail.json', json.dumps(json_list))
 
     def get_aliyun_mail(self, cookie):
         self.gen_session(cookie)

@@ -395,7 +395,7 @@ class HotmailButton(Button):
             self.Automation(url)
             while 1:
                 time.sleep(0.2)
-                if 'https://outlook.live.com/mail/inbox' in self.driver.current_url:
+                if 'https://outlook.live.com/mail/' in self.driver.current_url:
                     time.sleep(1)
                     cookies_list = self.driver.get_cookies()
                     self.driver.quit()
@@ -801,7 +801,7 @@ class CreateFrame(wx.Frame):
         QqqunButton(self, self.pnl, Item(start_x+xstep*2, start_y, 'QQ群', 'resource/icon/qqqun.png'))
         QqmailButton(self, self.pnl, Item(start_x+xstep*3, start_y, 'QQ邮箱', 'resource/icon/qmail.png'))
         WymailButton(self, self.pnl, Item(start_x+xstep*4, start_y, '网易邮箱', 'resource/icon/wangyi.png'))
-        HotmailButton(self, self.pnl, Item(start_x+xstep*5, start_y, 'Hotmail', 'resource/icon/hotmail.png'))
+        HotmailButton(self, self.pnl, Item(start_x+xstep*5, start_y, 'Hotmail/Outlook', 'resource/icon/hotmail.png'))
         ## row 2
         ZhihuButton(self, self.pnl, Item(start_x, start_y+ystep, '知乎', 'resource/icon/zhihu.png'))
         JdButton(self, self.pnl, Item(start_x+xstep, start_y+ystep, '京东', 'resource/icon/jd.png'))
