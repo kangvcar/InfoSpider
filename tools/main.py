@@ -135,10 +135,16 @@ class Button:
         if status == 0:
             frame.SetStatusText("爬取中...", 1)
         elif status == 1:
-            self.driver.quit()
+            try:
+                self.driver.quit()
+            except:
+                pass
             frame.SetStatusText("爬取完成！", 1)
         else:
-            self.driver.quit()
+            try:
+                self.driver.quit()
+            except:
+                pass
             frame.SetStatusText("爬取失败！", 1)
 
 class JdButton(Button):
@@ -754,6 +760,25 @@ class BrowserButton(Button):
             self.updateStatus(self.frame, 2)
             pass
 
+class CnblogButton(Button):
+    def OnClick(self, event):
+        dlg = wx.TextEntryDialog(None, u"请输入博客园的用户名:", u"获取博客园用户文章信息")
+        if dlg.ShowModal() == wx.ID_OK:
+            blogname = dlg.GetValue()  # 获取文本框中输入的值
+        dlg.Destroy()
+        from cnblog.main import Cnblog
+        try:
+            self.updateStatus(self.frame, 0)
+            cb = Cnblog(blogname)
+            article = cb.get_element_of_article()
+            cb.save_as_json(article)
+            self.updateStatus(self.frame, 1)
+        except:
+            self.updateStatus(self.frame, 2)
+            pass
+
+
+
 class Item:
     x = 0
     y = 0
@@ -812,7 +837,8 @@ class CreateFrame(wx.Frame):
         ## row 4
         BrowserButton(self, self.pnl, Item(start_x, start_y+ystep*3, 'Chrome历史记录', 'resource/icon/chrome-logo.png'))
         A12306Button(self, self.pnl, Item(start_x+xstep, start_y+ystep*3, '12306', 'resource/icon/12306.png'))
-        CtripButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep*3, '携程', 'resource/icon/ctrip.png'))
+        CnblogButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep*3, '博客园', 'resource/icon/cnblog.png'))
+        # CtripButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep*3, '携程', 'resource/icon/ctrip.png'))
         ChisButton(self, self.pnl, Item(start_x+xstep*3, start_y+ystep*3, '学信网', 'resource/icon/xuexin.png'))
         WechatButton(self, self.pnl, Item(start_x+xstep*4, start_y+ystep*3, '微信好友', 'resource/icon/wechat.png'))
         WechatmomentButton(self, self.pnl, Item(start_x+xstep*5, start_y+ystep*3, '微信朋友圈', 'resource/icon/wechat-moments.png'))
