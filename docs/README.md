@@ -74,6 +74,7 @@
 - [x] 浏览器浏览历史
 - [x] 12306
 - [x] 博客园
+- [x] CSDN博客
 - [ ] 学信网
 - [ ] 携程
 - [ ] 微信好友
@@ -3818,7 +3819,7 @@
 ?> 👍 由于数据信息过长, 这里只作主要数据项说明, **点击展开查看示例**
 
 <details>
-<summary>user_info.json 👉 你的博客园文章信息</summary>
+<summary>cnblog_article.json 👉 你的博客园文章信息</summary>
 
 ```json
 [
@@ -3835,7 +3836,50 @@
 
 </details>
 
+***
+## CSDN博客
 
+!> **说明**：无需登录账号, 输入CSDN博客用户名即可 (如 kangvcar ) .
+
+### 使用步骤
+
+1. 点击**CSDN**数据源按钮g
+
+    ![csdn1.png](https://i.loli.net/2020/07/19/Q9PhVIpSHxiWFR7.png ':size=10%')
+
+2. 输入CSDN博客用户名
+
+    ![csdn2.png](https://i.loli.net/2020/07/19/crH5u6xAzvF2XqN.png ':size=50%')
+
+3. 选择数据保存路径
+
+    ![csdn3.png](https://i.loli.net/2020/07/19/JMm2dvjX6nClgf4.png ':size=50%')
+
+4. 查看爬取的数据 (json格式)
+
+    ![csdn4.png](https://i.loli.net/2020/07/19/31hj974bop5ivCR.png ':size=50%')
+
+### 数据说明
+
+?> 👍 由于数据信息过长, 这里只作主要数据项说明, **点击展开查看示例**
+
+<details>
+<summary>csdn_article.json 👉 你的CSDN博客文章信息</summary>
+
+```json
+[
+    {
+        "title": "GIT \u68c0\u67e5\u3001\u64a4\u9500\u4fee\u6539\u7b80\u660e\u6559\u7a0b",
+        "sumary": "\u8bf4\u660e\uff1a\u672c\u6559\u7a0b\u7684\u6240\u6709\u64cd\u4f5c\u90fd\u5728master\u5206\u652f\u4e0a\uff0c\u4e14\u4ec5\u7528\u4e8e\u4e2a\u4eba\u4ee3\u7801\u4ed3\u5e93\u7ba1\u7406\uff0c\u64cd\u4f5c\u7684\u5b9e\u7528\u6027\u6709\u5f85\u7814\u7a76\u30024\u4e2a\u533a5\u79cd\u72b6\u6001\u672a\u4fee\u6539\uff08Origin\uff09\u5df2\u4fee\u6539\uff08Modified\uff09\u5df2\u6682\u5b58\uff08Staged\uff09\u5df2\u63d0\u4ea4\uff08Committed\uff09\u5df2\u63a8\u9001\uff08Pushed\uff09\u68c0\u67e5\u4fee\u6539\u5df2\u4fee\u6539\uff0c\u672a\u6682\u5b58\uff08\u68c0\u67e5\u5de5\u4f5c\u533a\u4e0e\u6682\u5b58\u533a\u95f4\u7684\u5dee\u5f02\uff09g...",
+        "postdate": "2017-12-15",
+        "posttime": "09:11:37",
+        "views": "648"
+    },
+    ...
+]
+```
+
+</details>
 ***
 # License
 GPL-3.0
