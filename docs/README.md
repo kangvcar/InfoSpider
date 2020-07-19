@@ -76,12 +76,7 @@
 - [x] 博客园
 - [x] CSDN博客
 - [x] 开源中国博客
-- [ ] 学信网
-- [ ] 携程
-- [ ] 微信好友
-- [ ] 微信朋友圈
-- [ ] 微博
-- [ ] 博客
+- [x] 简书
 
 !> 😊 如果没有找到你需要的数据源, 你可以通过 GitHub 提交[Issues](https://github.com/kangvcar/InfoSpider/issues)来告诉我们, 我们很乐意不断完善此项目.
 
@@ -3885,15 +3880,15 @@
 ***
 ## Oschina开源中国博客
 
-!> **说明**：无需登录账号, 输入开源中国博客个人主页链接 (如 [https://my.oschina.net/kangvca](https://my.oschina.net/kangvcar) ) .
+!> **说明**：无需登录账号, 输入开源中国博客个人主页链接 (如 [https://my.oschina.net/kangvcar](https://my.oschina.net/kangvcar) ) .
 
 ### 使用步骤
 
-1. 点击**开源中国博客**数据源按钮g
+1. 点击**开源中国博客**数据源按钮gr
 
     ![oschina1.png](https://i.loli.net/2020/07/19/IlyC7ahoAsOH8Tm.png ':size=10%')
 
-2. 输入开源中国博客个人主页链接, 如 [https://my.oschina.net/kangvca](https://my.oschina.net/kangvcar) ) 
+2. 输入开源中国博客个人主页链接, 如 [https://my.oschina.net/kangvcar](https://my.oschina.net/kangvcar) ) 
 
     ![oschina2.png](https://i.loli.net/2020/07/19/4i7xDYXZArjqdOm.png ':size=50%')
 
@@ -3929,7 +3924,52 @@
 
 </details>
 
+***
+## 简书
 
+!> **说明**：无需登录账号, 输入简书个人主页链接 (如 [https://www.jianshu.com/u/d9c480744afd](https://www.jianshu.com/u/d9c480744afd) ) .
+
+### 使用步骤
+
+1. 点击**简书**数据源按钮g
+
+    ![jianshu1.png](https://i.loli.net/2020/07/19/dPRVC82oirMNUZk.png ':size=10%')
+
+2. 输入简书个人主页链接, 如 [https://www.jianshu.com/u/d9c480744afd](https://www.jianshu.com/u/d9c480744afd ) 
+
+    ![jianshu2.png](https://i.loli.net/2020/07/19/J9Rm7EAPBZ4KUdH.png ':size=50%')
+
+!> **注意**：个人主页链接最后不含 `/` (斜杆)
+
+3. 选择数据保存路径
+
+    ![jianshu3.png](https://i.loli.net/2020/07/19/jO1a4vtkSoVEumi.png ':size=50%')
+
+4. 查看爬取的数据 (json格式)
+
+    ![jianshu4.png](https://i.loli.net/2020/07/19/1gmrpkJzFjbfQ3d.png ':size=50%')
+
+### 数据说明
+
+?> 👍 由于数据信息过长, 这里只作主要数据项说明, **点击展开查看示例**
+
+<details>
+<summary>csdn_article.json 👉 你的简书文章信息</summary>
+
+```json
+[
+    {
+        "title": "\u624b\u628a\u624b\u6559\u4f60\u75281\u884cPython\u4ee3\u7801\u5b9e\u73b0FTP\u670d\u52a1\u5668 -- Pyftpdlib",
+        "sumary": "\u5f53\u4f60\u60f3\u5feb\u901f\u5171\u4eab\u4e00\u4e2a\u76ee\u5f55\u7684\u65f6\u5019\uff0c\u8fd9\u662f\u7279\u522b\u6709\u7528\u7684\uff0c\u53ea\u9700\u89811\u884c\u4ee3\u7801\u5373\u53ef\u5b9e\u73b0\u3002FTP \u670d\u52a1\u5668\uff0c\u5728\u6b64\u4e4b\u524d\u6211\u90fd\u662f\u4f7f\u7528Linux\u7684vsftpd\u8f6f\u4ef6\u5305\u6765\u642d\u5efaFT...",
+        "postdate": "2017-12-30",
+        "posttime": "20:35",
+        "views": "3360"
+    },
+    ...
+]
+```
+
+</details>
 
 ***
 # License
