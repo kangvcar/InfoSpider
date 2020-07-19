@@ -22,6 +22,9 @@
 ***
 # 🕷About
 INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安全快捷的帮助用户拿回自己的数据，工具代码开源，流程透明。
+目前支持数据源包括GitHub、QQ邮箱、网易邮箱、阿里邮箱、新浪邮箱、Hotmail邮箱、Outlook邮箱、京东、淘宝、支付宝、中国移动、中国联通、中国电信、知乎、哔哩哔哩、网易云音乐、QQ好友、QQ群、生成朋友圈相册、浏览器浏览历史、12306、博客园、CSDN博客、开源中国博客、简书。
+
+详细使用说明参照[使用说明文档](https://infospider.vercel.app)
 
 # 🎨Screenshot
 
@@ -83,35 +86,6 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 - 融合机器学习技术、自然语言处理技术等对数据深入分析
 - 把分析结果绘制图表直观展示
 - 添加更多数据源...
-
-
-# 🚀使用速览
-
-<details>
-<summary>👉 GIF动图</summary>
-
-[![UfKlVK.md.gif](https://s1.ax1x.com/2020/07/20/UfKlVK.md.gif)](https://imgchr.com/i/UfKlVK)
-[![UfKA5F.md.gif](https://s1.ax1x.com/2020/07/20/UfKA5F.md.gif)](https://imgchr.com/i/UfKA5F)
-[![UfKVC4.md.gif](https://s1.ax1x.com/2020/07/20/UfKVC4.md.gif)](https://imgchr.com/i/UfKVC4)
-[![UfKZ8J.md.gif](https://s1.ax1x.com/2020/07/20/UfKZ8J.md.gif)](https://imgchr.com/i/UfKZ8J)
-[![UfKMb6.md.gif](https://s1.ax1x.com/2020/07/20/UfKMb6.md.gif)](https://imgchr.com/i/UfKMb6)
-[![UfKe29.md.gif](https://s1.ax1x.com/2020/07/20/UfKe29.md.gif)](https://imgchr.com/i/UfKe29)
-[![UfKmvR.md.gif](https://s1.ax1x.com/2020/07/20/UfKmvR.md.gif)](https://imgchr.com/i/UfKmvR)
-[![UfKuK1.md.gif](https://s1.ax1x.com/2020/07/20/UfKuK1.md.gif)](https://imgchr.com/i/UfKuK1)
-[![UfKKDx.md.gif](https://s1.ax1x.com/2020/07/20/UfKKDx.md.gif)](https://imgchr.com/i/UfKKDx)
-[![UfKGPe.md.gif](https://s1.ax1x.com/2020/07/20/UfKGPe.md.gif)](https://imgchr.com/i/UfKGPe)
-[![UfKY2d.md.gif](https://s1.ax1x.com/2020/07/20/UfKY2d.md.gif)](https://imgchr.com/i/UfKY2d)
-[![UfK1UO.md.gif](https://s1.ax1x.com/2020/07/20/UfK1UO.md.gif)](https://imgchr.com/i/UfK1UO)
-[![UfK35D.md.gif](https://s1.ax1x.com/2020/07/20/UfK35D.md.gif)](https://imgchr.com/i/UfK35D)
-[![UfKUKI.md.gif](https://s1.ax1x.com/2020/07/20/UfKUKI.md.gif)](https://imgchr.com/i/UfKUKI)
-[![UfKtxA.md.gif](https://s1.ax1x.com/2020/07/20/UfKtxA.md.gif)](https://imgchr.com/i/UfKtxA)
-[![UfKJ8H.md.gif](https://s1.ax1x.com/2020/07/20/UfKJ8H.md.gif)](https://imgchr.com/i/UfKJ8H)
-[![UfKdqP.md.gif](https://s1.ax1x.com/2020/07/20/UfKdqP.md.gif)](https://imgchr.com/i/UfKdqP)
-[![UfK0Vf.md.gif](https://s1.ax1x.com/2020/07/20/UfK0Vf.md.gif)](https://imgchr.com/i/UfK0Vf)
-[![UfKBa8.md.gif](https://s1.ax1x.com/2020/07/20/UfKBa8.md.gif)](https://imgchr.com/i/UfKBa8)
-[![UfKart.md.gif](https://s1.ax1x.com/2020/07/20/UfKart.md.gif)](https://imgchr.com/i/UfKart)
-
-</details>
 
 # 😇Vistors
 
