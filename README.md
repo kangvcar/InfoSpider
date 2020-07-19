@@ -87,7 +87,7 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 - 把分析结果绘制图表直观展示
 - 添加更多数据源...
 
-# 😇Vistors
+# 😇Visitors
 
 ![](http://profile-counter.glitch.me/kangvcar/count.svg)
 
