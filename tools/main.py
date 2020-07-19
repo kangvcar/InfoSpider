@@ -794,7 +794,22 @@ class CsdnButton(Button):
             self.updateStatus(self.frame, 2)
             pass
             
-
+class OschinaButton(Button):
+    def OnClick(self, event):
+        dlg = wx.TextEntryDialog(None, u"请输入开源中国个人博客主页链接:", u"获取开源中国博客用户文章信息")
+        if dlg.ShowModal() == wx.ID_OK:
+            blogurl = dlg.GetValue()  # 获取文本框中输入的值
+        dlg.Destroy()
+        from oschina.main import Oschina
+        try:
+            self.updateStatus(self.frame, 0)
+            oschina = Oschina(blogurl)
+            article = oschina.get_element_of_article()
+            oschina.save_as_json(article)
+            self.updateStatus(self.frame, 1)
+        except:
+            self.updateStatus(self.frame, 2)
+            pass
 class Item:
     x = 0
     y = 0
@@ -855,9 +870,10 @@ class CreateFrame(wx.Frame):
         A12306Button(self, self.pnl, Item(start_x+xstep, start_y+ystep*3, '12306', 'resource/icon/12306.png'))
         CnblogButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep*3, '博客园', 'resource/icon/cnblog.png'))
         CsdnButton(self, self.pnl, Item(start_x+xstep*3, start_y+ystep*3, 'CSDN博客', 'resource/icon/csdn.png'))
+        OschinaButton(self, self.pnl, Item(start_x+xstep*4, start_y+ystep*3, '开源中国博客', 'resource/icon/oschina.png'))
         # CtripButton(self, self.pnl, Item(start_x+xstep*2, start_y+ystep*3, '携程', 'resource/icon/ctrip.png'))
         # ChisButton(self, self.pnl, Item(start_x+xstep*3, start_y+ystep*3, '学信网', 'resource/icon/xuexin.png'))
-        WechatButton(self, self.pnl, Item(start_x+xstep*4, start_y+ystep*3, '微信好友', 'resource/icon/wechat.png'))
+        # WechatButton(self, self.pnl, Item(start_x+xstep*4, start_y+ystep*3, '微信好友', 'resource/icon/wechat.png'))
         WechatmomentButton(self, self.pnl, Item(start_x+xstep*5, start_y+ystep*3, '微信朋友圈', 'resource/icon/wechat-moments.png'))
         # GjjButton(self, self.pnl, Item(start_x +xstep*4, start_y+ystep*2, '公积金', 'resource/icon/gjj.png'))
         

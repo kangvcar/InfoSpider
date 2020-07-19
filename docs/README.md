@@ -75,6 +75,7 @@
 - [x] 12306
 - [x] 博客园
 - [x] CSDN博客
+- [x] 开源中国博客
 - [ ] 学信网
 - [ ] 携程
 - [ ] 微信好友
@@ -3800,7 +3801,7 @@
 
 1. 点击**博客园**数据源按钮g
 
-    ![cnblog1.png](https://i.loli.net/2020/07/19/mlhiFJ4M2GxaR9D.png ':size=10%')
+    ![cnblog1.png](https://i.loli.net/2020/07/19/TyIhNxdX5wFEtYH.png ':size=10%')
 
 2. 输入博客园用户名
 
@@ -3845,7 +3846,7 @@
 
 1. 点击**CSDN**数据源按钮g
 
-    ![csdn1.png](https://i.loli.net/2020/07/19/Q9PhVIpSHxiWFR7.png ':size=10%')
+    ![csdn1.png](https://i.loli.net/2020/07/19/3cnra4DZIsGEpvk.png ':size=10%')
 
 2. 输入CSDN博客用户名
 
@@ -3880,6 +3881,56 @@
 ```
 
 </details>
+
+***
+## Oschina开源中国博客
+
+!> **说明**：无需登录账号, 输入开源中国博客个人主页链接 (如 [https://my.oschina.net/kangvca](https://my.oschina.net/kangvcar) ) .
+
+### 使用步骤
+
+1. 点击**开源中国博客**数据源按钮g
+
+    ![oschina1.png](https://i.loli.net/2020/07/19/IlyC7ahoAsOH8Tm.png ':size=10%')
+
+2. 输入开源中国博客个人主页链接, 如 [https://my.oschina.net/kangvca](https://my.oschina.net/kangvcar) ) 
+
+    ![oschina2.png](https://i.loli.net/2020/07/19/4i7xDYXZArjqdOm.png ':size=50%')
+
+!> **注意**：个人主页链接最后不含 `/` (斜杆)
+
+3. 选择数据保存路径
+
+    ![oschina3.png](https://i.loli.net/2020/07/19/8vMerkOSI7XoAm4.png ':size=50%')
+
+4. 查看爬取的数据 (json格式)
+
+    ![oschina4.png](https://i.loli.net/2020/07/19/BLZfkFYMXEPNjpa.png ':size=50%')
+
+### 数据说明
+
+?> 👍 由于数据信息过长, 这里只作主要数据项说明, **点击展开查看示例**
+
+<details>
+<summary>csdn_article.json 👉 你的开源中国博客文章信息</summary>
+
+```json
+[
+    {
+        "title": "PXE/KickStart\u65e0\u4eba\u503c\u5b88\u5b89\u88c5",
+        "sumary": "\u5bfc\u8a00 \u4f5c\u4e3a\u4e2d\u5c0f\u516c\u53f8\u7684\u8fd0\u7ef4\uff0c\u7ecf\u5e38\u4f1a\u9047\u5230\u4e00\u4e9b\u673a\u68b0\u5f0f\u7684\u91cd\u590d\u5de5\u4f5c\uff0c\u4f8b\u5982\uff1a\u6709\u65f6\u516c\u53f8\u540c\u65f6\u4e0a\u7ebf\u51e0\u5341\u751a\u81f3\u4e0a\u767e\u53f0\u670d\u52a1\u5668\uff0c\u800c\u4e14\u9700\u8981\u6211\u4eec\u5728\u77ed\u65f6\u95f4\u5185\u5b8c\u6210\u7cfb\u7edf\u5b89\u88c5\u3002 \u5e38\u89c4\u7684\u529e\u6cd5\u6709\u4ec0\u4e48\uff1f _\u5149\u76d8\u5b89\u88c5\u7cfb\u7edf ===> \u4e00...",
+        "postdate": "2018/05/07",
+        "posttime": "21:17",
+        "views": "132"
+    },
+    ...
+]
+```
+
+</details>
+
+
+
 ***
 # License
 GPL-3.0
