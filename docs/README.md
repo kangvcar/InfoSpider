@@ -21,7 +21,7 @@
 
 ## Screenshot
 
-![screenshot.png](https://i.loli.net/2020/07/18/53MWoKZCsdzDX7g.png ':size=70%')
+![screenshot.png](https://i.loli.net/2020/07/19/HUDljdTazJQA6hX.png ':size=70%')
 
 ## QuickStart
 
@@ -3972,8 +3972,31 @@
 </details>
 
 ***
-# License
-GPL-3.0
+# Changelog
+
+- 2020年7月10日
+    1. 更新GUI布局
+    2. 添加GitHub、QQ好友、QQ群数据源
+
+- 2020年7月12日
+    1. 修复QQ邮箱、网易邮箱、阿里邮箱、新浪邮箱、Hotmail、Outlook数据源
+    2. 添加生成朋友圈相册功能
+
+- 2020年7月14日
+    1. 修复京东、淘宝、支付宝、12306数据源
+    2. 添加Chrome浏览记录功能
+
+- 2020年7月17日
+    1. 修复中国移动、中国联通数据源
+    2. 添加知乎、哔哩哔哩、网易云音乐数据源
+
+- 2020年7月19日
+    1. 添加博客园、CSDN、开源中国、简书数据源
+    2. 编写[使用说明文档](https://infospider.vercel.app/)
+    3. 录制使用视频教程
+
+
 
 ***
-# 交流
+# License
+GPL-3.0
