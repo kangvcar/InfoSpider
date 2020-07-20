@@ -43,7 +43,7 @@ class LianTong(object):
             url = 'http://iservice.10010.com/e3/static/wohistory/bill?dat={}'.format(dat)
             self.headers['Referer'] = 'http://iservice.10010.com/e4/skip.html?menuCode=000100020001'
             resp = self.session.post(url, data='', headers=self.headers, verify=False)
-            print(resp)
+            # print(resp)
             file_path = os.path.join(self.path + '/10010_bill_info.json')
             with open(file_path, 'w', encoding='utf-8') as f:
                 f.write(resp.content.decode())

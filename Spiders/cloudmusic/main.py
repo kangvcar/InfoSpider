@@ -19,10 +19,12 @@ class Cloudmusic(object):
             self.userid = str(self.user_login_as_email())
         else:
             print('登录失败！用户名需为手机号码或者邮箱。')
+            
     ## 刷新登录状态
     def login_refresh(self):
         url = self.api + '/login/refresh'
         response = requests.get(url)
+        return 0
 
     ## 使用‘手机号码’ + ‘密码’ 登录网易云音乐
     def user_login_as_cellphone(self):
@@ -63,6 +65,7 @@ class Cloudmusic(object):
         response = requests.get(url)
         self.data_wirte_to_json('user_detail', response.text)
         print('获取用户基本信息成功！')
+        return 0
 
     ## 获取用户歌单
     def get_playlist(self):
@@ -70,6 +73,7 @@ class Cloudmusic(object):
         response = requests.get(url)
         self.data_wirte_to_json('user_playlist', response.text)
         print('获取用户歌单成功！')
+        return 0
 
     ## 获取用户关注列表
     def get_user_follows(self):
@@ -77,6 +81,7 @@ class Cloudmusic(object):
         response = requests.post(url)
         self.data_wirte_to_json('user_follows', response.text)
         print('获取用户关注列表成功！')
+        return 0
 
     ## 获取用户粉丝列表
     def get_user_followeds(self):
@@ -84,6 +89,7 @@ class Cloudmusic(object):
         response = requests.post(url)
         self.data_wirte_to_json('user_followeds', response.text)
         print('获取用户粉丝列表成功！')
+        return 0
 
     ## 获取用户动态
     def get_user_event(self):
@@ -91,6 +97,7 @@ class Cloudmusic(object):
         response = requests.post(url)
         self.data_wirte_to_json('user_event', response.text)
         print('获取用户动态成功！')
+        return 0
 
     ## 获取用户听歌排行（周榜）
     def get_user_record_week(self):
@@ -98,6 +105,7 @@ class Cloudmusic(object):
         response = requests.get(url)
         self.data_wirte_to_json('user_record_week', response.text)
         print('获取用户听歌排行（周榜）成功！')
+        return 0
 
     ## 获取用户听歌排行（总榜）
     def get_user_record_all(self):
@@ -105,6 +113,7 @@ class Cloudmusic(object):
         response = requests.get(url)
         self.data_wirte_to_json('user_record_all', response.text)
         print('获取用户听歌排行（总榜）成功！')
+        return 0
 
 if __name__ == '__main__':
     music = Cloudmusic('132****', '*****')

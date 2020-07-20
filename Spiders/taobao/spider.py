@@ -15,6 +15,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver import ChromeOptions, ActionChains
 from tkinter.filedialog import askdirectory
+from tqdm import trange
+
 
 def ease_out_quad(x):
     return 1 - (1 - x) * (1 - x)
@@ -99,7 +101,8 @@ class TaobaoSpider(object):
         self.driver.get("https://buyertrade.taobao.com/trade/itemlist/list_bought_items.htm")
 
         # 遍历所有页数
-        for page in range(1, pn):
+        
+        for page in trange(1, pn):
             data_list = []
 
             # 等待该页面全部已买到的宝贝商品数据加载完毕
@@ -173,7 +176,7 @@ class TaobaoSpider(object):
         url = 'https://shoucang.taobao.com/nodejs/item_collect_chunk.htm?ifAllTag=0&tab=0&tagId=&categoryCount=0&type=0&tagName=&categoryName=&needNav=false&startRow={}'
         pn = 0
         json_list = []
-        for i in range(page):
+        for i in trange(page):
             self.driver.get(url.format(pn))
             pn += 30
             html_str = self.driver.page_source
@@ -202,7 +205,7 @@ class TaobaoSpider(object):
         pn = 0
         item_num = 0
         json_list = []
-        for i in range(page):
+        for i in trange(page):
             html_str = self.driver.page_source
             obj_list = etree.HTML(html_str).xpath('//div[@class="item-list J_redsList"]/div')[item_num:]
             for obj in obj_list:

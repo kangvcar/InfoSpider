@@ -25,8 +25,8 @@ class Qqqun(object):
         # 设置窗口大小
         self.root.geometry('400x200')
         # 进入消息循环（检测到事件，就刷新组件）
-        button1 = tk.Button(self.root, text='已登陆并打开界面，保存为excel', pady=5, command=self.callback_excel)
-        button1.pack()
+        # button1 = tk.Button(self.root, text='已登陆并打开界面，保存为excel', pady=5, command=self.callback_excel)
+        # button1.pack()
         button2 = tk.Button(self.root, text='已登陆并打开界面，保存为json', pady=5, command=self.callback_json)
         button2.pack()
         button3 = tk.Button(self.root, text='爬取完成后点击此按钮', pady=5, command=self.close_chrome)
@@ -94,7 +94,9 @@ class Qqqun(object):
         Num = len(a)
         time_start = time.time()
 
-        for i in range(0, Num):
+        # for i in range(0, Num):
+        from tqdm import trange
+        for i in trange(Num):
             # 点击进入具体群
             a = self.driver.find_elements_by_class_name('icon-def-gicon')
             # time.sleep(0.5)
@@ -115,8 +117,8 @@ class Qqqun(object):
             table = etree.tostring(table[0], encoding='utf-8').decode()
             df = pandas.read_html(table, encoding='utf-8', header=0)[0]
             try:
-                print(str(int((time.time() - time_start) / 60)) + ':' + str(int((time.time() - time_start) % 60)),
-                      '第' + str(i + 1) + '群,' + str(int((i + 1) / Num * 100)) + '%  ' + groupTit + '  此表完成')
+                # print(str(int((time.time() - time_start) / 60)) + ':' + str(int((time.time() - time_start) % 60)),
+                #       '第' + str(i + 1) + '群,' + str(int((i + 1) / Num * 100)) + '%  ' + groupTit + '  此表完成')
                 # df.drop(['Unnamed: 0','Unnamed: 1','Unnamed: 10'],axis=1,inplace=True)
                 # df.columns = ['member', 'nick_name', 'qqnumber', 'sex', 'qqage', 'join_date', 'last_post']
                 qun_friend_list = []
@@ -131,7 +133,7 @@ class Qqqun(object):
                     item['join_date'] = data[7]
                     item['last_post'] = data[8]
                     qun_friend_list.append(item)
-                    print(item)
+                    # print(item)
                 qun_friend_list_json = json.dumps(qun_friend_list, ensure_ascii=False)
                 with open(self.path + '/' + groupTit + '.json', 'w', encoding="utf-8") as f:
                     f.write(qun_friend_list_json)

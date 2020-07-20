@@ -9,6 +9,8 @@ import datetime
 import bs4
 from pprint import pprint
 from tkinter.filedialog import askdirectory
+from tqdm import tqdm
+from tqdm import trange
 
 class JSpider(object):
     def __init__(self, cookie, data_dir="./"):
@@ -254,7 +256,7 @@ class JSpider(object):
         orderParseResults = []
         currentYear = datetime.datetime.now().year
         # print(currentYear)
-        for year in range(currentYear, 2013-1, -1):
+        for year in trange(currentYear, 2013-1, -1):
             paramYear = year
             if year == currentYear:
                 paramYear = 2
@@ -310,7 +312,7 @@ class JSpider(object):
 
         orderParseResults = []
         for url in urls:
-            print(url)
+            # print(url)
             if url.startswith("https://details.jd.com/normal/item.action"):
                 orderParseResult = self.getOrderOfNormal(url)
             elif url.startswith("https://chongzhi.jd.com/order/order_autoDetail.action"):

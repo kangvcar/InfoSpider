@@ -9,7 +9,7 @@ import operator
 from collections import OrderedDict  
 import matplotlib.pyplot as plt  
 from tkinter.filedialog import askdirectory
-
+from tqdm import tqdm
 
 class Browserhistory(object):
     def __init__(self):
@@ -39,7 +39,7 @@ class Browserhistory(object):
     # transfer to json and save to file.
     def data_save_as_json(self, data):
         history_list = []
-        for i in data:
+        for i in tqdm(data):
             item = {}
             item['urls.id'] = i[0]
             item['urls.url'] = i[1]

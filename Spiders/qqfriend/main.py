@@ -23,8 +23,8 @@ class Qqfriend(object):
             # 设置窗口大小
             self.root.geometry('400x200')
             # 进入消息循环（检测到事件，就刷新组件）
-            button1 = tk.Button(self.root, text='已登陆并打开充值界面且点开列表(不用选择表项),保存为excel', command=self.callback_excel)
-            button1.pack()
+            # button1 = tk.Button(self.root, text='已登陆并打开充值界面且点开列表(不用选择表项),保存为excel', command=self.callback_excel)
+            # button1.pack()
             button2 = tk.Button(self.root, text='已登陆并打开充值界面且，点开列表(不用选择表项),保存为json', command=self.callback_json)
             button2.pack()
             button3 = tk.Button(self.root, text='爬取完成后点击此按钮', command=self.close_chrome)
@@ -56,6 +56,7 @@ class Qqfriend(object):
                     print([i.next_sibling, i.next_sibling.parent.parent.parent.parent.find(
                         attrs={'class': 'icon-more-friend'}).next_sibling, i.next_sibling[:f], i.next_sibling[f + 1:l]])
             wb.save(asksaveasfilename(defaultextension='.xlsx', filetypes=[('Excel 工作簿', '*.xlsx')]))
+            
             return 0
 
         # 存储为json
@@ -67,8 +68,10 @@ class Qqfriend(object):
             html = self.driver.page_source
             soup = BeautifulSoup(html, "lxml")
             a = soup.find_all(attrs={'class': 'icon-friend-s'})
+            from tqdm import tqdm
+            pbar = tqdm(a)  
             friend_list = []
-            for i in a:
+            for i in pbar:
                 if i.next_sibling != ' {{el.name}}({{el.qq}})':
                     k = 0
                     for x in i.next_sibling:
@@ -85,10 +88,12 @@ class Qqfriend(object):
                     item['view_name'] = i.next_sibling[:f]
                     item['qqnumber'] = i.next_sibling[f + 1:l]
                     friend_list.append(item)
+                    pbar.set_description("正在爬取：%s" % item['raw'])
             friend_list_json = json.dumps(friend_list, ensure_ascii=False)
             # print(friend_list_json)
             with open(self.path + '/friend_list.json', 'w', encoding="utf-8") as f:
                 f.write(friend_list_json)
+            self.close_chrome()
             return 0
 
         def close_chrome(self):

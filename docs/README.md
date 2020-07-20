@@ -64,7 +64,7 @@
 - [x] 支付宝
 - [x] 中国移动
 - [x] 中国联通
-- [ ] 中国电信
+- [x] 中国电信
 - [x] 知乎
 - [x] 哔哩哔哩
 - [x] 网易云音乐
@@ -3927,7 +3927,7 @@
 ***
 ## 简书
 
-!> **说明**：无需登录账号, 输入简书个人主页链接 (如 [https://www.jianshu.com/u/d9c480744afd](https://www.jianshu.com/u/d9c480744afd) ) .
+!> **说明**：无需登录账��, 输入简书个人主页链接 (如 [https://www.jianshu.com/u/d9c480744afd](https://www.jianshu.com/u/d9c480744afd) ) .
 
 ### 使用步骤
 

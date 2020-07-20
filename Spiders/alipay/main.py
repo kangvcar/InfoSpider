@@ -7,6 +7,7 @@ from lxml import etree
 from selenium import webdriver
 from selenium.webdriver import ChromeOptions
 from tkinter.filedialog import askdirectory
+from tqdm import tqdm
 
 class ASpider(object):
     def __init__(self, cookie):
@@ -61,7 +62,7 @@ class ASpider(object):
         resp = self.session.get(url, headers=self.headers, verify=False)
         obj_list = etree.HTML(resp.content.decode('gbk')).xpath('//tbody/tr')
         json_list = []
-        for obj in obj_list:
+        for obj in tqdm(obj_list):
             item = {}
             item['number'] = ''.join(obj.xpath('./td[1]//text()')).strip()
             item['time'] = ''.join(obj.xpath('./td[2]//text()')).strip()
