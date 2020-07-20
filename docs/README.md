@@ -11,7 +11,7 @@
 
 - [INFO-SPIDER](https://github.com/kangvcar/InfoSpider) 项目旨在提供最全的工具帮助用户安全快捷的从数据寡头拿回自己的数据, 自由选择提供给数据需求方, 挖掘自己数据的金矿, 分享自己数据的价值.
 
-## What INFO-SPIDER
+## What is INFO-SPIDER
 
 要想实现个人数据资产化, 如何拿回自己的数据是第一步, 一些数据寡头已经开始提供工具能让用户自由导出数据, 如谷歌公司, 已经提供方式让用户[下载](https://support.google.com/accounts/answer/3024190?hl=en)自己的数据.
 
