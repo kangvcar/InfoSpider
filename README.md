@@ -17,7 +17,7 @@
 
 </p>
 <p align="center">一个神奇的工具箱，拿回你的个人信息。</p>
-<p align="center"><a href="https://infospider.vercel.app/">❤️使用说明文档</a></p>
+<p align="center"><a href="https://infospider.vercel.app/">使用说明文档</a> | <a href="https://www.bilibili.com/video/BV14f4y1R7oF/">视频演示 ️</a></p>
 
 ***
 # 🕷About
@@ -86,6 +86,17 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 - 融合机器学习技术、自然语言处理技术等对数据深入分析
 - 把分析结果绘制图表直观展示
 - 添加更多数据源...
+
+# 😘致谢
+
+本项目基于[MyDataHomes](https://github.com/MyDataHomes)提供的[Spider](https://github.com/MyDataHomes/Spider)框架进行二次开发。
+
+非常感谢[MyData.Homes社区](https://mydata.homes/)提供这样优秀的平台，为个人数据安全做出贡献。
+
+- **MyDataHomes**
+    - [MyData.Homes社区](https://mydata.homes/)
+    - [MyDataHomes GitHub](https://github.com/MyDataHomes)
+    - [Spider Project](https://github.com/MyDataHomes/Spider)
 
 # 😇Visitors
 

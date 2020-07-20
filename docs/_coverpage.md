@@ -11,4 +11,5 @@
 - 支持众多数据源
 
 [GitHub](https://github.com/kangvcar/InfoSpider)
+[视频演示](https://www.bilibili.com/video/BV14f4y1R7oF/)
 [Get Started](#INFO-SPIDER)
