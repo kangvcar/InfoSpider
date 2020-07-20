@@ -22,7 +22,7 @@ class BilibiliHistory(object):
         headers = self.get_header()
         # history = {'all': []}
         history = []
-        for page_num in self.MAX_PAGE:
+        for page_num in range(self.MAX_PAGE):
             time.sleep(0.6)
             url = 'https://api.bilibili.com/x/v2/history?pn={pn}&ps={ps}&jsonp=jsonp'.format(pn=page_num, ps=self.PAGE_PER_NUM)
             result = self.req_get(headers, url)

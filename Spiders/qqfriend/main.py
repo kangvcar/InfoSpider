@@ -8,7 +8,7 @@ from tkinter.filedialog import askdirectory
 from bs4 import BeautifulSoup
 import lxml
 # import openpyxl
-from openpyxl import Workbook
+# from openpyxl import Workbook
 
 class Qqfriend(object):
         def __init__(self):
@@ -32,32 +32,32 @@ class Qqfriend(object):
             self.root.mainloop()
 
         # 存储为excel
-        def callback_excel(self):
-            self.driver.switch_to_frame('webpay-iframe')
-            iframe = self.driver.find_element_by_xpath('//*[@id="midas-webpay-main-1450000186"]/div[2]/div[1]/iframe')
-            self.driver.switch_to_frame(iframe)
-            html = self.driver.page_source
-            soup = BeautifulSoup(html, "lxml")
-            a = soup.find_all(attrs={'class': 'icon-friend-s'})
-            wb = Workbook()
-            ws = wb.active
-            ws.append(["raw", "group", "view_name", "qqnumber"])
-            for i in a:
-                if i.next_sibling != ' {{el.name}}({{el.qq}})':
-                    k = 0
-                    for x in i.next_sibling:
-                        if x == '(':
-                            f = k
-                        if x == ')':
-                            l = k
-                        k = k + 1
-                    ws.append([i.next_sibling, i.next_sibling.parent.parent.parent.parent.find(
-                        attrs={'class': 'icon-more-friend'}).next_sibling, i.next_sibling[:f], i.next_sibling[f + 1:l]])
-                    print([i.next_sibling, i.next_sibling.parent.parent.parent.parent.find(
-                        attrs={'class': 'icon-more-friend'}).next_sibling, i.next_sibling[:f], i.next_sibling[f + 1:l]])
-            wb.save(asksaveasfilename(defaultextension='.xlsx', filetypes=[('Excel 工作簿', '*.xlsx')]))
+        # def callback_excel(self):
+        #     self.driver.switch_to_frame('webpay-iframe')
+        #     iframe = self.driver.find_element_by_xpath('//*[@id="midas-webpay-main-1450000186"]/div[2]/div[1]/iframe')
+        #     self.driver.switch_to_frame(iframe)
+        #     html = self.driver.page_source
+        #     soup = BeautifulSoup(html, "lxml")
+        #     a = soup.find_all(attrs={'class': 'icon-friend-s'})
+        #     wb = Workbook()
+        #     ws = wb.active
+        #     ws.append(["raw", "group", "view_name", "qqnumber"])
+        #     for i in a:
+        #         if i.next_sibling != ' {{el.name}}({{el.qq}})':
+        #             k = 0
+        #             for x in i.next_sibling:
+        #                 if x == '(':
+        #                     f = k
+        #                 if x == ')':
+        #                     l = k
+        #                 k = k + 1
+        #             ws.append([i.next_sibling, i.next_sibling.parent.parent.parent.parent.find(
+        #                 attrs={'class': 'icon-more-friend'}).next_sibling, i.next_sibling[:f], i.next_sibling[f + 1:l]])
+        #             print([i.next_sibling, i.next_sibling.parent.parent.parent.parent.find(
+        #                 attrs={'class': 'icon-more-friend'}).next_sibling, i.next_sibling[:f], i.next_sibling[f + 1:l]])
+        #     wb.save(asksaveasfilename(defaultextension='.xlsx', filetypes=[('Excel 工作簿', '*.xlsx')]))
             
-            return 0
+        #     return 0
 
         # 存储为json
         def callback_json(self):

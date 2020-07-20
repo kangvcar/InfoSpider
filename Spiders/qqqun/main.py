@@ -41,53 +41,53 @@ class Qqqun(object):
             s = s[:-1]
         return s
 
-    def callback_excel(self):
-        a = self.driver.find_elements_by_class_name('icon-def-gicon')
-        Num = len(a)
-        time_start = time.time()
-        for i in range(0, Num):
-            # 点击进入具体群
-            a = self.driver.find_elements_by_class_name('icon-def-gicon')
-            # time.sleep(0.5)
-            a[i].click()
-            time.sleep(1)
-            html = self.driver.page_source
-            soup = BeautifulSoup(html, "lxml")
-            groupTit = self.delNT(soup.find(attrs={'id': 'groupTit'}).text)
-            groupMemberNum = self.delNT(soup.find(attrs={'id': 'groupMemberNum'}).text)
+    # def callback_excel(self):
+    #     a = self.driver.find_elements_by_class_name('icon-def-gicon')
+    #     Num = len(a)
+    #     time_start = time.time()
+    #     for i in range(0, Num):
+    #         # 点击进入具体群
+    #         a = self.driver.find_elements_by_class_name('icon-def-gicon')
+    #         # time.sleep(0.5)
+    #         a[i].click()
+    #         time.sleep(1)
+    #         html = self.driver.page_source
+    #         soup = BeautifulSoup(html, "lxml")
+    #         groupTit = self.delNT(soup.find(attrs={'id': 'groupTit'}).text)
+    #         groupMemberNum = self.delNT(soup.find(attrs={'id': 'groupMemberNum'}).text)
 
-            while len(soup.find_all(attrs={'class': 'td-no'})) < int(groupMemberNum):
-                self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight);")
-                time.sleep(0.1)
-                html = self.driver.page_source
-                soup = BeautifulSoup(html, "lxml")
+    #         while len(soup.find_all(attrs={'class': 'td-no'})) < int(groupMemberNum):
+    #             self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight);")
+    #             time.sleep(0.1)
+    #             html = self.driver.page_source
+    #             soup = BeautifulSoup(html, "lxml")
 
-            res_elements = etree.HTML(html)
-            table = res_elements.xpath('//*[@id="groupMember"]')
-            table = etree.tostring(table[0], encoding='utf-8').decode()
-            df = pandas.read_html(table, encoding='utf-8', header=0)[0]
-            try:
-                print(str(int((time.time() - time_start) / 60)) + ':' + str(int((time.time() - time_start) % 60)),
-                      '第' + str(i + 1) + '群,' + str(int((i + 1) / Num * 100)) + '%  ' + groupTit + '  此表完成')
-                writer = pandas.ExcelWriter(self.path + '/' + groupTit + '.xlsx')
-                df.to_excel(writer, 'Sheet1')
-                writer.save()
-            except:
-                k = 0
-                for v in groupTit:
-                    if v == '(':
-                        f = k
-                    if v == ')':
-                        l = k
-                    k = k + 1
+    #         res_elements = etree.HTML(html)
+    #         table = res_elements.xpath('//*[@id="groupMember"]')
+    #         table = etree.tostring(table[0], encoding='utf-8').decode()
+    #         df = pandas.read_html(table, encoding='utf-8', header=0)[0]
+    #         try:
+    #             print(str(int((time.time() - time_start) / 60)) + ':' + str(int((time.time() - time_start) % 60)),
+    #                   '第' + str(i + 1) + '群,' + str(int((i + 1) / Num * 100)) + '%  ' + groupTit + '  此表完成')
+    #             writer = pandas.ExcelWriter(self.path + '/' + groupTit + '.xlsx')
+    #             df.to_excel(writer, 'Sheet1')
+    #             writer.save()
+    #         except:
+    #             k = 0
+    #             for v in groupTit:
+    #                 if v == '(':
+    #                     f = k
+    #                 if v == ')':
+    #                     l = k
+    #                 k = k + 1
 
-                writer = pandas.ExcelWriter(self.path + '/' + groupTit[f + 1:l] + '.xlsx')
-                df.to_excel(writer, 'Sheet1')
-                writer.save()
-            self.driver.find_element_by_id('changeGroup').click()
-            time.sleep(1)
-        self.close_chrome()
-        return 0
+    #             writer = pandas.ExcelWriter(self.path + '/' + groupTit[f + 1:l] + '.xlsx')
+    #             df.to_excel(writer, 'Sheet1')
+    #             writer.save()
+    #         self.driver.find_element_by_id('changeGroup').click()
+    #         time.sleep(1)
+    #     self.close_chrome()
+    #     return 0
 
     def callback_json(self):
         a = self.driver.find_elements_by_class_name('icon-def-gicon')

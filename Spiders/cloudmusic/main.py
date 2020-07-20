@@ -36,7 +36,7 @@ class Cloudmusic(object):
         else:
             print('登录失败')
         userid = response.json()['account']['id']
-        print('userid = ' + str(userid))
+        # print('userid = ' + str(userid))
         return userid
 
     ## 使用 ‘邮箱’ + ‘密码’ 登录网易云音乐
@@ -49,7 +49,7 @@ class Cloudmusic(object):
         else:
             print('登录失败')
         userid = response.json()['account']['id']
-        print('userid = ' + str(userid))
+        # print('userid = ' + str(userid))
         return userid
 
     ## 把获取的个人信息写入json文件
