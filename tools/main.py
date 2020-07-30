@@ -771,7 +771,9 @@ class CnblogButton(Button):
             self.updateStatus(self.frame, 0)
             cb = Cnblog(blogname)
             article = cb.get_element_of_article()
-            cb.save_as_json(article)
+            json_file_name = cb.save_as_json(article)
+            cb.create_wordcloud(json_file_name, title='你的创作领域词云', column='title')
+            cb.create_postdate_line(json_file_name, title='发文时间线', column='postdate')
             self.updateStatus(self.frame, 1)
         except:
             self.updateStatus(self.frame, 2)

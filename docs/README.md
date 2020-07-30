@@ -80,6 +80,13 @@
 
 !> 😊 如果没有找到你需要的数据源, 你可以通过 GitHub 提交[Issues](https://github.com/kangvcar/InfoSpider/issues)来告诉我们, 我们很乐意不断完善此项目.
 
+## 数据分析
+
+- [x] 博客园
+- [x] CSDN博客
+- [x] 开源中国博客
+- [x] 简书
+
 # **使用说明**
 
 ***
@@ -3995,6 +4002,9 @@
     2. 编写[使用说明文档](https://infospider.vercel.app/)
     3. 录制使用视频教程
 
+- 2020年7月30日
+    1. 添加博客园数据分析功能
+    2. 使用pyechart绘制图表并生成html文件保存在数据目录下
 
 ***
 # License

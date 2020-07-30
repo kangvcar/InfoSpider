@@ -3,6 +3,14 @@ import os
 import sys
 import json
 import requests
+import pandas as pd
+import numpy as np
+import jieba
+import pyecharts
+from pyecharts import options as opts
+from collections import Counter
+from pyecharts.charts import WordCloud
+from pyecharts.charts import Line
 from bs4 import BeautifulSoup
 from tkinter.filedialog import askdirectory
 class Cnblog(object):
@@ -53,9 +61,70 @@ class Cnblog(object):
         return article_json
             
     def save_as_json(self, content_json):
-        with open(self.path + os.sep + 'cnblog_article.json', 'w', encoding='utf-8') as f:
+        json_file_name = self.path + os.sep + 'cnblog_article.json'
+        with open(json_file_name, 'w', encoding='utf-8') as f:
             f.write(content_json)
+        return json_file_name
+
+    # 获取所有字段存为一个字符串
+    def get_text(self, json_file, column='title'):
+        df_json = pd.read_json(json_file, encoding='utf-8')
+        text = ''
+        for i in df_json[column]:
+            text += i
+        return text
+
+    # 去停用词，使用jieba分词
+    def split_word(self, text):
+        word_list = list(jieba.cut(text))
+        # 去掉一些无意义的词和符号，我这里自己整理了停用词库
+        with open('stop_word.txt', encoding='utf-8') as f:
+            meaningless_word = f.read().splitlines()
+            # print(meaningless_word)
+        result = []
+        # 筛选词语
+        for i in word_list:
+            if i not in meaningless_word:
+                result.append(i.replace(' ', ''))
+        return result
+
+    # 词频统计
+    def word_counter(self, words):
+        # 使用Count计数方法
+        words_counter = Counter(words)
+        # 将Counter类型转换为列表
+        words_list = words_counter.most_common(100)
+        return words_list
+
+    # 生成词云
+    def create_wordcloud(self, json_file, title='词云', column='title'):
+        text = self.get_text(json_file, column=column)
+        clear_word = self.split_word(text)
+        data = self.word_counter(clear_word)
+        wd = WordCloud()
+        wd.add(series_name=title, data_pair=data, word_size_range=[40, 150])
+        wd.set_global_opts(title_opts=opts.TitleOpts(title="你的文章词云", subtitle="基于你的博客数据生成", title_textstyle_opts=opts.TextStyleOpts(font_size=23)), tooltip_opts=opts.TooltipOpts(is_show=True))
+        # wd.render_notebook()
+        wd.render(self.path + os.sep + 'topic_wordcloud.html')
+
+    # 生成折线图
+    def create_postdate_line(self, json_file, title='折线图', column='postdate'):
+        df_json = pd.read_json(json_file, encoding='utf-8')
+        postdate_month_list = []
+        for i in df_json[column]:
+            postdate_month_list.append('-'.join(i.split('-')[:-1]))
+        date_counter = Counter(postdate_month_list)
+        line = Line()
+        x_data = [i for i in date_counter]
+        y_data = [date_counter[i] for i in date_counter]
+        line.add_xaxis(x_data)
+        line.add_yaxis(series_name="发文数量", y_axis=y_data)
+        line.set_global_opts(title_opts=opts.TitleOpts(title="你的发文数量", subtitle="基于你的博客数据生成"))
+        line.render(self.path + os.sep + 'postdate_line.html')
+
 
 if __name__ == '__main__':
     article = get_element_of_article('kangvcar')
-    save_as_json(article)
+    json_file_name = save_as_json(article)
+    create_wordcloud(json_file_name, title='你的创作领域词云', column='title')
+    create_postdate_line(json_file_name, title='发文时间线', column='postdate')
