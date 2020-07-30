@@ -110,6 +110,8 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 ![](http://profile-counter.glitch.me/kangvcar/count.svg)
 
 # 📌Changelog
+<details>
+<summary>点击展开 Changelog</summary>
 
 - 2020年7月10日
     1. 更新GUI布局
@@ -135,6 +137,8 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 - 2020年7月30日
     1. 添加博客园数据分析功能
     2. 使用pyechart绘制图表并生成html文件保存在数据目录下
+    
+</details>
     
 # License
 GPL-3.0
