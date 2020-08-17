@@ -94,16 +94,6 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 - 把分析结果绘制图表直观展示
 - 添加更多数据源...
 
-# 😘致谢
-
-本项目基于[MyDataHomes](https://github.com/MyDataHomes)提供的[Spider](https://github.com/MyDataHomes/Spider)框架进行二次开发。
-
-非常感谢[MyData.Homes社区](https://mydata.homes/)提供这样优秀的平台，为个人数据安全做出贡献。
-
-- **MyDataHomes**
-    - [MyData.Homes社区](https://mydata.homes/)
-    - [MyDataHomes GitHub](https://github.com/MyDataHomes)
-    - [Spider Project](https://github.com/MyDataHomes/Spider)
 
 # 😇Visitors
 
