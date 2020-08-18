@@ -29,14 +29,14 @@
 <p align="center">一个神奇的工具箱，拿回你的个人信息。</p>
 <p align="center"><a href="https://infospider.vercel.app/">使用说明文档</a> | <a href="https://www.bilibili.com/video/BV14f4y1R7oF/">视频演示</a></p>
 
-[![Gitter](https://badges.gitter.im/Info-Spider/community.svg)](https://gitter.im/Info-Spider/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
 ### What is INFO-SPIDER
 
 INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安全快捷的帮助用户拿回自己的数据，工具代码开源，流程透明。并提供数据分析功能，基于用户数据生成图表文件，使得用户更直观、深入了解自己的信息。
 目前支持数据源包括GitHub、QQ邮箱、网易邮箱、阿里邮箱、新浪邮箱、Hotmail邮箱、Outlook邮箱、京东、淘宝、支付宝、中国移动、中国联通、中国电信、知乎、哔哩哔哩、网易云音乐、QQ好友、QQ群、生成朋友圈相册、浏览器浏览历史、12306、博客园、CSDN博客、开源中国博客、简书。
 
 详细使用说明参照[使用说明文档](https://infospider.vercel.app)或[视频教程](https://www.bilibili.com/video/BV14f4y1R7oF/)
+
+你可以在 [![Gitter](https://badges.gitter.im/Info-Spider/community.svg)](https://gitter.im/Info-Spider/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) 与我们一起交流学习
 
 ### Features
 
