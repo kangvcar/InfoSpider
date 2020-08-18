@@ -29,6 +29,7 @@
 <p align="center">一个神奇的工具箱，拿回你的个人信息。</p>
 <p align="center"><a href="https://infospider.vercel.app/">使用说明文档</a> | <a href="https://www.bilibili.com/video/BV14f4y1R7oF/">视频演示</a></p>
 
+[![Gitter](https://badges.gitter.im/Info-Spider/community.svg)](https://gitter.im/Info-Spider/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ### What is INFO-SPIDER
 
