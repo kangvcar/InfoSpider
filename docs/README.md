@@ -19,6 +19,18 @@
 
 [INFO-SPIDER](https://github.com/kangvcar/InfoSpider) 旨在安全快捷的帮助用户拿回**自己的数据**，工具代码开源，流程透明。并提供**数据分析**功能，基于用户数据生成图表文件，使得用户更直观、深入了解自己的信息。
 
+## Features
+
+- 安全可靠：本项目为开源项目，代码量不大，所有源码可见，本地运行，安全可靠。
+- 使用简单：提供GUI界面，只需点击所需获取的数据源并根据提示操作即可。
+- 结构清晰：本项目的所有数据源相互独立，可移植性高，所有爬虫脚本在项目的[Spiders](https://github.com/kangvcar/InfoSpider/tree/master/Spiders)文件下。
+- 数据源丰富：本项目目前支持多达24+个数据源，持续更新。
+- 数据格式统一：爬取的所有数据都将存储为json格式。
+- 个人数据丰富：本项目将尽可能多地为你爬取个人数据，后期数据处理可根据需要删减。
+- 数据分析：本项目提供个人数据的可视化分析，目前仅部分支持。
+- 文档丰富：本项目包含完整全面的[使用说明文档](https://infospider.vercel.app)和[视频教程](https://www.bilibili.com/video/BV14f4y1R7oF/)
+
+
 ## Screenshot
 
 ![screenshot.png](https://i.loli.net/2020/07/19/HUDljdTazJQA6hX.png ':size=70%')
