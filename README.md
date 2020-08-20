@@ -29,9 +29,9 @@
 <p align="center">一个神奇的工具箱，拿回你的个人信息。</p>
 <p align="center"><a href="https://infospider.vercel.app/">使用说明文档</a> | <a href="https://www.bilibili.com/video/BV14f4y1R7oF/">视频演示</a></p>
 
-### 开发者回忆录
+### 开发者回忆录🌈
 <details>
-<summary>点击展开👉 开发者回忆录</summary>
+<summary>点击展开👉 开发者回忆录🌈</summary>
 
 #### 场景一
 小明一如往常打开 Chrome 浏览器逛着论坛，贴吧，一不小心点开了网页上的广告，跳转到了京东商城，下意识去关闭窗口时发现 （**OS：咦？京东怎么知道我最近心心念念的宝贝呢？刚好我正需要呢！**），既然打开了那就看看商品详情吧 （**OS：哎哟不错哦**），那就下单试试吧！
