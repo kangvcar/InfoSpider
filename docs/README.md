@@ -1,4 +1,4 @@
-# **INFO-SPIDER** <img alt="GitHub stars" src="https://img.shields.io/github/stars/kangvcar/infospider?style=social">
+# **INFO-SPIDER** 
 
 > 一个神奇的工具箱, 拿回你的个人信息.
 
