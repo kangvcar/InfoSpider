@@ -173,7 +173,7 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 
 Thank you to JetBrains, who provide Open Source License for PyCharm!
 
-### 📌Changelog
+### Changelog
 <details>
 <summary>点击展开 Changelog</summary>
 
