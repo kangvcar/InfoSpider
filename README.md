@@ -168,9 +168,8 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 </a>
 
 ### Sponsors
-
-Thank you to JetBrains, who provide licenses for PyCharm.
-
+![](https://github.com/kangvcar/InfoSpider/blob/master/docs/_media/JetBrains.png?raw=true)
+Thank you to JetBrains, who provide Open Source License for PyCharm!
 
 ### 📌Changelog
 <details>
