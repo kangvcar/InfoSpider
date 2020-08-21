@@ -161,6 +161,12 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 6. 计划在v2.0版本对项目进行重构，提供web端操作与数据可视化，以适配多平台。
 7. 本项目[INFO-SPIDER](https://github.com/kangvcar/InfoSpider)代码已开源，欢迎star支持。
 
+### Contributors
+
+<a href="https://github.com/kangvcar/infospider/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=kangvcar/infospider" />
+</a>
+
 ### 📌Changelog
 <details>
 <summary>点击展开 Changelog</summary>

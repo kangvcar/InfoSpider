@@ -4037,6 +4037,11 @@
 </details>
 
 ***
+# Contributors
+
+[![](https://contributors-img.web.app/image?repo=kangvcar/infospider)](https://github.com/kangvcar/infospider/graphs/contributors)
+
+***
 # Changelog
 
 - 2020年7月10日
