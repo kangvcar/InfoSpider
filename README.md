@@ -167,6 +167,11 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
   <img src="https://contributors-img.web.app/image?repo=kangvcar/infospider" />
 </a>
 
+### Sponsors
+
+Thank you to JetBrains, who provide licenses for PyCharm.
+
+
 ### 📌Changelog
 <details>
 <summary>点击展开 Changelog</summary>
