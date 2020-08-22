@@ -84,7 +84,7 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 
 ### QuickStart
 
-#### 依赖安装
+#### 依赖安装 
 
 1. 安装[python3](https://www.python.org/downloads/)和Chrome浏览器
 
