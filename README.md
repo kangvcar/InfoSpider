@@ -80,7 +80,7 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 
 ### Screenshot
 
-![screenshot.png](https://i.loli.net/2020/07/19/HUDljdTazJQA6hX.png)
+![screenshot.png](https://github.com/kangvcar/InfoSpider/blob/master/docs/_media/screenshot.png?raw=true)
 
 ### QuickStart
 
