@@ -27,7 +27,7 @@
     </a>
 </p>
 <p align="center">一个神奇的工具箱，拿回你的个人信息。</p>
-<p align="center"><a href="https://infospider.vercel.app/">使用说明文档</a> | <a href="https://www.bilibili.com/video/BV14f4y1R7oF/">视频演示</a></p>
+<p align="center"><a href="https://infospider.vercel.app/">使用说明文档</a> | <a href="https://www.bilibili.com/video/BV14f4y1R7oF/">视频演示</a> | <a href="https://www.bilibili.com/video/BV14f4y1R7oF/">English</a></p>
 
 ### 开发者回忆录🌈
 <details>
@@ -71,7 +71,7 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 
 - 安全可靠：本项目为开源项目，代码简洁，所有源码可见，本地运行，安全可靠。
 - 使用简单：提供 GUI 界面，只需点击所需获取的数据源并根据提示操作即可。
-- 结构清晰：本项目的所有数据源相互独立，可移植性高，**所有爬虫脚本在项目的[Spiders](https://github.com/kangvcar/InfoSpider/tree/master/Spiders)文件下**。
+- 结构清晰：本项目的所有数据源相互独立，可移植性高，**所有爬虫脚本在项目的 [Spiders](https://github.com/kangvcar/InfoSpider/tree/master/Spiders) 文件下**。
 - 数据源丰富：本项目目前支持多达24+个数据源，持续更新。
 - 数据格式统一：爬取的所有数据都将存储为json格式。
 - 个人数据丰富：本项目将尽可能多地为你爬取个人数据，后期数据处理可根据需要删减。
