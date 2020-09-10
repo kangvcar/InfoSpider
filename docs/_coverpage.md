@@ -1,7 +1,7 @@
 
 <!-- _coverpage.md -->
 <!-- ![cover_page](/_media/cover_img.jpg) -->
-![logo](/_media/infospider-logo-mini.png)
+![logo](/_media/logo.png)
 
 # **INFO-SPIDER** <small>**1.0**</small>
 
