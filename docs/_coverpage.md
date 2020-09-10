@@ -9,6 +9,7 @@
 
 - 简单、易用、安全、开源
 - 支持众多数据源
+- 模块化
 
 [GitHub](https://github.com/kangvcar/InfoSpider)
 [视频演示](https://www.bilibili.com/video/BV14f4y1R7oF/)
