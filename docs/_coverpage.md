@@ -1,7 +1,7 @@
 
 <!-- _coverpage.md -->
-<!-- ![cover_page](/_media/cover_img.jpg) -->
-![logo](/_media/logo.png)
+<!-- ![cover_page](/_media/logo_tr.png) -->
+![logo](/_media/logo_tr.png)
 
 # **INFO-SPIDER** <small>**1.0**</small>
 

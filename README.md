@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.meetup.com/Angular-Medellin/">
-    <img src="https://s1.ax1x.com/2020/09/10/wJhgte.png" alt="UW2eVx.png" border="0" height="20%" width="20%"/>
+    <img src="https://s1.ax1x.com/2020/09/10/wJhgte.png" alt="logo"/>
   </a>
 </p>
 
