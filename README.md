@@ -205,6 +205,9 @@ Thank you to JetBrains, who provide Open Source License for PyCharm!
 - 2020年8月18日
     1. 修复部分bug
     2. 更新README.md
+
+- 2020年9月12日
+    1. 更换项目Logo
     
 </details>
     
