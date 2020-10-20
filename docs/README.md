@@ -4076,6 +4076,11 @@
 - 2020年9月12日
     1. 更换项目Logo
     
+- 2020年10月20日
+    1. 更新所有爬虫脚本
+    2. 制作Python-embed版InfoSpider
+
+
 ***
 # License
 GPL-3.0
