@@ -157,7 +157,7 @@ class JdButton(Button):
         if cookie:
             try:
                 spider = JSpider(cookie, DATA_DIR)
-                spider.getAndStoreBoughtItems()
+                # spider.getAndStoreBoughtItems()
                 
                 spider.get_creditData()
                 spider.get_browseDataNew()
@@ -173,7 +173,7 @@ class JdButton(Button):
                 spider.get_follow_shops()
                 spider.get_follow_products()
                 # spider.get_cart()
-                spider.get_orders()
+                # spider.get_orders()
                 '''
                 '''
                 self.updateStatus(self.frame, 1)
