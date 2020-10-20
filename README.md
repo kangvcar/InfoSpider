@@ -35,9 +35,22 @@
     <img src="https://i.loli.net/2020/10/20/OEA6YRIZW2vUCGP.jpg" alt="wechat" height=40% width=40%/>
     <img src="https://i.loli.net/2020/10/20/Wz7yqGekicMFHxJ.jpg" alt="alipay" height=40% width=40%/>
     </br>
-    <a href="https://paypal.me/kangvcar?locale.x=zh_XC">Paypal</a>
+    <a href="https://paypal.me/kangvcar?locale.x=zh_XC"><b>Paypal</b></a>
 </p>
 
+### 购买服务
+
+1. InfoSpider 最新维护版本
+2. 更全面的个人数据分析
+3. 免去安装程序的所有依赖环境，便捷，适合小白
+4. 已打包好的程序，双击即可运行程序
+5. 手把手教你如何打包 InfoSpider
+6. 开发者一对一技术支持
+
+<p align="center">
+<img src="https://i.loli.net/2020/10/20/IRbLzEmBv9Ktwp4.jpg" alt="wechat" height=50% width=50%/></br>
+<a href="https://mianbaoduo.com/o/bread/aZiTlJo="><b>购买链接</b></a>
+</p>
 
 ### 开发者回忆录
 <details>
@@ -218,7 +231,12 @@ Thank you to JetBrains, who provide Open Source License for PyCharm!
 
 - 2020年9月12日
     1. 更换项目Logo
-    
+
+- 2020年10月20日
+    1. 更新所有爬虫脚本
+    2. 制作Python-embed版InfoSpider
+    3. 更新logo
+
 </details>
     
 ### License

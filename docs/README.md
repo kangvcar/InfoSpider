@@ -4079,6 +4079,7 @@
 - 2020年10月20日
     1. 更新所有爬虫脚本
     2. 制作Python-embed版InfoSpider
+    3. 更新logo
 
 
 ***
