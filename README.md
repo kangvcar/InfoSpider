@@ -1,7 +1,5 @@
 <p align="center">
-  <a href="https://s1.ax1x.com/2020/09/10/wJjD8x.png">
-    <img src="https://s1.ax1x.com/2020/09/10/wJjD8x.png" alt="logo"/>
-  </a>
+    <img src="https://i.loli.net/2020/10/20/SKOdFZpVYo4LvgT.png" alt="logo"/>
 </p>
 
 ***
