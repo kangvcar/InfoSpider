@@ -27,6 +27,12 @@
 <p align="center">A magic toolbox to get back your personal information.</p>
 <p align="center"><a href="https://infospider.vercel.app/">Documentation</a> | <a href="https://www.bilibili.com/video/BV14f4y1R7oF/">Video Demo</a></p>
 
+### Donate
+
+<p align="center">Support Me!</p>
+
+[Paypal](https://paypal.me/kangvcar?locale.x=zh_XC)
+
 ### Developer Memoir🌈
 <details>
 <summary>Click to expand👉 Developer Memoir🌈</summary>

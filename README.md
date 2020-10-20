@@ -32,11 +32,12 @@
 <p align="center">你的支持，是我持续维护的动力！</p>
 
 <p align="center">
-    <img src="https://i.loli.net/2020/10/20/IqOvVJyzk1xst6a.jpg" alt="wechat"/>
-    <img src="https://i.loli.net/2020/10/20/vUNHm3WwCnjfV8T.jpg" alt="alipay"/>
+    <img src="https://i.loli.net/2020/10/20/OEA6YRIZW2vUCGP.jpg" alt="wechat" height=40% width=40%/>
+    <img src="https://i.loli.net/2020/10/20/Wz7yqGekicMFHxJ.jpg" alt="alipay" height=40% width=40%/>
+    </br>
+    <a href="https://paypal.me/kangvcar?locale.x=zh_XC">Paypal</a>
 </p>
 
-[Paypal](https://paypal.me/kangvcar?locale.x=zh_XC)
 
 ### 开发者回忆录
 <details>
