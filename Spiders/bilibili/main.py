@@ -23,14 +23,18 @@ class BilibiliHistory(object):
         # history = {'all': []}
         history = []
         for page_num in range(self.MAX_PAGE):
-            time.sleep(0.6)
+            
             url = 'https://api.bilibili.com/x/v2/history?pn={pn}&ps={ps}&jsonp=jsonp'.format(pn=page_num, ps=self.PAGE_PER_NUM)
             result = self.req_get(headers, url)
             # print('page = {} code = {} datalen = {}'.format(page_num, result['code'], len(result['data'])))
             print('爬取中...')
+            time.sleep(1)
+            # if len(result['data']) == 0:
             if not result['data']:
                 print('爬取完成...')
                 break
+            # if page_num == 2:
+            #     break
             history.append(result)
         return history
 
