@@ -94,6 +94,21 @@
 
 !> 😘😘😘 如果你运行程序的过程中出现了错误, 或者爬取不到信息, 你可以通过 GitHub 提交[Issues](https://github.com/kangvcar/InfoSpider/issues)来告诉我们, 我们很乐意不断完善此项目.
 
+## 购买服务
+
+
+1. InfoSpider 最新维护版本
+2. 更全面的个人数据分析
+3. 免去安装程序的所有依赖环境，便捷，适合小白
+4. 已打包好的程序，双击即可运行程序
+5. 手把手教你如何打包 InfoSpider
+6. 开发者一对一技术支持
+
+<p align="center">
+<img src="https://i.loli.net/2020/10/20/IRbLzEmBv9Ktwp4.jpg" alt="wechat" height=50% width=50%/></br>
+<a href="https://mianbaoduo.com/o/bread/aZiTlJo="><b>购买链接</b></a>
+</p>
+
 ## 数据源
 - [x] GitHub
 - [x] QQ邮箱

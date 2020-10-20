@@ -13,5 +13,5 @@
 
 [GitHub](https://github.com/kangvcar/InfoSpider)
 [视频演示](https://www.bilibili.com/video/BV14f4y1R7oF/)
-[交流](https://gitter.im/Info-Spider/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[获得开发者技术支持](https://mianbaoduo.com/o/bread/aZiTlJo=)
 [Get Started](#INFO-SPIDER)
