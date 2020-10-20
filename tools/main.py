@@ -665,7 +665,7 @@ class CloudmusicButton(Button):
         if dlg2.ShowModal() == wx.ID_OK:
             password = dlg2.GetValue()  # 获取文本框中输入的值
         dlg2.Destroy()
-        print(username, password)
+        # print(username, password)
         self.updateStatus(self.frame, 0)
         from cloudmusic.main import Cloudmusic
         try:
