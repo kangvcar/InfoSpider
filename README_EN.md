@@ -81,7 +81,7 @@ You can communicate with us on [![Gitter](https://badges.gitter.im/Info-Spider/c
 
 ### Screenshot
 
-![screenshot.png](https://github.com/kangvcar/infospider/graphs/contributors)
+![screenshot.png](https://i.loli.net/2020/10/26/4NJyMhrsGPwvxgd.png)
 
 ### QuickStart
 
