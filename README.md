@@ -29,11 +29,11 @@
 
 ### Donate
 
-<p align="center">你的支持，是我持续维护的动力！</p>
+<p align="center">咖啡是喝不成了，那就鼓励一下吧！</p>
 
 <p align="center">
-    <img src="https://i.loli.net/2020/10/20/OEA6YRIZW2vUCGP.jpg" alt="wechat" height=40% width=40%/>
-    <img src="https://i.loli.net/2020/10/20/Wz7yqGekicMFHxJ.jpg" alt="alipay" height=40% width=40%/>
+    <img src="https://i.loli.net/2020/10/26/st4kvlCQANdjqMS.jpg" alt="wechat" height=40% width=40%/>
+    <img src="https://i.loli.net/2020/10/26/4esxH9GgJ7WPtoU.jpg" alt="alipay" height=40% width=40%/>
     </br>
     <a href="https://paypal.me/kangvcar?locale.x=zh_XC"><b>Paypal</b></a>
 </p>
