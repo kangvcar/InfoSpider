@@ -62,7 +62,7 @@
 
 ## Screenshot
 
-![screenshot.png](https://github.com/kangvcar/InfoSpider/blob/master/docs/_media/screenshot.png?raw=true ':size=80%')
+![screenshot.png](https://i.loli.net/2020/10/26/4NJyMhrsGPwvxgd.png ':size=80%')
 
 ## QuickStart
 

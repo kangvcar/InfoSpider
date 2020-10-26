@@ -89,7 +89,7 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 
 ### Screenshot
 
-![screenshot.png](https://github.com/kangvcar/InfoSpider/blob/master/docs/_media/screenshot.png?raw=true)
+![screenshot.png](https://github.com/kangvcar/infospider/graphs/contributors)
 
 ### QuickStart
 
