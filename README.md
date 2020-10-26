@@ -101,6 +101,8 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 
 3. 安装依赖库 `pip install -r requirements.txt`
 
+> 如果您在这一步操作遇到问题，可以获取[打包好的InfoSpider](https://mianbaoduo.com/o/bread/aZiTlJo=)
+
 #### 工具运行
 
 1. 进入 tools 目录
