@@ -96,6 +96,7 @@
 
 ## 购买服务
 
+?> ***目前4折限量发售中...***，[去看看](https://mianbaoduo.com/o/bread/aZiTlJo=)
 
 1. InfoSpider 最新维护版本
 2. 更全面的个人数据分析
@@ -103,6 +104,8 @@
 4. 已打包好的程序，双击即可运行程序
 5. 手把手教你如何打包 InfoSpider
 6. 开发者一对一技术支持
+7. ***购买后即可免费获得即将发布的全新2.0版本***
+
 
 <p align="center">
 <img src="https://i.loli.net/2020/10/20/IRbLzEmBv9Ktwp4.jpg" alt="wechat" height=50% width=50%/></br>
