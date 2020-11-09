@@ -27,16 +27,6 @@
 <p align="center">一个神奇的工具箱，拿回你的个人信息。</p>
 <p align="center">👉⚡<a href="https://infospider.vercel.app/">使用说明</a> ⚡| <a href="https://www.bilibili.com/video/BV14f4y1R7oF/">视频演示</a> | <a href="https://github.com/kangvcar/InfoSpider/blob/master/README_EN.md">English</a></p>
 
-### Donate
-
-<p align="center">如果对你有价值，那就鼓励一下吧！</p>
-
-<p align="center">
-    <img src="https://i.loli.net/2020/10/30/h62aUsxQX1b9SyJ.jpg" alt="wechat" height=40% width=40%/>
-    <img src="https://i.loli.net/2020/10/30/CGQ5sNJ9vycIiYD.jpg" alt="alipay" height=40% width=40%/>
-    </br>
-    <a href="https://paypal.me/kangvcar?locale.x=zh_XC"><b>Paypal</b></a>
-</p>
 
 ### 开发者回忆录
 <details>
