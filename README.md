@@ -27,7 +27,7 @@
 <p align="center">一个神奇的工具箱，拿回你的个人信息。</p>
 <p align="center">👉⚡<a href="https://infospider.vercel.app/">使用说明</a> ⚡| <a href="https://www.bilibili.com/video/BV14f4y1R7oF/">视频演示</a> | <a href="https://github.com/kangvcar/InfoSpider/blob/master/README_EN.md">English</a></p>
 
-
+# 本仓库代码将不定时更新，如需获取最新维护版本，可通过[购买支持](https://mianbaoduo.com/o/bread/aZiTlJo=)！
 ### 开发者回忆录
 <details>
 <summary>点击展开👉 开发者回忆录</summary>
@@ -107,7 +107,7 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 
 ### 购买服务
 
-> ***目前4折限量发售中...***，[去看看](https://mianbaoduo.com/o/bread/aZiTlJo=)
+> ***目前限量发售中...***，[去看看](https://mianbaoduo.com/o/bread/aZiTlJo=)
 
 1. InfoSpider 最新维护版本
 2. 更全面的个人数据分析
