@@ -90,7 +90,7 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 
 3. 安装依赖库 `pip install -r requirements.txt`
 
-> 如果您在这一步操作遇到问题，可以获取**[免安装版InfoSpider](https://mianbaoduo.com/o/bread/aZiTlJo=)**
+> 如果您在这一步操作遇到问题，可以获取[免安装版InfoSpider](https://mianbaoduo.com/o/bread/aZiTlJo=)
 
 #### 工具运行
 
@@ -231,6 +231,9 @@ Thank you to JetBrains, who provide Open Source License for PyCharm!
     1. 更新所有爬虫脚本
     2. 制作Python-embed版InfoSpider
     3. 更新logo
+
+- 2020年11月29日
+    1. 更新爬虫脚本
 
 </details>
     
