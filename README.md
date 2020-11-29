@@ -90,7 +90,7 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 
 3. 安装依赖库 `pip install -r requirements.txt`
 
-> 如果您在这一步操作遇到问题，可以获取[免安装版InfoSpider](https://mianbaoduo.com/o/bread/aZiTlJo=)
+> 如果您在这一步操作遇到问题，可以获取**[免安装版InfoSpider](https://mianbaoduo.com/o/bread/aZiTlJo=)**
 
 #### 工具运行
 
@@ -190,6 +190,7 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 
 Thank you to JetBrains, who provide Open Source License for PyCharm!
 
+> 本仓库将不定期更新，如需获取最新维护版本，请[购买支持](https://mianbaoduo.com/o/bread/aZiTlJo=)!谢谢！
 ### Changelog
 <details>
 <summary>点击展开 Changelog</summary>
