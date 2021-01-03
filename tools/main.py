@@ -157,7 +157,7 @@ class JdButton(Button):
         if cookie:
             try:
                 spider = JSpider(cookie, DATA_DIR)
-                spider.getAndStoreBoughtItems()
+                # spider.getAndStoreBoughtItems()
                 
                 spider.get_creditData()
                 spider.get_browseDataNew()
@@ -173,9 +173,8 @@ class JdButton(Button):
                 spider.get_follow_shops()
                 spider.get_follow_products()
                 # spider.get_cart()
-                spider.get_orders()
-                '''
-                '''
+                # spider.get_orders()
+
                 self.updateStatus(self.frame, 1)
             except Exception as e:
                 traceback.print_exc()
@@ -399,20 +398,20 @@ class HotmailButton(Button):
             url = 'https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1556600210&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fmail%2finbox%3fnlp%3d1%26RpsCsrfState%3d99f809e4-d908-a164-e17a-a4739e713c63&id=292841&aadredir=1&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=90015'
             self.Automation(url)
             while 1:
-                time.sleep(0.2)
+                time.sleep(1)
                 if 'https://outlook.live.com/mail/' in self.driver.current_url:
                     time.sleep(1)
                     cookies_list = self.driver.get_cookies()
                     self.driver.quit()
                     break
-            try:
-                y = YSpider()
-                t = threading.Thread(target=y.get_hotmail, args=(cookies_list,))
-                t.start()
-                t.join()
-                self.updateStatus(self.frame,1)
-            except Exception:
-                self.updateStatus(self.frame,2)
+            # try:
+            y = YSpider()
+            t = threading.Thread(target=y.get_hotmail, args=(cookies_list,))
+            t.start()
+            t.join()
+            self.updateStatus(self.frame,1)
+            # except Exception:
+            #     self.updateStatus(self.frame,2)
         except Exception:
             self.updateStatus(self.frame,2)
 
@@ -666,7 +665,7 @@ class CloudmusicButton(Button):
         if dlg2.ShowModal() == wx.ID_OK:
             password = dlg2.GetValue()  # 获取文本框中输入的值
         dlg2.Destroy()
-        print(username, password)
+        # print(username, password)
         self.updateStatus(self.frame, 0)
         from cloudmusic.main import Cloudmusic
         try:

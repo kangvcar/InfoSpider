@@ -9,8 +9,8 @@ class BilibiliHistory(object):
         self.path = askdirectory(title='选择信息保存文件夹')
         if str(self.path) == "":
             sys.exit(1)
-        self.MAX_PAGE = 10000
-        self.PAGE_PER_NUM = 300
+        self.MAX_PAGE = 10
+        self.PAGE_PER_NUM = 200
 
         self.cookie = cookie_str
         self.history = self.get_all_bili_history()
@@ -23,14 +23,18 @@ class BilibiliHistory(object):
         # history = {'all': []}
         history = []
         for page_num in range(self.MAX_PAGE):
-            time.sleep(0.6)
+            
             url = 'https://api.bilibili.com/x/v2/history?pn={pn}&ps={ps}&jsonp=jsonp'.format(pn=page_num, ps=self.PAGE_PER_NUM)
             result = self.req_get(headers, url)
             # print('page = {} code = {} datalen = {}'.format(page_num, result['code'], len(result['data'])))
             print('爬取中...')
-            if len(result['data']) == 0:
+            time.sleep(1)
+            # if len(result['data']) == 0:
+            if not result['data']:
                 print('爬取完成...')
                 break
+            # if page_num == 2:
+            #     break
             history.append(result)
         return history
 

@@ -62,7 +62,7 @@
 
 ## Screenshot
 
-![screenshot.png](https://i.loli.net/2020/07/19/HUDljdTazJQA6hX.png ':size=70%')
+![screenshot.png](https://i.loli.net/2020/10/26/4NJyMhrsGPwvxgd.png ':size=80%')
 
 ## QuickStart
 
@@ -93,6 +93,24 @@
 ?> 数据分析功能还在开发中，暂时只支持部分数据源
 
 !> 😘😘😘 如果你运行程序的过程中出现了错误, 或者爬取不到信息, 你可以通过 GitHub 提交[Issues](https://github.com/kangvcar/InfoSpider/issues)来告诉我们, 我们很乐意不断完善此项目.
+
+## 购买服务
+
+?> ***目前4折限量发售中...***，[去看看](https://mianbaoduo.com/o/bread/aZiTlJo=)
+
+1. InfoSpider 最新维护版本
+2. 更全面的个人数据分析
+3. 免去安装程序的所有依赖环境，便捷，适合小白
+4. 已打包好的程序，双击即可运行程序
+5. 手把手教你如何打包 InfoSpider
+6. 开发者一对一技术支持
+7. ***购买后即可免费获得即将发布的全新2.0版本***
+
+
+<p align="center">
+<img src="https://i.loli.net/2020/10/20/IRbLzEmBv9Ktwp4.jpg" alt="wechat" height=50% width=50%/></br>
+<a href="https://mianbaoduo.com/o/bread/aZiTlJo="><b>购买链接</b></a>
+</p>
 
 ## 数据源
 - [x] GitHub
@@ -4037,6 +4055,11 @@
 </details>
 
 ***
+# Contributors
+
+[![](https://contributors-img.web.app/image?repo=kangvcar/infospider)](https://github.com/kangvcar/infospider/graphs/contributors)
+
+***
 # Changelog
 
 - 2020年7月10日
@@ -4067,7 +4090,16 @@
 - 2020年8月18日
     1. 修复部分bug
     2. 更新README.md
+
+- 2020年9月12日
+    1. 更换项目Logo
     
+- 2020年10月20日
+    1. 更新所有爬虫脚本
+    2. 制作Python-embed版InfoSpider
+    3. 更新logo
+
+
 ***
 # License
 GPL-3.0

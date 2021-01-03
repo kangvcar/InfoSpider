@@ -1,7 +1,5 @@
 <p align="center">
-  <a href="https://www.meetup.com/Angular-Medellin/">
-    <img src="https://s1.ax1x.com/2020/07/19/UW2eVx.png" alt="UW2eVx.png" border="0" height="20%" width="20%"/>
-  </a>
+    <img src="https://i.loli.net/2020/10/20/SKOdFZpVYo4LvgT.png" alt="logo"/>
 </p>
 
 ***
@@ -27,11 +25,11 @@
     </a>
 </p>
 <p align="center">一个神奇的工具箱，拿回你的个人信息。</p>
-<p align="center"><a href="https://infospider.vercel.app/">使用说明文档</a> | <a href="https://www.bilibili.com/video/BV14f4y1R7oF/">视频演示</a></p>
+<p align="center">👉⚡<a href="https://infospider.vercel.app/">使用说明</a> ⚡| <a href="https://www.bilibili.com/video/BV14f4y1R7oF/">视频演示</a> | <a href="https://github.com/kangvcar/InfoSpider/blob/master/README_EN.md">English</a> | <a href="https://mianbaoduo.com/o/bread/aZiTlJo=">🥰获取最新维护版本🥰</a></p>
 
-### 开发者回忆录🌈
+### 开发者回忆录
 <details>
-<summary>点击展开👉 开发者回忆录🌈</summary>
+<summary>点击展开👉 开发者回忆录</summary>
 
 #### 场景一
 小明一如往常打开 Chrome 浏览器逛着论坛，贴吧，一不小心点开了网页上的广告，跳转到了京东商城，下意识去关闭窗口时发现 （**OS：咦？京东怎么知道我最近心心念念的宝贝呢？刚好我正需要呢！**），既然打开了那就看看商品详情吧 （**OS：哎哟不错哦**），那就下单试试吧！
@@ -71,16 +69,16 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 
 - 安全可靠：本项目为开源项目，代码简洁，所有源码可见，本地运行，安全可靠。
 - 使用简单：提供 GUI 界面，只需点击所需获取的数据源并根据提示操作即可。
-- 结构清晰：本项目的所有数据源相互独立，可移植性高，**所有爬虫脚本在项目的[Spiders](https://github.com/kangvcar/InfoSpider/tree/master/Spiders)文件下**。
+- 结构清晰：本项目的所有数据源相互独立，可移植性高，**所有爬虫脚本在项目的 [Spiders](https://github.com/kangvcar/InfoSpider/tree/master/Spiders) 文件下**。
 - 数据源丰富：本项目目前支持多达24+个数据源，持续更新。
-- 数据格式统一：爬取的所有数据都将存储为json格式。
+- 数据格式统一：爬取的所有数据都将存储为json格式，方便后期数据分析。
 - 个人数据丰富：本项目将尽可能多地为你爬取个人数据，后期数据处理可根据需要删减。
 - 数据分析：本项目提供个人数据的可视化分析，目前仅部分支持。
 - 文档丰富：本项目包含完整全面的[使用说明文档](https://infospider.vercel.app)和[视频教程](https://www.bilibili.com/video/BV14f4y1R7oF/)
 
 ### Screenshot
 
-![screenshot.png](https://i.loli.net/2020/07/19/HUDljdTazJQA6hX.png)
+![screenshot.png](https://i.loli.net/2020/10/26/4NJyMhrsGPwvxgd.png)
 
 ### QuickStart
 
@@ -91,6 +89,8 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 2. 安装与Chrome浏览器相同版本的[驱动](http://chromedriver.storage.googleapis.com/index.html)
 
 3. 安装依赖库 `pip install -r requirements.txt`
+
+> 如果您在这一步操作遇到问题，可以获取[免安装版InfoSpider](https://mianbaoduo.com/o/bread/aZiTlJo=)
 
 #### 工具运行
 
@@ -104,6 +104,23 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
    
 5. 在对应的目录下可以**查看下载下来的数据**(xxx.json), **数据分析图表**(xxx.html)
 
+### 购买服务
+
+> ***目前限量发售中...***，[去看看](https://mianbaoduo.com/o/bread/aZiTlJo=)
+
+1. InfoSpider 最新维护版本
+2. 更全面的个人数据分析
+3. 免去安装程序的所有依赖环境，便捷，适合小白
+4. 已打包好的程序，双击即可运行程序
+5. 手把手教你如何打包 InfoSpider
+6. 开发者一对一技术支持
+7. ***购买后即可免费获得即将发布的全新2.0版本***
+
+
+<p align="center">
+<img src="https://i.loli.net/2020/10/20/IRbLzEmBv9Ktwp4.jpg" alt="wechat" height=50% width=50%/></br>
+<a href="https://mianbaoduo.com/o/bread/aZiTlJo="><b>购买链接</b></a>
+</p>
 
 ### 数据源
 - [x] GitHub
@@ -161,7 +178,20 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 6. 计划在v2.0版本对项目进行重构，提供web端操作与数据可视化，以适配多平台。
 7. 本项目[INFO-SPIDER](https://github.com/kangvcar/InfoSpider)代码已开源，欢迎star支持。
 
-### 📌Changelog
+### Contributors
+
+<a href="https://github.com/kangvcar/infospider/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=kangvcar/infospider" />
+</a>
+
+### Sponsors
+
+![](https://github.com/kangvcar/InfoSpider/blob/master/docs/_media/JetBrains.png?raw=true)
+
+Thank you to JetBrains, who provide Open Source License for PyCharm!
+
+> 本仓库将不定期更新，如需获取最新维护版本，请[购买支持](https://mianbaoduo.com/o/bread/aZiTlJo=)!谢谢！
+### Changelog
 <details>
 <summary>点击展开 Changelog</summary>
 
@@ -193,7 +223,18 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 - 2020年8月18日
     1. 修复部分bug
     2. 更新README.md
-    
+
+- 2020年9月12日
+    1. 更换项目Logo
+
+- 2020年10月20日
+    1. 更新所有爬虫脚本
+    2. 制作Python-embed版InfoSpider
+    3. 更新logo
+
+- 2020年11月29日
+    1. 更新爬虫脚本
+
 </details>
     
 ### License

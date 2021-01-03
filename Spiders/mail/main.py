@@ -129,10 +129,13 @@ class YSpider(object):
             option.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})  # 不加载图片,加快访问速度
             option.add_argument('--headless')
             self.driver = webdriver.Chrome(options=option)
+            # self.driver.get('https://outlook.live.com/mail/0/inbox')
             self.driver.get('https://outlook.live.com/mail/inbox')
             for i in cookies_list:
                 self.driver.add_cookie(cookie_dict=i)
             self.driver.get('https://outlook.live.com/mail/inbox')
+            # self.driver.get('https://outlook.live.com/mail/0/inbox')
+            
         except Exception as e:
             print(e)
 
@@ -145,6 +148,7 @@ class YSpider(object):
         time.sleep(2)
         page_source = self.driver.page_source
         obj_list = etree.HTML(page_source).xpath('//div[contains(@class,"customScrollBar")]')[1].xpath('./div/div')[1:]
+        # obj_list = etree.HTML(page_source).xpath('//div[contains(@role,"option")]')[:]
         json_list = []
         i = 0
         for obj in obj_list[:100]:
