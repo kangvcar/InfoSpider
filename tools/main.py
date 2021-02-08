@@ -29,15 +29,15 @@ except OSError:
 
 # import Scripts.shgjj
 # from Spiders.shgjj.main import GjjSpider
-from A12306 import main12306
-from JdSpider.jd_more_info import JSpider
-from alipay.main import ASpider
-from ctrip.main import Ctrip
-from mail.main import YSpider
-from shgjj.main import GjjSpider
-from taobao.spider import TaobaoSpider
-from telephone.main import LianTong, DianXin
-from yidong.main import YiDong
+from Spiders.A12306 import main12306
+from Spiders.JdSpider.jd_more_info import JSpider
+from Spiders.alipay.main import ASpider
+from Spiders.ctrip.main import Ctrip
+from Spiders.mail.main import YSpider
+from Spiders.shgjj.main import GjjSpider
+from Spiders.taobao.spider import TaobaoSpider
+from Spiders.telephone.main import LianTong, DianXin
+from Spiders.yidong.main import YiDong
 
 
 class Button:
@@ -192,7 +192,7 @@ class ChisButton(Button):
             self.updateStatus(self.frame,2)
             return
 
-        from chsi.main import Chis
+        from Spiders.chsi.main import Chis
         try:
         
             chis = Chis(cookie_str)
@@ -437,11 +437,11 @@ class QqmailButton(Button):
                 t = threading.Thread(target=y.qq_mail, args=(cookie_str, sid))
                 t.start()  # 启动线程，即让线程开始执行
                 t.join()
-                self.updateStatus(self.frame,1)
+                self.updateStatus(self.frame, 1)
             except Exception:
-                self.updateStatus(self.frame,2)
+                self.updateStatus(self.frame, 2)
         except Exception:
-            self.updateStatus(self.frame,2)
+            self.updateStatus(self.frame, 2)
 
 class AlimailButton(Button):
     def OnClick(self, event):
@@ -594,7 +594,7 @@ class QqButton(Button):
             dlg.Close()
             # self.Close(True)
 
-        from qqfriend.main import Qqfriend
+        from Spiders.qqfriend.main import Qqfriend
         try:
             self.updateStatus(self.frame, 0)
             qq_friend = Qqfriend()
@@ -667,7 +667,7 @@ class CloudmusicButton(Button):
         dlg2.Destroy()
         # print(username, password)
         self.updateStatus(self.frame, 0)
-        from cloudmusic.main import Cloudmusic
+        from Spiders.cloudmusic.main import Cloudmusic
         try:
             music = Cloudmusic(username, password)
             music.get_user_detail()
@@ -697,7 +697,7 @@ class BilibiliButton(Button):
                     cookie_str = cookie_str + s['name'] + '=' + s['value'] + ';'
                 self.driver.quit()
                 break
-        from bilibili.main import BilibiliHistory
+        from Spiders.bilibili.main import BilibiliHistory
         bili = BilibiliHistory(cookie_str)
         self.updateStatus(self.frame,1)
 
@@ -736,7 +736,7 @@ class MomentsalbumButton(Button):
         if dlg.ShowModal() == wx.ID_YES:
             dlg.Close()
 
-            from moments_album.main import Momentsablum
+            from Spiders.moments_album.main import Momentsablum
             try:
                 self.updateStatus(self.frame, 0)
                 ma = Momentsablum()
@@ -750,7 +750,7 @@ class MomentsalbumButton(Button):
 
 class BrowserButton(Button):
     def OnClick(self, event):
-        from browser.main import Browserhistory
+        from Spiders.browser.main import Browserhistory
         try:
             self.updateStatus(self.frame, 0)
             bh = Browserhistory()
@@ -765,7 +765,7 @@ class CnblogButton(Button):
         if dlg.ShowModal() == wx.ID_OK:
             blogname = dlg.GetValue()  # 获取文本框中输入的值
         dlg.Destroy()
-        from cnblog.main import Cnblog
+        from Spiders.cnblog.main import Cnblog
         try:
             self.updateStatus(self.frame, 0)
             cb = Cnblog(blogname)
@@ -784,7 +784,7 @@ class CsdnButton(Button):
         if dlg.ShowModal() == wx.ID_OK:
             blogname = dlg.GetValue()  # 获取文本框中输入的值
         dlg.Destroy()
-        from csdn.main import Csdn
+        from Spiders.csdn.main import Csdn
         try:
             self.updateStatus(self.frame, 0)
             csdn = Csdn(blogname)
@@ -801,7 +801,7 @@ class OschinaButton(Button):
         if dlg.ShowModal() == wx.ID_OK:
             blogurl = dlg.GetValue()  # 获取文本框中输入的值
         dlg.Destroy()
-        from oschina.main import Oschina
+        from Spiders.oschina.main import Oschina
         try:
             self.updateStatus(self.frame, 0)
             oschina = Oschina(blogurl)
@@ -818,7 +818,7 @@ class JianshuButton(Button):
         if dlg.ShowModal() == wx.ID_OK:
             blogurl = dlg.GetValue()  # 获取文本框中输入的值
         dlg.Destroy()
-        from jianshu.main import Jianshu
+        from Spiders.jianshu.main import Jianshu
         try:
             self.updateStatus(self.frame, 0)
             jianshu = Jianshu(blogurl)
@@ -904,7 +904,7 @@ if __name__ == '__main__':
     """When this module is run (not imported) then create the app, the
     frame, show it, and start the event loop."""
     app = wx.App()
-    frm = CreateFrame(None, title='INFO-SPIDER  ————  拿回你的个人信息', size=(800, 700), pos = (20,20))
+    frm = CreateFrame(None, title='INFO-SPIDER  ————  拿回你的个人信息', size=(800, 700), pos=(20, 20))
     frm.SetBackgroundColour('#E1E1E1')
     frm.Show()
     app.MainLoop()
