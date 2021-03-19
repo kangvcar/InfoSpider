@@ -13,5 +13,5 @@ wxPython==4.0.7
 pandas==1.0.1
 wxpy==0.3.9.8
 beautifulsoup4==4.9.1
-Pillow==7.2.0
+Pillow==8.1.1
 python_dateutil==2.8.1
