@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+# author: cjh0613  
+# https://cjh0613.com/20200520getQQmembers.html
+# From: https://github.com/cjh0613/python-pub/blob/1c308fe90386f6d6e69e2202bb0c4acd4857576f/%E8%8E%B7%E5%8F%96QQ%E7%BE%A4%E6%88%90%E5%91%98%E5%88%97%E8%A1%A8.py
+# modified by kangvcar
+
 import selenium
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
