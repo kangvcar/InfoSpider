@@ -139,8 +139,8 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 - [x] 知乎
 - [x] 哔哩哔哩
 - [x] 网易云音乐
-- [x] QQ好友
-- [x] QQ群
+- [x] QQ好友([cjh0613](https://github.com/cjh0613/python-pub/blob/1c308fe90386f6d6e69e2202bb0c4acd4857576f/%E8%8E%B7%E5%8F%96QQ%E5%A5%BD%E5%8F%8B%E5%88%97%E8%A1%A8.py))
+- [x] QQ群([cjh0613](https://github.com/cjh0613/python-pub/blob/1c308fe90386f6d6e69e2202bb0c4acd4857576f/%E8%8E%B7%E5%8F%96QQ%E5%A5%BD%E5%8F%8B%E5%88%97%E8%A1%A8.py))
 - [x] 生成朋友圈相册
 - [x] 浏览器浏览历史
 - [x] 12306
