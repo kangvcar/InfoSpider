@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://i.loli.net/2020/10/20/SKOdFZpVYo4LvgT.png" alt="logo"/>
+    <img src="https://i.loli.net/2020/10/20/SKOdFZpVYo4LvgT.png" alt="InfoSpider logo"/>
 </p>
 
 ***
