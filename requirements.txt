@@ -5,7 +5,7 @@ XlsxWriter==1.2.9
 openpyxl==3.0.4
 nltk==3.5
 pyquery==1.4.0
-lxml==4.3.3
+lxml==4.6.2
 requests==2.22.0
 numpy==1.18.1
 tqdm==4.47.0
