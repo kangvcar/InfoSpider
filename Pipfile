@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+cefpython3 = ">=66"
+gevent = ">=1.4.0"
+pywin32 = ">=227"
+Flask = ">=1.1.1"
+wxPython = ">=4.0.7.post2"
+pyinstaller = "==3.6"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"
