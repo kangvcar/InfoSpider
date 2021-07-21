@@ -9,7 +9,7 @@ import shutil
 
 
 # -- CHANGE
-PROJECT_FOLDER_NAME = 'wendy'
+PROJECT_FOLDER_NAME = 'infospider'
 MAKENSIS_PATH = '"C:\\Program Files (x86)\\NSIS\\makensis.exe"'
 # --
 
