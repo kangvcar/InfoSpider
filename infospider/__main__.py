@@ -175,7 +175,7 @@ class MainFrame(wx.Frame):
         t = threading.Thread(target=start_server, args=(app_port,))
         t.daemon = True
         t.start()
-        flask_url = 'http://127.0.0.1:' + str(app_port) + '/index.html'
+        flask_url = 'http://127.0.0.1:' + str(app_port) + '/starter.html'
         # start_server(5000)
         # flask_url = "http://localhost:5000"
         print(flask_url)
