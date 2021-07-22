@@ -39,9 +39,6 @@ def get_is_vip():
     if user_config.getboolean('userinfo', 'is_vip'):
         return True
 
-
-
-
 @app.before_request
 def before_request():
     # 读取配置nav_cofigure.ini 文件信息用于渲染前端页面
@@ -60,11 +57,11 @@ def before_request():
         nav_configure[categories].append(dict(config.items(section)))     # 配置处理成dict进行传输
     # pprint(nav_configure)
 
-    user_configure_file = get_root_path('user_configure.ini')
-    user_config = ConfigParser()
-    user_config.read(user_configure_file, encoding='UTF-8')
+    # user_configure_file = get_root_path('user_configure.ini')
+    # user_config = ConfigParser()
+    # user_config.read(user_configure_file, encoding='UTF-8')
 
-    main_tab_info['username'] = user_config.get('userinfo', 'username')
+    main_tab_info['username'] = 'kangvcar'
     main_tab_info['is_vip'] = get_is_vip()
     main_tab_info['categories_total'] = len(nav_configure)
     main_tab_info['script_total'] = len(sections)
@@ -93,19 +90,19 @@ def index3():
 def sub1_pages(sub1_path):
     ppath = '/pages/' + sub1_path
     print(ppath)
-    return render_template(ppath)
+    return render_template(ppath, nav_configure=nav_configure, main_tab_info=main_tab_info)
 
 @app.route('/pages/<sub1_path>/<sub2_path>', methods=['GET', 'POST'])
 def sub2_pages(sub1_path, sub2_path):
     ppath = '/pages/' + sub1_path + '/' + sub2_path
     print(ppath)
-    return render_template(ppath)
+    return render_template(ppath, nav_configure=nav_configure, main_tab_info=main_tab_info)
 
 @app.route('/pages/<sub1_path>/<sub2_path>/<sub3_path>', methods=['GET', 'POST'])
 def sub3_pages(sub1_path, sub2_path, sub3_path):
     ppath = '/pages/' + sub1_path + '/' + sub2_path + '/' + sub3_path
     print(ppath)
-    return render_template(ppath)
+    return render_template(ppath, nav_configure=nav_configure, main_tab_info=main_tab_info)
 
 # iframe
 @app.route('/<sub_path>', methods=['GET', 'POST'])

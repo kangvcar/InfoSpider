@@ -223,7 +223,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                               <div class="filtr-item col-sm-2" data-category="{{ detail.get('categories') }}">
 {#                                  <span class="item-index" style="font-size: 15px">{{ detail.get('main_nav_title') }}</span>#}
                                   <span class="item-desc" style="font-size: 15px">{{ detail.get('main_nav_title') + '： ' }}{{ detail.get('sub_title')[:12] + '...' }}</span>
-                                  <a href="pages/{{ detail.get('page_url') }}">
+                                  <a href="{{ detail.get('page_url') }}">
                                     <img src="{{ url_for('static', filename='dist/img/logos/' + detail.get('logo_pic_name')) }}" class="img-fluid mb-2" alt="white sample"/>
                                   </a>
                               </div>
