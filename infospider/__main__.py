@@ -18,6 +18,7 @@ import wx
 from cefpython3 import cefpython as cef
 
 from infospider import start_gevent, APP_NAME, get_root_path
+from infospider.app import logo_resize
 
 
 WindowUtils = cef.WindowUtils()
@@ -295,4 +296,5 @@ class CefApp(wx.App):
 
 
 if __name__ == '__main__':
+    # logo_resize()
     main()
