@@ -106,7 +106,7 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 
 ### 购买服务
 
-> ***目前限量发售中...***，[去看看](https://mianbaoduo.com/o/bread/aZiTlJo=)
+> ***限量发售中...***，[去看看](https://mianbaoduo.com/o/bread/aZiTlJo=)
 
 1. InfoSpider 最新维护版本
 2. 更全面的个人数据分析
