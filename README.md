@@ -239,3 +239,8 @@ Thank you to JetBrains, who provide Open Source License for PyCharm!
     
 ### License
 GPL-3.0
+
+### Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=kangvcar/InfoSpider&type=Date)](https://star-history.com/#kangvcar/InfoSpider&Date)
+
