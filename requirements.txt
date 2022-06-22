@@ -7,7 +7,7 @@ nltk==3.5
 pyquery==1.4.0
 lxml==4.6.2
 requests==2.22.0
-numpy==1.18.1
+numpy==1.22.0
 tqdm==4.47.0
 wxPython==4.0.7
 pandas==1.0.1
