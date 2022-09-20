@@ -1,0 +1,32 @@
+.cnblog{
+    width:40px;
+    height: 40px;
+    border:0;
+    background:url(img/cnblog.png) no-repeat;
+    background-size: 100% 100%;
+}
+.github{
+    width:40px;
+    height: 40px;
+    border:0;
+    background:url(img/github.png) no-repeat;
+    background-size: 100% 100%;
+}
+.jianshu{
+    width:40px;
+    height: 40px;
+    border:0;
+    background:url(img/jianshu.png) no-repeat;
+    background-size: 100% 100%;
+}
+.oschina{
+    width:40px;
+    height: 40px;
+    border:0;
+    background:url(img/oschina.png) no-repeat;
+    background-size: 100% 100%;
+}
+.kuangjia{
+    width: 100px;
+    height: 100px;
+}
