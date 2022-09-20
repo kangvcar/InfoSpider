@@ -3,7 +3,7 @@ pyecharts==1.7.1
 selenium==3.141.0
 XlsxWriter==1.2.9
 openpyxl==3.0.4
-nltk==3.5
+nltk==3.6.6
 pyquery==1.4.0
 lxml==4.9.1
 requests==2.22.0
