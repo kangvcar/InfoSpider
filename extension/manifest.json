@@ -1,0 +1,139 @@
+{
+    "manifest_version":3,
+    "name":"helloWorld",
+    "version":"1.0",
+    "description":"hello world 插件",
+    "icons":{
+        "128":"img/logo-50px.png",
+        "48":"img/logo-50px.png",
+        "16":"img/logo-50px.png"
+    },
+    "content_scripts": [
+          {
+            "matches": ["https://api.github.com/users/*/following"],
+            "js": [
+            "js/jquery.js",
+            "js/github/githubrun2.js"
+          ],
+          "run_at": "document_idle"
+          },
+          {
+            "matches": ["https://api.github.com/users/*/followers"],
+            "js": [
+            "js/jquery.js",
+            "js/github/githubrun3.js"
+          ],
+          "run_at": "document_idle"
+          },
+          {
+            "matches": ["https://api.github.com/users/*/repos"],
+            "js": [
+            "js/jquery.js",
+            "js/github/githubrun4.js"
+          ],
+          "run_at": "document_idle"
+          },
+          {
+            "matches": ["https://api.github.com/users/*/received_events"],
+            "js": [
+            "js/jquery.js",
+            "js/github/githubrun5.js"
+          ],
+          "run_at": "document_idle"
+          },
+          {
+            "matches": ["https://api.github.com/users/*"],
+            "exclude_globs":["https://api.github.com/users/*/following","https://api.github.com/users/*/followers"
+        ,"https://api.github.com/users/*/repos","https://api.github.com/users/*/received_events"],
+            "js": [
+            "js/jquery.js",
+            "js/github/githubrun1.js"
+          ],
+          "run_at": "document_idle"
+          },
+
+
+
+
+          {
+            "matches": ["https://www.cnblogs.com/"],
+            "js": [
+            "js/jquery.js",
+            "js/cnblog/cnblogrun0.js"
+          ],
+          "run_at": "document_end"
+          },
+          {
+            "matches": ["https://home.cnblogs.com/u/*/"],
+            "exclude_globs":["https://home.cnblogs.com/u/*/followers/",
+            "https://home.cnblogs.com/u/*/followees/"],
+            "js": [
+            "js/jquery.js",
+            "js/cnblog/cnblogrun1.js"
+          ],
+          "run_at": "document_end"
+          },
+          {
+            "matches": ["https://www.cnblogs.com/*/"],
+            "exclude_globs":["https://home.cnblogs.com/u/*/followers/"],
+            "js": [
+            "js/jquery.js",
+            "js/cnblog/cnblogrun2.js"
+          ],
+          "run_at": "document_end"
+          },
+
+
+
+
+
+          {
+            "matches": ["https://www.jianshu.com/asimov/users/slug/*/public_notes"],
+            "js": [
+            "js/jquery.js",
+            "js/jianshu/jianshurun2.js"
+          ],
+          "run_at": "document_start"
+          },
+          {
+            "matches": ["https://www.jianshu.com/asimov/users/slug/*"],
+            "exclude_globs":["https://www.jianshu.com/asimov/users/slug/*/public_notes"],
+            "js": [
+            "js/jquery.js",
+            "js/jianshu/jianshurun1.js"
+          ],
+          "run_at": "document_start"
+          },
+
+
+
+
+          {
+            "matches": ["https://my.oschina.net/u/*/"],
+            "exclude_globs":["https://my.oschina.net/u/*/followers/","https://my.oschina.net/u/*/following"],
+            "js": [
+            "js/jquery.js",
+            "js/oschina/oschinarun0.js"
+          ],
+          "run_at": "document_start"
+          },
+
+
+          {
+            "matches": ["https://my.oschina.net/"],
+            "js": [
+            "js/jquery.js",
+            "js/oschina/oschinarun0.js"
+          ],
+          "run_at": "document_start"
+          }
+      ] ,
+    "action":{
+        "default_icon":"img/logo-50px.png",
+        "default_popup":"index.html"
+    },
+    "permissions":[
+        "storage",
+        "tabs"
+    ]
+}
