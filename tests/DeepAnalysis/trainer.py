@@ -64,3 +64,35 @@ def train_model(x_train, y_train, x_test, y_test):
         optimizer.step()
         print('Epoch [{}/{}], Loss: {:.4f}'.format(epoch+1, epochs, loss.item()))
     return model
+
+
+def predict(model, x_test, y_test, scaler):
+    inputs = torch.from_numpy(x_test).float()
+    y_pred = model(inputs)
+    y_pred = y_pred.detach().numpy()
+    y_test = y_test.reshape(-1, 1)
+    y_pred = scaler.inverse_transform(y_pred)
+    y_test = scaler.inverse_transform(y_test)
+    return y_pred, y_test
+
+
+def evaluate_model(y_pred, y_test):
+    rmse = np.sqrt(np.mean(((y_pred - y_test) ** 2)))
+    print('RMSE: ', rmse)
+    plt.plot(y_test, color='red', label='Real Stock Price')
+    plt.plot(y_pred, color='blue', label='Predicted Stock Price')
+    plt.title('Stock Price Prediction')
+    plt.xlabel('Time')
+    plt.ylabel('Stock Price')
+    plt.legend()
+    plt.show()
+
+if __name__ == '__main__':
+    data = read_data()
+    data, scaler = normalize_data(data)
+    seq_len = 60
+    x_train, y_train = create_train_data(data, seq_len)
+    x_test, y_test = create_test_data(data, seq_len)
+    model = train_model(x_train, y_train, x_test, y_test)
+    y_pred, y_test = predict(model, x_test, y_test, scaler)
+    evaluate_model(y_pred, y_test)
