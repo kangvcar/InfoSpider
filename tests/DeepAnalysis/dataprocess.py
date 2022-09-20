@@ -46,3 +46,19 @@ for i in range(60, len(test_data)):
     x_test.append(test_data[i-60:i, 0])
 x_test = np.array(x_test)
 x_test = np.reshape(x_test, (x_test.shape[0], x_test.shape[1], 1))
+
+
+class StockDataset(Dataset):
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def __getitem__(self, index):
+        return self.x[index], self.y[index]
+    def __len__(self):
+        return len(self.x)
+
+
+train_dataset = StockDataset(x_train, y_train)
+train_loader = DataLoader(train_dataset, batch_size=1, shuffle=False)
+test_dataset = StockDataset(x_test, y_test)
+test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False)
