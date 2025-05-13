@@ -189,7 +189,8 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 ### Sponsors
 
 #### Swiftproxy
-![[Swiftproxy](https://www.swiftproxy.net/?ref=kangvcar)](https://pic1.imgdb.cn/item/6822ff7b58cb8da5c8f0186b.png)
+
+![Swiftproxy](https://github.com/user-attachments/assets/4e758acc-172c-4c18-9f2d-6e761d5d0c1e)
 
 推荐IP代理商，价格和质量都不错，9000万+全球高质量纯净动态、静态住宅IP，支持免费测试，动态流量不过期，使用折扣码GHB5立享九折优惠。
 
@@ -198,7 +199,8 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 ### License
 GPL-3.0
 
-### Star History
+## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=kangvcar/InfoSpider&type=Date)](https://star-history.com/#kangvcar/InfoSpider&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=kangvcar/InfoSpider&type=Date)](https://www.star-history.com/#kangvcar/InfoSpider&Date)
+
 
