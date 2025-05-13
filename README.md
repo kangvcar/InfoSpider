@@ -25,7 +25,7 @@
     </a>
 </p>
 <p align="center">一个神奇的工具箱，拿回你的个人信息。</p>
-<p align="center">👉⚡<a href="https://infospider.vercel.app/">使用说明</a> ⚡| <a href="https://www.bilibili.com/video/BV14f4y1R7oF/">视频演示</a> | <a href="https://github.com/kangvcar/InfoSpider/blob/master/README_EN.md">English</a> | <a href="https://mbd.pub/o/bread/aZiTlJo=">获取最新维护版本</a> | <a href="https://t.me/+b-Rdy7_9QuwyMGI1">TG交流群</a></p>
+<p align="center">👉⚡<a href="https://infospider.vercel.app/">使用说明</a> ⚡| <a href="https://www.bilibili.com/video/BV14f4y1R7oF/">视频演示</a> | <a href="https://github.com/kangvcar/InfoSpider/blob/master/README_EN.md">English</a> | <a href="https://mbd.pub/o/bread/aZiTlJo=">获取最新维护版本</a> | <a href="https://t.me/+b-Rdy7_9QuwyMGI1">TG交流群</a> | 👍<a href="https://www.swiftproxy.net/?ref=kangvcar">免费代理IP获取</a></p>
 
 ### 🗣️ TG交流群：[加入群组](https://t.me/+b-Rdy7_9QuwyMGI1)
 
@@ -188,57 +188,13 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 
 ### Sponsors
 
-![](https://github.com/kangvcar/InfoSpider/blob/master/docs/_media/JetBrains.png?raw=true)
+#### Swiftproxy
+![[Swiftproxy](https://www.swiftproxy.net/?ref=kangvcar)](https://pic1.imgdb.cn/item/6822ff7b58cb8da5c8f0186b.png)
 
-Thank you to JetBrains, who provide Open Source License for PyCharm!
+推荐IP代理商，价格和质量都不错，9000万+全球高质量纯净动态、静态住宅IP，支持免费测试，动态流量不过期，使用折扣码GHB5立享九折优惠。
 
-> 本仓库将不定期更新，如需获取最新维护版本，请[购买支持](https://mianbaoduo.com/o/bread/aZiTlJo=)!谢谢！
-### Changelog
-<details>
-<summary>点击展开 Changelog</summary>
+👉❤ [免费试用](https://www.swiftproxy.net/?ref=kangvcar)
 
-- 2020年7月10日
-    1. 更新GUI布局
-    2. 添加GitHub、QQ好友、QQ群数据源
-
-- 2020年7月12日
-    1. 修复QQ邮箱、网易邮箱、阿里邮箱、新浪邮箱、Hotmail、Outlook数据源
-    2. 添加生成朋友圈相册功能
-
-- 2020年7月14日
-    1. 修复京东、淘宝、支付宝、12306数据源
-    2. 添加Chrome浏览记录功能
-
-- 2020年7月17日
-    1. 修复中国移动、中国联通数据源
-    2. 添加知乎、哔哩哔哩、网易云音乐数据源
-
-- 2020年7月19日
-    1. 添加博客园、CSDN、开源中国、简书数据源
-    2. 编写[使用说明文档](https://infospider.vercel.app/)
-    3. 录制使用视频教程
-
-- 2020年7月30日
-    1. 添加博客园数据分析功能
-    2. 使用pyechart绘制图表并生成html文件保存在数据目录下
-    
-- 2020年8月18日
-    1. 修复部分bug
-    2. 更新README.md
-
-- 2020年9月12日
-    1. 更换项目Logo
-
-- 2020年10月20日
-    1. 更新所有爬虫脚本
-    2. 制作Python-embed版InfoSpider
-    3. 更新logo
-
-- 2020年11月29日
-    1. 更新爬虫脚本
-
-</details>
-    
 ### License
 GPL-3.0
 
