@@ -25,7 +25,7 @@
     </a>
 </p>
 <p align="center">一个神奇的工具箱，拿回你的个人信息。</p>
-<p align="center">👉⚡<a href="https://infospider.vercel.app/">使用说明</a> ⚡| <a href="https://www.bilibili.com/video/BV14f4y1R7oF/">视频演示</a> | <a href="https://github.com/kangvcar/InfoSpider/blob/master/README_EN.md">English</a> | <a href="https://mbd.pub/o/bread/aZiTlJo=">获取最新维护版本</a> | <a href="https://t.me/+b-Rdy7_9QuwyMGI1">TG交流群</a> | 👍<a href="https://www.swiftproxy.net/?ref=kangvcar">免费代理IP获取</a></p>
+<p align="center">👉⚡<a href="https://infospider.vercel.app/">使用说明</a> ⚡| <a href="https://www.bilibili.com/video/BV14f4y1R7oF/">视频演示</a> | <a href="https://github.com/kangvcar/InfoSpider/blob/master/README_EN.md">English</a> | <a href="https://mbd.pub/o/bread/aZiTlJo=">获取最新维护版本</a> | <a href="https://t.me/+b-Rdy7_9QuwyMGI1">TG交流群</a></p>
 
 ### 🗣️ TG交流群：[加入群组](https://t.me/+b-Rdy7_9QuwyMGI1)
 
@@ -191,12 +191,6 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 #### Swiftproxy
 
 [![Swiftproxy](https://pic1.imgdb.cn/item/6822ff7b58cb8da5c8f0186b.png)](https://www.swiftproxy.net/?ref=kangvcar)
-
-推荐IP代理商，价格和质量都不错，9000万+全球高质量纯净动态、静态住宅IP，支持免费测试，动态流量不过期，使用折扣码GHB5立享九折优惠。👉❤ [免费试用](https://www.swiftproxy.net/?ref=kangvcar)
-
-#### DartNode
-
-[![Powered by DartNode](https://dartnode.com/branding/DN-Open-Source-sm.png)](https://dartnode.com "Powered by DartNode - Free VPS for Open Source")
 
 ### License
 GPL-3.0
