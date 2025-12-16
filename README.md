@@ -31,7 +31,15 @@
 
 👍 推荐 BestProxy 代理IP：
 
-[![BestProxy](https://pic1.imgdb.cn/item/688c621858cb8da5c8f7c873.png)](https://bestproxy.com/?keyword=soocgr8r)
+<a href="https://bestproxy.com/?keyword=soocgr8r" target="_blank">
+  <img src="https://pic1.imgdb.cn/item/688c621858cb8da5c8f7c873.png" style="width:50%;" alt="BestProxy">
+</a>
+
+👍 推荐 ThorData 代理IP：
+
+<a href="https://www.thordata.com/?ls=github&lk=infospider" target="_blank">
+  <img src="https://pic1.imgdb.cn/item/6941236e0dd29e7e2247ce21.jpg" style="width:50%;" alt="Thordata">
+</a>
 
 ### 开发者回忆录
 <details>
@@ -194,7 +202,9 @@ INFO-SPIDER 是一个集众多数据源于一身的爬虫工具箱，旨在安�
 
 #### Swiftproxy
 
-[![Swiftproxy](https://pic1.imgdb.cn/item/6822ff7b58cb8da5c8f0186b.png)](https://www.swiftproxy.net/?ref=kangvcar)
+<a href="https://www.swiftproxy.net/?ref=kangvcar" target="_blank">
+  <img src="https://pic1.imgdb.cn/item/6822ff7b58cb8da5c8f0186b.png" style="width:50%;" alt="Swiftproxy">
+</a>
 
 ### License
 GPL-3.0
